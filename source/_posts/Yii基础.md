@@ -1,6 +1,6 @@
 ﻿---
 title: Yii基础
-date: 2019-01-21 10:26:49
+date: 2017-07-06 11:20
 tags: Yii
 ---
 
@@ -24,6 +24,7 @@ http://basic/web/index.php`?r=test/index`
 http://basic/web/index.php`?r=test/show-user`
 
 <!-- more -->
+
 ---
 ### 内置函数
 + 时间(年)：

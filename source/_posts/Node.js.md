@@ -1,6 +1,6 @@
 ﻿---
 title: Node.js
-date: 2019-01-21 10:26:49
+date: 2018-07-19 09:27
 tags: JS
 ---
 
@@ -12,6 +12,7 @@ tags: JS
 - 更新：`npm update express`
 - 淘宝镜像：`npm install -g cnpm --registry=https://registry.npm.taobao.org`
     使用：`cnpm install [name]`
+
 <!-- more -->
 
 ---

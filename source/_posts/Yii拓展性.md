@@ -1,6 +1,6 @@
 ﻿---
 title: Yii拓展性
-date: 2019-01-21 10:26:49
+date: 2017-07-16 15:55
 tags: Yii
 ---
 
@@ -14,6 +14,7 @@ Module ID：`article`
 3. 添加配置项到config/web.php
 4. 生成 在basic下生成modules文件夹，包含Article.php和controllers、views文件夹
 5. 如果需要数据模型活动记录，需自行添加文件夹
+
 <!-- more -->
 
 ---

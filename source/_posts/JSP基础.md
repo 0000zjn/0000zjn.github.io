@@ -1,6 +1,6 @@
 ﻿---
 title: JSP基础
-date: 2019-01-21 10:26:49
+date: 2018-06-08 18:50
 tags: JAVA-Web
 ---
 
@@ -12,6 +12,7 @@ tags: JAVA-Web
 - page：页面顶端，可有多个
 - include：将外部文件嵌入当前jsp文件并解析
 - taglib：使用标签库自定义的标签
+
 <!-- more -->
 
 ---
