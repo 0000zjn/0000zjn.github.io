@@ -4,10 +4,8 @@ date: 2017-07-06 11:20
 tags: Yii
 ---
 
----
-## 控制器
----
-### 介绍
+# 1. 控制器
+## 1.1 介绍
 + 命名空间与引用
 ```
 namespace app\controllers;
@@ -25,8 +23,7 @@ http://basic/web/index.php`?r=test/show-user`
 
 <!-- more -->
 
----
-### 内置函数
+## 1.2 内置函数
 + 时间(年)：
 ```<?= date('Y') ?>```
 + 重定向：
@@ -37,8 +34,8 @@ http://basic/web/index.php`?r=test/show-user`
 ```$this->goBack();```
 + 刷新：
 ```$this->refresh();//死循环报错```
----
-### 请求处理request
+
+## 1.3 请求处理request
 + 地址栏get：GET用于信息获取，而且应该是安全的和幂等的。
 地址栏：http://basic/web/index.php?r=test/index&id=3
 取参：
@@ -59,7 +56,7 @@ if ($request->isPost) {
 + IP地址
 ```echo $request->userIp;```
 ---
-### 响应处理response
+## 1.4 响应处理response
 ```$res = \YII::$app->response;```
 + 状态码
 ```$res->statusCode = '404';```
@@ -79,8 +76,8 @@ $this->redirect('http://www.baidu.com', 302);//controller跳转专用函数
 $res->headers->add('content-disposition', 'attachment;filename="a.jpg"');//attachment附件形式
 $res->sendFile('robots.txt');//下载当前页面文件目录下的robots.txt
 ```
----
-### session
+
+## 1.5 session
 ```
 $session = \YII::$app->session; //设置变量
 
@@ -101,8 +98,8 @@ $session->remove('user');       //删除方法一
 unset($session['user']);        //删除方法二
 
 ```
----
-### cookie
+
+## 1.6 cookie
 ```
 $cookie = \YII::$app->cookies;  //设置变量
 
@@ -115,18 +112,16 @@ $cookie->remove('id');          //删除
 $cookies = \YII::$app->request->cookies;    //取cookie
 echo $cookies ->getValue('users',400);      //when !found'users' return'400' it's optional value
 ```
----
-## 视图（页面）
----
-### 创建
+
+# 2. 视图（页面）
+## 2.1 创建
 在views目录下创建控制器同名文件夹test，小写即可。
 文件夹内新建页面php，可以直接使用html代码，可添加`<?php ?>`标签来进行using等操作
 
----
-### 使用
+## 2.2 使用
 ```return $this->renderPartial('index');        //使用test/index视图文件```
----
-### 传值
+
+## 2.3 传值
 控制器：TestController
 ```
 $hello_str= "Hello God";
@@ -145,7 +140,7 @@ return $this->renderPartial('index', $data);    //使用index视图文件并传�
 <?=$view_test_arr[0];?>
 ```
 ---
-### 传值的安全问题
+## 2.4 传值的安全问题
 控制器：TestController
 ```
 $hello_str= "Hello God";
@@ -163,7 +158,7 @@ use yii\helpers\HtmlPurifier;
 <h1><?=HtmlPurifier::process($view_hello_str);?></h1>   <!--方法二：过滤script-->
 ```
 ---
-### 布局文件（模板）
+## 2.5 布局文件（模板）
 1. 在views/layouts文件夹下新建php布局
 2. 控制器声明所用视图
 3. render()方法将视图嵌入布局并显示
@@ -210,7 +205,7 @@ $this->context->layout = false; //不使用布局
 $this->context->layout = 'main'; //设置使用的布局文件
 ```
 ---
-### 视图的嵌套
+## 2.6 视图的嵌套
 控制器：
 ```
 public function actionShowUser()
@@ -233,7 +228,7 @@ echo $this->render('about', array('v_hello_str'=>'hello world'));
 <h1><?=$v_hello_str;?></h1>
 ```
 ---
-### 数据块
+## 2.7 数据块
 控制器：
 ```
 public $layout = 'common';
@@ -266,20 +261,19 @@ public function actionIndex()
 <h1>indexBlock</h1>
 <?php $this->endBlock();?>
 ```
----
-## 数据模型
----
-### 连接数据库与Yii
+
+# 3. 数据模型
+
+## 3.1 连接数据库与Yii
 /config/db.php
 advanced\common\config\main-local.php
-### 什么是活动记录：
+## 3.2 什么是活动记录：
 Active Record （活动记录，以下简称AR）提供了一个面向对象的接口， 用以访问数据库中的数据。
 + 一个 AR 类关联一张数据表， 每个 AR 对象对应表中的一行，对象的属性（即 AR 的特性Attribute）映射到数据行的对应列。
 + 一条活动记录（AR对象）对应数据表的一行，AR对象的属性则映射该行的相应列。
 + 使用控制器来使用AR。
 
----
-### 活动记录的声明
+## 3.3 活动记录的声明
 数据模型：
 ```
 <?php
@@ -299,20 +293,20 @@ class TestController extends Controller
 {   
 }
 ```
----
-### 查询 findBySql()
+
+## 3.4查询 findBySql()
 ```
 $sql = 'select * from test where id=1';
 $results = Test::findBySql($sql)->all();//继承自AR，将返回的每条记录包装成一个对象，将对象组装成数组，并用all()返回一个数组
 print_r($results);
 ```
-### 占位符防注入
+## 3.5 占位符防注入
 ```
 $sql = 'select * from test where id=:id';//':id' is 占位符
 $id = '1';
 $results = Test::findBySql($sql,array(':id'=>$id))->all();
 ```
-### 简化版-数组查询法 find()
+## 3.6 简化版-数组查询法 find()
 ```
 $results = Test::find()
     ->where(['id'=>1])      //id=1
@@ -322,7 +316,8 @@ $results = Test::find()
     //->where(['like','title','title1'])  //title like "%title1%"
 print_r($results);
 ```
-### 选择查询-分页
+
+## 3.7 选择查询-分页
 ```
 SELECT * form 表名 WHERE 条件 limit 5,10; //检索6-15条数据
 
@@ -333,7 +328,8 @@ SELECT * form 表名 WHERE 条件 limit 5; //检索前5条数据，换句话说�
 //Yii写法：
 $query->limit(10)->offset(20);      //21开始的10条数据
 ```
-### 删除
+
+## 3.8 删除
 ```
 //删除第一条
 $results = Test::find()->where(['id'=>1])->all();//取出数据
@@ -346,14 +342,15 @@ PostCollectModel::deleteAll(['user_id'=>610,'post_id'=>10]);
 //占位符
 Test::deleteAll('id>:id',array(':id'=>0));
 ```
-### 增加
+## 增加
 ```
 $test = new Test;       //创建一个AR的对象
 $test->id = 3;
 $test->title = 'title3';
 $test->save();          //存入
 ```
-### 输入合法验证
+
+## 3.9输入合法验证
 AR：
 ```
 public function rules(){
@@ -371,13 +368,14 @@ if($test->hasErrors()){         //$test->getErrors()返回错误信息
     die;
 }
 ```
-### 改
+
+## 3.10 改
 ```
 $test = Test::find()->where(['id'=>4])->one();  //one()只返回一个对象，可酌情替换all()
 $test->title = 'title4';
 $test->save();
 ```
-### 增减updateCounters
+## 3.11 增减updateCounters
 ```
 $model 即为models对象
 例1：
@@ -387,7 +385,7 @@ $model->updateCounters(array('count'=>-1), 'id='.$model->id);//自动递减1
 $model = PostModel::findOne($post_id);
 $model->updateCounters(['collect'=>1]);
 ```
-### 关联查询一
+## 3.12 关联查询一
 根据顾客查订单（一查多）：
 ```
 use app\models\Order;       //引入订单表的AR
@@ -434,7 +432,8 @@ $orders = $customer->getOrders();
 //所以需要删除getOrder()最后重复的->all()
 print_r($orders);
 ```
-### 关联查询二
+
+## 3.13 关联查询二
 根据订单查询顾客（一查一）：
 Order：
 ```
@@ -453,13 +452,15 @@ $customer = $order->getCustomer()->one();
 $customer = $order->customer;
 print_r($customer);
 ```
-### 查询结果缓存
+
+## 3.14 查询结果缓存
 ```
 $customer = $order->customer;//取值
 unset($order->customer);    //清空
 $customer = $order->customer;//再次取值
 ```
-### 多次查询优化
+
+## 3.15 多次查询优化
 ```
 //select * from customer
 //select * from order where customer_id in(...)

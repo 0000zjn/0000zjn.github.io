@@ -1,17 +1,17 @@
 ﻿---
-title: 反射
+title: Java反射
 date: 2018-06-17 23:36
 tags: JAVA
 ---
 
----
-## 1. 获取类型信息
+# 1. 获取类信息
+
+<!-- more -->
+
 1. 获取指定类对应的Class对象
     1. `Class c = ArrayList.class;`
     2. `Class c = list.getClass();`
     3. `Class c = Class.forName("java.util.ArrayList");//并加载指定的类`
-
-<!-- more -->
 2. 获取包名
 `String packageName = c.getPackage().getName();`
 3. 获取类的修饰符
@@ -36,15 +36,13 @@ tags: JAVA
 10. 通过类的类类型创建该类的对象实例
 `String str = (String)c1.newInstance();//需要有无参数的构造方法`
 
----
-## 2. 创建对象
+# 2. 创建对象
 ```
 Class c = Class.forName("java.util.ArrayList");
 List list = (List)c.newInstance();
 ```
 
----
-## 2. 方法反射
+# 3. 方法反射
 `方法对象.invoke(类对象,参数表);`
 ```
 public class MethodDemo1 {

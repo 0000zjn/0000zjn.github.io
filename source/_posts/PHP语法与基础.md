@@ -4,20 +4,18 @@ date: 2017-07-03 20:34
 tags: PHP
 ---
 
----
-## 1. 常用函数
----
-### 1.1 函数定义与使用
+# 1. 常用函数
+## 1.1 函数定义与使用
 ```
 function sum($a, $b) {
     echo $a + $b;
 }
 sum(1,2);
 ```
+
 <!-- more -->
 
----
-### 1.2 维度打击函数
+## 1.2 维度打击函数
 serialize方法将对象序列化为字符串，用于存储或者传递数据，然后在需要的时候通过unserialize将字符串反序列化成对象进行使用。
 ```
 class Car {
@@ -29,8 +27,8 @@ echo $str.'<br>';
 $b = unserialize($str); //反序列化为对象
 var_dump($b);
 ```
----
-### 1.3 `clone()`复制对象
+
+## 1.3 `clone()`复制对象
 ```
 class Car {
     public $name = 'car';
@@ -45,22 +43,21 @@ $a->name = 'new car';
 $b = clone $a;
 var_dump($b);
 ```
----
-### 1.4 `isset()` 检测变量是否设置（null）
+
+## 1.4 `isset()` 检测变量是否设置（null）
 PHP和C类似，0 "0" false "" 都以0保存，当然它们的类型不同。===下可区别。
 ```
 if(isset($arr0))
     print_r($arr0);
 ```
----
-### 1.5 输出
+
+## 1.5 输出
 `var_dump()` 打印类型
 `print_r()` 打印复合类型 如数组 对象
 `print()` 输出字符串
 `echo()` 普通输出，不能输出数组
 
----
-### 1.6 `foreach()` 遍历
+## 1.6 `foreach()` 遍历
 ```php
 <?php
 $students = array(
@@ -89,8 +86,8 @@ foreach($students as $key =>$v){
 }
 ?>
 ```
----
-### 1.7 字符串函数
+
+## 1.7 字符串函数
 
 `str_replace(find,replace,string,count)`替换
 find	必需。规定要查找的值。
@@ -148,9 +145,7 @@ if (preg_match($p, $str)) {
 }
 ```
 
-<br/>
----
-### 1.7 `exists`类
+## 1.7 `exists`类
 ```
 function func() {
     echo 'exists';
@@ -171,10 +166,9 @@ if (!file_exists($filename)) {
     echo $filename . ' not exists.';
 }
 ```
----
-## 2. Array数组
----
-### 2.1 定义及初始化
+
+# 2. Array数组
+## 2.1 定义及初始化
 ```php
 $arr = array();
 $fruit = array("苹果","香蕉","菠萝");
@@ -189,8 +183,8 @@ $arr = array('苹果','55');//方法3
 foreach($this->tags as $tag)
     $ids[] = $this->_saveTag($tag);//方法4 连续赋值，键值会自增
 ```
----
-### 2.2 数组的分类
+
+## 2.2 数组的分类
 * 索引数组 - 带有数字索引的数组
 ```
 $arr = array(0=>'苹果');
@@ -201,8 +195,7 @@ $arr = array('0'=>'苹果');
 ```
 * 多维数组 - 包含一个或多个数组的数组
 
----
-### 2.3 访问数组内容
+## 2.3 访问数组内容
 ```
 $arr0 = $arr['0'];//或$arr[0]即索引数组
 
@@ -211,10 +204,9 @@ foreach($fruit as $k=>$v){
     echo "数组中的第".$i."个值为".$fruit[$i];//或者用连接符
 }
 ```
----
-## 3. PHP类和对象
----
-### 3.1 类和对象的定义
+
+# 3. PHP类和对象
+## 3.1 类和对象的定义
 ```
 <?php
 //定义一个类
@@ -238,8 +230,8 @@ echo Car::$color2;      //使用::类名+双冒号直接访问静态对象（不
 //echo $car->color;     //错误 受保护的属性不允许外部调用
 //echo $car->price;     //错误 私有属性不允许外部调用
 ```
----
-### 3.2 静态成员
+
+## 3.2 静态成员
 + 静态方法中，$this伪变量不允许使用。
 + 可以使用self，parent，static在内部调用静态方法与属性。
 + 使用::类名+双冒号直接访问静态对象
@@ -264,8 +256,8 @@ class BigCar extends Car {
 BigCar::start();
 echo BigCar::getSpeed();
 ```
----
-### 3.3 受保护的方法的使用
+
+## 3.3 受保护的方法的使用
 例一：如果构造函数定义成了私有方法，则不允许直接实例化对象了，这时候一般通过静态方法进行实例化。(这样的方法可以控制对象的创建，只允许有一个全局唯一的对象。)
 ```
 class Car {
@@ -307,8 +299,8 @@ $car = new Car();
 $car->start();
 echo $car->getSpeed();
 ```
----
-### 3.4 构造函数
+
+## 3.4 构造函数
 具有构造函数的类，会在每次对象创建的时候调用该函数，因此常用来在对象创建的时候进行一些初始化工作。
 例一：
 ```
@@ -334,8 +326,8 @@ class Truck extends Car {
 }
 $car = new Truck();
 ```
----
-### 3.5 析构函数
+
+## 3.5 析构函数
 使用__destruct()进行定义，析构函数指的是当某个对象的所有引用被删除，或者对象被显式的销毁时会执行的函数。
 ```
 class Car {
@@ -350,28 +342,27 @@ $car = new Car(); //实例化时会调用构造函数
 echo '使用后，准备销毁car对象 \n';
 unset($car); //销毁时会调用析构函数
 ```
----
-## 4. 其他
----
-### 4.1 Tips
-#### 4.1.1 对象比较
+
+# 4. 其他
+## 4.1 Tips
+## 4.1.1 对象比较
 当同一个类的两个实例的所有属性都相等时，可以使用比较运算符==进行判断，当需要判断两个变量是否为同一个对象的引用时，可以使用全等运算符===进行判断。
-#### 4.1.2 命名空间的别名
+## 4.1.2 命名空间的别名
 ```
 use ****\Response as Res;
 
 $r = new Res('Oops', 400);
 $r->send();
 ```
-####4.1.3 全局命名空间
+##4.1.3 全局命名空间
 如Exception类，
 ```
 $ex = new Exception();  //错，PHP会在当前命名空间中寻找exception类
 
 throw new \Exception(); //对，\告诉PHP在全局命名空间中寻找该类
 ```
----
-### 4.2 `list()`语言结构
+
+## 4.2 `list()`语言结构
 ```php
 <?php
 function numbers() {
@@ -381,8 +372,8 @@ list ($a, $b, $c) = numbers();
 echo "我们的宠物有一只$a,一只$b以及一只 $c"
 ?>
 ```
----
-### 4.3 `const()`语言结构
+
+## 4.3 `const()`语言结构
 + const用于类成员变量的定义，一经定义，不可修改。Define不可以用于类成员变量的定义，可用于全局常量。
 + Const不能再条件语句中定义常量
 ```
@@ -411,8 +402,8 @@ define('FOO', 'BAR', true);
 echo FOO; // BAR
 echo foo; // BAR
 ```
----
-### 4.4 可变函数
+
+## 4.4 可变函数
 + 所谓可变函数，即通过变量的值来调用函数，因为变量的值是可变的，所以可以通过改变一个变量的值来实现调用不同的函数。
 + 经常会用在回调函数、函数列表，或者根据动态参数来调用不同的函数。
 + 可变函数的调用方法为变量名加括号。
@@ -424,8 +415,8 @@ $name = 'func';
 //调用可变函数
 $name();
 ```
----
-### 4.5 双冒号::作用域限定操作符的使用
+
+## 4.5 双冒号::作用域限定操作符的使用
 + 用变量在类定义外部访问
 ```
 class Fruit {
@@ -478,12 +469,12 @@ class Apple extends Fruit
 }
 Apple::doubleColon();
 ```
----
-### 4.6 接口-例
+## 4.6 接口-例
 `DocumentStore`类 实现从不同来源收集文本，下面是它的代码实现过程
 接口在其中的作用就是给`HtmlDocument`和`StreamDocument`提供统一的实现方法
 其他人只要知道如何实现接口，就可以完美使用、设计、拓展`DocumentStore`类
-#### 4.6.1 接口的定义
+
+### 4.6.1 接口的定义
 定义Documentable接口：
 ```
 interface Documentable
@@ -495,7 +486,7 @@ interface Documentable
 //该定义表明：实现Documentable接口的任何对象都必须提供一个公开的getId()和getContent()
 //作用：可以定义多个不同的实现方式
 ```
-#### 4.6.2 接口的代码实现
+### 4.6.2 接口的代码实现
 定义HtmlDocument类：
 ```
 class HtmlDocument implements Documentable
@@ -544,7 +535,7 @@ class HtmlDocument implements Documentable
     }
 }
 ```
-#### 4.6.3 将多个同一接口的实现方法进行整合
+### 4.6.3 将多个同一接口的实现方法进行整合
 定义文档存储类`DocumentStore`
 ```
 class DocumentStore
@@ -565,7 +556,7 @@ class DocumentStore
     }
 }
 ```
-#### 4.6.4 如何使用`DocumentStore`类
+### 4.6.4 如何使用`DocumentStore`类
 ```
 <?php
 //创建文档存储对象

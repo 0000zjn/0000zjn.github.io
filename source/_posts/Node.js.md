@@ -4,8 +4,7 @@ date: 2018-07-19 09:27
 tags: JS
 ---
 
----
-## 1. NPM
+# 1. NPM
 - 安装：`npm install <Module Name>@可空版本号`
 - 使用：`var express = require('express');`
 - 本地安装 装在CLI当前目录 node_modules 下；全局安装 装在node下
@@ -15,14 +14,12 @@ tags: JS
 
 <!-- more -->
 
----
-## 2. Sundry
+# 2. Sundry
 - Node.js 基本上所有的事件机制都是用设计模式中**观察者模式**实现
     当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新
 - Node.js 异步编程的直接体现就是回调，Node 所有 API 都支持回调函数。
 
----
-## 3. 创建服务器
+# 3. 创建服务器
 ```
 //添加http依赖
 var http = require("http");
@@ -35,8 +32,7 @@ http.createServer(function(request, response) {
 }).listen(8888);
 ```
 
----
-## 4. 文件操作file system
+# 4. 文件操作file system
 1. 读写文件
     ```
     const fs = require('fs');
@@ -95,9 +91,8 @@ http.createServer(function(request, response) {
     });
     ```
 
----
-## 5. http数据解析
-### 5.1 GET解析
+# 5. http数据解析
+## 5.1 GET解析
 - querystring解析(亦用于POST)
 ```
 const querystring = require('querystring');
@@ -127,7 +122,8 @@ console.log(obj);
     path: '/index?a=123&b=654',
     href: 'http://www.zjn.com/index?a=123&b=654' }
 ```
-### 5.2 POST
+
+## 5.2 POST
 ```
 const http = require('http');
 const querystring = require('querystring');
@@ -148,9 +144,9 @@ http.createServer(function(req,res){
     });
 }).listen(8080);
 ```
----
-## 6. 模块
-### 6.1 自定义模块
+
+# 6. 模块
+## 6.1 自定义模块
 ```
 //mod.js
 var a = 12;
@@ -165,9 +161,9 @@ console.log(mod1.b);
 undefined
 23
 ```
----
-## 7. [事件][1]
-### 7.1 事件绑定
+
+# 7. [事件][1]
+## 7.1 事件绑定
 > eventEmitter.on(event, listener)为事件绑定监听器,监听器为回调函数
 > .emit(event, [arg1],[arg2], [...])触发,参数为监听器参数
 > .once(event,listener)一次性监听器
@@ -203,15 +199,15 @@ console.log("3.程序执行完毕。");
 > 2.数据接收成功。
 > 3.程序执行完毕。
 
-### 7.2 error 事件
+## 7.2 error 事件
 内置，一般要为会触发 error 事件的对象设置监听器，避免程序崩溃
 ```
 readerStream.on('error', function(err){
    console.log(err.stack);
 });
 ```
----
-## 8. Buffer
+
+# 8. Buffer
 1. 编码
     ```
     //用from创建buffer对象（安全）
@@ -234,10 +230,9 @@ readerStream.on('error', function(err){
     > encoding - 使用的编码。默认为 'utf8' 。
     > 返回实际写入的大小
 
----
-## 9. Stream
+# 9. Stream
 - 所有的 Stream 对象都是 EventEmitter 的实例。
-### 9.1 从文件读入流
+## 9.1 从文件读入流
 ```
 var fs = require("fs");
 var data = '';
@@ -266,7 +261,7 @@ console.log("程序执行完毕");
 > 程序执行完毕
 > &input.txt的内容
 
-### 9.2 写入流到文件
+## 9.2 写入流到文件
 ```
 var fs = require("fs");
 var data = '菜鸟教程官网地址：www.runoob.com';
@@ -289,7 +284,8 @@ writerStream.on('error', function(err){
    console.log(err.stack);
 });
 ```
-### 9.3 管道流
+
+## 9.3 管道流
 - 从一个流中获取数据并将数据传递到另外一个流中。
 ![此处输入图片的描述][2]
 ```
@@ -307,7 +303,8 @@ readerStream.pipe(writerStream);
 
 console.log("程序执行完毕");
 ```
-### 9.4 链式流
+
+## 9.4 链式流
 : 创建多个流操作链，一般用于管道操作。
 - 压缩文件
 ```
@@ -333,8 +330,8 @@ fs.createReadStream('input.txt.gz')
   
 console.log("文件解压完成。");
 ```
----
-## 10. express
+
+# 10. express
 非侵入性：保留了原生的功能，添加了一些方法。
 只提供最简单的功能，使用中间件(插件)拓展功能。
 链式操作：多次用`server.use`对请求进行处理(7.3)
@@ -355,12 +352,12 @@ server.get('/login',function(req,res){
 //4.监听端口
 server.listen(8080);
 ```
-### 10.1 三种方法
+## 10.1 三种方法
 - .get() - 处理get请求
 - .post() - 处理post请求
 - .all() - 可处理所有请求
 
-### 10.2 静态资源
+## 10.2 静态资源
 - express-static
 ```
 const express = require('express');
@@ -374,7 +371,7 @@ server.listen(8080);
 //指定静态资源目录，可从url直接访问
 server.use(expressStatic('./www'));
 ```
-### 10.3 GET/POST解析
+## 10.3 GET/POST解析
 - GET:exoress中req.query['user']直接解析
 - POST:
     - 用body-parser
@@ -413,7 +410,8 @@ server.use(expressStatic('./www'));
         });
     }
     ```
-### 10.4 链式操作
+
+## 10.4 链式操作
 ```
 srver.use('/',function(req,res,next){
     console.log('a');
@@ -426,9 +424,8 @@ srver.use('/',function(req,res){
 > a
 b
 
----
-## 11. Cookie & Seesion
-### 11.1 设置、删除Cookie
+# 11. Cookie & Seesion
+## 11.1 设置、删除Cookie
 ```
 server.use('/aaa/a.html', function (req, res) {
     //path：在此目录下生效，maxAge：生存毫秒
@@ -439,7 +436,8 @@ server.use('/aaa/a.html', function (req, res) {
     res.send('ok');
 });
 ```
-### 11.2 读取Cookie
+
+## 11.2 读取Cookie
 ```
 //依赖cookie-parser
 const cookieParser = require('cookie-parser');
@@ -452,7 +450,8 @@ server.use('/', function (req, res) {
     res.send('ok');
 });
 ```
-### 11.3 签名Cookie
+
+## 11.3 签名Cookie
 ```
 //依赖cookie-parser
 const cookieParser = require('cookie-parser');
@@ -468,7 +467,8 @@ server.use('/', function (req, res){
     res.send('ok');
 });
 ```
-### 11.4 Session
+
+## 11.4 Session
 - 加密是强制的
 ```
 const cookieParser = require('cookie-parser');
@@ -501,8 +501,8 @@ server.use('/', function (req, res) {
     res.send('ok');
 });
 ```
----
-## 12. 文件上传
+
+# 12. 文件上传
 - 文件名会被自动重命名防重名
 ```
 const express = require('express');
@@ -530,10 +530,10 @@ server.post('/', function (req, res) {
 
 server.listen(8080);
 ```
----
-## 13. 数据库
+
+# 13. 数据库
 mysql库的connection连接之后不要断开，不然后面无法再使用。可用连接池。
-### 13.1 查
+## 13.1 查
 ```
 var mysql  = require('mysql');  
 
@@ -562,7 +562,8 @@ connection.query(sql,function (err, result) {
 //断
 connection.end();
 ```
-### 13.2 增
+
+## 13.2 增
 ```
 var addSql = 'INSERT INTO websites(Id,name,url,alexa,country) VALUES(0,?,?,?,?)';
 var addSqlParams = ['菜鸟工具', 'https://c.runoob.com','23453', 'CN'];
@@ -579,7 +580,8 @@ connection.query(addSql,addSqlParams,function (err, result) {
     console.log('----------------------------------\n\n');  
 });
 ```
-### 13.3 改
+
+## 13.3 改
 ```
 var modSql = 'UPDATE websites SET name = ?,url = ? WHERE Id = ?';
 var modSqlParams = ['菜鸟移动站', 'https://m.runoob.com',6];
@@ -594,7 +596,8 @@ connection.query(modSql,modSqlParams,function (err, result) {
     console.log('----------------------------\n\n');
 });
 ```
-### 13.4 删
+
+## 13.4 删
 ```
 var delSql = 'DELETE FROM websites where id=6';
 //删
@@ -609,7 +612,8 @@ connection.query(delSql,function (err, result) {
     console.log('--------------------------------\n\n');  
 });
 ```
-### 13.5 连接池
+
+## 13.5 连接池
 ```
 var mysql = require('mysql');
 var pool  = mysql.createPool({

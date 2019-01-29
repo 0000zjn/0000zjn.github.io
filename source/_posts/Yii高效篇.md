@@ -4,10 +4,8 @@ date: 2017-07-09 11:19
 tags: Yii
 ---
 
----
-## 延迟加载
----
-### 类的延迟加载
+# 1. 延迟加载
+## 1.1 类的延迟加载
 原版：
 ```
 <?php
@@ -60,8 +58,8 @@ if($is_girl){
     $class2 = new Class2;
 }
 ```
----
-### 类的映射表机制
+
+## 1.2 类的映射表机制
 ```
 <?php
 namespace app\controllers;
@@ -81,10 +79,9 @@ class TestController extends Controller
     }
 }
 ```
----
-## 数据缓存
----
-### 增删改查有效期
+
+# 2. 数据缓存
+## 2.1 增删改查有效期
 控制器中：
 ```
 $cache = \YII::$app->cache;//获取缓存组件
@@ -96,8 +93,8 @@ $data = $cache->get('key1');//读缓存
 print_r($data);
 var_dump($data);
 ```
----
-### 数据缓存依赖
+
+## 2.2 数据缓存依赖
 文件依赖：
 ```
 $cache = \YII::$app->cache;
@@ -123,10 +120,9 @@ $dependency = new \yii\caching\DbDependency(
 $cache->add('key1', 'hello world!', 1500,$dependency);
 var_dump($cache->get('key1'));
 ```
----
-## 片段缓存
----
-### 介绍
+
+# 3. 片段缓存
+## 3.1 介绍
 在控制器中使用视图，在视图中用beginCache endCache包围
 视图（views/test/index.php）：
 ```
@@ -140,8 +136,8 @@ var_dump($cache->get('key1'));
     <div>这里不会被缓存</div>
 </div>
 ```
----
-### 过期时间
+
+## 3.2 过期时间
 ```
 <?php if($this->beginCache('cache_div',['duration'=>30])){?>  <!--duration二参寿选-->
     <div id='cache_div'>
@@ -149,8 +145,8 @@ var_dump($cache->get('key1'));
     </div>
 <?php $this->endCache();}?>
 ```
----
-### 片段缓存的依赖设置
+
+## 3.3 片段缓存的依赖设置
 ```
 <?php
     $dependency = [
@@ -165,8 +161,8 @@ var_dump($cache->get('key1'));
 </div>
 <?php $this->endCache();}?>
 ```
----
-### 缓存开关
+
+## 3.4 缓存开关
 ```
 <?php
     $enabled = ture;
@@ -179,8 +175,8 @@ var_dump($cache->get('key1'));
 </div>
 <?php $this->endCache();}?>
 ```
----
-### 嵌套使用
+
+## 3.5 嵌套使用
 可配合其他属性使用比如时间,需要注意的是外层的冷却为过，内层修改是无法生效的
 ```
 <?php if($this->beginCache('cache_div',['duration'=>10])){?>
@@ -196,8 +192,8 @@ var_dump($cache->get('key1'));
 </div>
 <?php $this->endCache();}?>
 ```
----
-### 动态内容
+
+## 3.6 动态内容
 使用片段缓存时，可能会遇到一大段较为静态的内容中有少许动态内容的情况。例如，一个显示着菜单栏和当前用户名的页面头部。或是缓存的内容包含每次请求都需要执行的 PHP 代码。
 ```
 <?php if ($this->beginCache($id1)) {?>
@@ -210,12 +206,11 @@ var_dump($cache->get('key1'));
     
 <?php $this->endCache();}?>
 ```
----
-## 页面缓存
+
+# 4. 页面缓存
 在服务器端缓存整个页面的内容，可以在使用页面缓存的同时，使用片段缓存和 动态内容。
 
----
-### behaviors()介绍
+## 4.1 behaviors()介绍
 behaviors会在action之前执行
 ```
 public function behaviors(){
@@ -226,8 +221,8 @@ public function actionIndex(){
     echo '2';
 }
 ```
----
-### 介绍
+
+## 4.2 介绍
 如果整个页面都不怎么会改动，可以使用页面缓存
 behaviors用return[]告诉yii框架使用页面缓存
 ```
@@ -249,11 +244,10 @@ public function behaviors(){
     ];
 }
 ```
----
-## http缓存
+
+# 5. http缓存
 利用客户端 缓存
 
----
 ```
 public function behaviors()
 {
@@ -281,4 +275,3 @@ public function actionIndex(){
     return $this->renderPartial('index',['new'=>$content]); //把hw里的文本传给index视图
 }
 ```
----

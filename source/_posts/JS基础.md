@@ -3,9 +3,7 @@ title: JS基础
 date: 2018-07-13 14:48
 tags: JS
 ---
-
----
-## 1. Sundry
+# 1. Sundry
 - switch()参数可为多种类型
 - 标签：
     ```
@@ -33,6 +31,7 @@ tags: JS
     ```
 
 <!-- more -->
+
 - constructor 属性返回变量的构造函数的原型
     ```
     (3.14).constructor//返回ƒ String() { [native code] }
@@ -68,11 +67,9 @@ tags: JS
     //报错，c未定义。
     //var c 和函数c被提升，c=2是表达式，后执行。
     //所以c()时，c不再是一个函数。
-
     ```
 
----
-## 2. 正则
+# 2. 正则
 - `var patt=/pattern/modifiers;`
 - pattern（模式） 以^开头，$结尾
 
@@ -88,8 +85,8 @@ tags: JS
     >>e1
     ```
     
----
-## 3. 错误
+
+# 3. 错误
 - try-catch：
     ```
     try { 
@@ -110,8 +107,7 @@ tags: JS
     }       
     ```
 
----
-## 4. JSON
+# 4. JSON
 - 将一个 JSON 字符串转换为 JavaScript 对象(使可操作)
     ```
     var text = '{ "sites" : [' +
@@ -126,8 +122,7 @@ tags: JS
 > JSON.stringify(value[, replacer[, space]]);
 
 
----
-## 5. 函数
+# 5. 函数
 - 显式参数(Parameters)就是形参，隐式参数(Arguments)：实参
 - 实例对象、类对象、局部变量(局部函数)
     ```
@@ -240,9 +235,7 @@ tags: JS
     var sayHi = new Function("sName", "sMessage", "alert(\"Hello \" + sName + sMessage);");
     ```
 
-
----
-## 6. DOM
+# 6. DOM
 1. 获取元素
     ```
     var x=document.getElementById("intro");
@@ -311,9 +304,8 @@ tags: JS
     - 第/最后一个子节点 `firstChild` `lastChild`
     - 下/上一个兄弟节点 `nextSibling` `previousSibling`
 
----
-## 7. AJAX
-### 7.1 原生xmlhttp
+# 7. AJAX
+## 7.1 原生xmlhttp
 例子：
 ```
 xmlhttp=new XMLHttpRequest();
@@ -373,7 +365,8 @@ xmlhttp.send(jsonData);
     	});
     }
     ```
-### 7.2 jQuery
+
+## 7.2 jQuery
 ```
 $.ajax({
     type: "post",
@@ -389,7 +382,5 @@ $.ajax({
     }
 });
 ```
-
-
 
   [1]: http://www.runoob.com/jsref/dom-obj-event.html

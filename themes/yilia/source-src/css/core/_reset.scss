@@ -87,7 +87,7 @@ template {
 a {
     background: transparent; // 1
     text-decoration: none;
-    color: nth($colorLink, 1);
+    color: #999;
     
     &:active {
         outline: 0; // 2

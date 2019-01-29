@@ -3,28 +3,22 @@ title: JSP基础
 date: 2018-06-08 18:50
 tags: JAVA-Web
 ---
-
----
-
-## 1. JSP基础语法
----
-### 1.1 JSP指令
+# 1. JSP基础语法
+## 1.1 JSP指令
 - page：页面顶端，可有多个
 - include：将外部文件嵌入当前jsp文件并解析
 - taglib：使用标签库自定义的标签
 
 <!-- more -->
 
----
-### 1.2 JSP脚本、声明、表达式
+## 1.2 JSP脚本、声明、表达式
 ```
 <% java脚本代码%>
 <%! Java代码%>//定义方法和变量，写入到
 <%=表达式 %>//表达式不以分号结束
 ```
 
----
-### 1.3 JSP页面生命周期
+## 1.3 JSP页面生命周期
 ```flow
 1=>start: 用户第一次发出请求index.jsp
 2=>condition: 是否第一次请求
@@ -39,8 +33,7 @@ tags: JAVA-Web
 ```
 jspService()方法被调用来处理客户端请求。一请求一线程。
 
----
-### 1.4 JSP四种范围对象的作用域
+## 1.4 JSP四种范围对象的作用域
 作用域范围从小到大顺序：
 pageContext--request--session--application
  
@@ -54,8 +47,7 @@ session的作用域是在一个会话的生命周期内，会话失效，则sess
 **application：**
 作用域是最大的，只要服务器不停止，则application对象就一直存在，并且为所有会话所共享。
 
----
-## 2. JSP内置对象
+# 2. JSP内置对象
  1. out
  2. request
  3. response
@@ -66,8 +58,7 @@ session的作用域是在一个会话的生命周期内，会话失效，则sess
  8. exception
  9. config
 
----
-### 2.1 out
+## 2.1 out
 缓冲区：Buffer，用碗吃饭
 out对象：JspWriter类的实例
 常用方法：
@@ -80,8 +71,7 @@ out对象：JspWriter类的实例
 7. boolean isAutoFlush()返回缓冲区满时，是自动清空还是抛出异常
 8. void close()关闭输出流
 
----
-### 2.2 request
+## 2.2 request
 - 客户端请求封装在request对象中，通过它才能了解到客户的需求，然后做出响应。
 - 它是HttpServletRequest类的实例。
 - request对象具有请求域，即完成客户端的请求之前一直有效。
@@ -112,4 +102,3 @@ out对象：JspWriter类的实例
     post表单提交：request.setCharacterEncoding("utf-8");
     URL传参：修改server.xml文件
 
----

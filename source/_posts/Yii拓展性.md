@@ -4,10 +4,8 @@ date: 2017-07-16 15:55
 tags: Yii
 ---
 
----
-## 模块化技术
----
-### 用Gii新建模块
+# 1. 模块化技术
+## 1.1 用Gii新建模块
 1. 进入Module Generator模块生成器
 2. Module Class： `app\modules\article\Article`modules下article模块下文章类
 Module ID：`article`
@@ -17,8 +15,7 @@ Module ID：`article`
 
 <!-- more -->
 
----
-### 使用子模块-父模块调用
+## 1.2 使用子模块-父模块调用
 控制器：
 ```
 public function actionIndex(){
@@ -28,13 +25,13 @@ public function actionIndex(){
     $article->runAction('default/index');   //控制器/操作
 }
 ```
----
-### 直接访问子模块-浏览器访问
+
+## 1.3 直接访问子模块-浏览器访问
 ```
 ?r=article/default/index //模块-控制器-操作
 ```
----
-### 创建子模块的子模块
+
+## 1.4 创建子模块的子模块
 Module Class：`app\modules\article\modules\category\Category`
 Module ID：`category`
 在父模块article/Article.php中添加配置
@@ -52,14 +49,11 @@ public function init()
     ];
 }
 ```
----
-## 事件机制
----
-### 扫描式
----
-### 绑定式
----
-### 绑定式例子
+
+# 2. 事件机制
+## 2.1 扫描式
+
+## 2.2 绑定式
 绑定关系写在控制器里，触发事件写在前置条件后
 猫叫触发老鼠跑
 在vendor下创建一个`animal`文件夹，创建`Cat.php`&`Mourse.php`&`Dog.php`
@@ -139,11 +133,11 @@ class AnimalController extends Controller{
     }
 }
 ```
----
-## Mixin
+
+# 3. Mixin
 使用行为拓展类和对象
----
-### 类混合
+
+## 3.1 类混合
 用行为类往一个类中注入新的方法和属性
 1.basic下新建behaviors文件夹下新建`Behavior1.php`
 ```
@@ -202,8 +196,8 @@ class AnimalController extends Controller{
     }
 }
 ```
----
-### 对象混合
+
+## 3.2 对象混合
 把别的对象的属性和方法注入到想用的对象
 
 

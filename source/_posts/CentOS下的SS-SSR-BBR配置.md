@@ -3,10 +3,8 @@ title: CentOS下的SS/SSR/BBR配置
 date: 2018-07-02 19:51
 tags: 翻墙
 ---
-
----
-## 1. [SS配置][1]
-### 1.1 一键安装：
+# 1. [SS配置][1]
+## 1.1 一键安装：
 ```
 wget –no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/yigeni/Shadowsocks/master/shadowsocks-all.sh
  
@@ -18,8 +16,9 @@ chmod +x shadowsocks-all.sh
 接着按照提醒输入你的密码，端口和加密方式（aes-256-cfb）。
 
 <!-- more -->
-## 2. [SSR配置][2]
-### 2.1 一键部署ssr
+
+# 2. [SSR配置][2]
+## 2.1 一键部署ssr
 ```
 yum -y install wget
 
@@ -29,8 +28,8 @@ wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh && chmod +x ssr.sh 
 ```
 bash ssr.sh
 ```
-## 3. BBR配置
-### 3.1 [OpenVZ 以外的，比如 KVM、Xen、VMware等][3]
+# 3. BBR配置
+## 3.1 [OpenVZ 以外的，比如 KVM、Xen、VMware等][3]
 - 使用root用户登录，运行以下命令：
 ```
 wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh
@@ -73,14 +72,14 @@ lsmod | grep bbr
 返回值有 tcp_bbr 模块即说明 bbr 已启动。注意：并不是所有的 VPS 都会有此返回值，若没有也属正常。
 
 ---
-### 3.2 [搬瓦工OpenVZ 平台 Google BBR 一键安装脚本][4]
+## 3.2 [搬瓦工OpenVZ 平台 Google BBR 一键安装脚本][4]
 ```
 wget https://raw.githubusercontent.com/kuoruan/shell-scripts/master/ovz-bbr/ovz-bbr-installer.sh
 chmod +x ovz-bbr-installer.sh
 ./ovz-bbr-installer.sh
 ```
 ---
-## 4. Shadowsocks 一键安装脚本（四合一）
+# 4. Shadowsocks 一键安装脚本（四合一）
 - 安装：
 ```
 wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
@@ -141,7 +140,7 @@ Shadowsocks-libev 版：
 ```
 
 
-  [1]: https://blog.csdn.net/weixin_42288676/article/details/80607837
-  [2]: https://blog.csdn.net/weixin_42288676/article/details/80517662
-  [3]: https://teddysun.com/489.html
-  [4]: https://www.bawagon.com/openvz-google-bbr/
+[1]: https://blog.csdn.net/weixin_42288676/article/details/80607837
+[2]: https://blog.csdn.net/weixin_42288676/article/details/80517662
+[3]: https://teddysun.com/489.html
+[4]: https://www.bawagon.com/openvz-google-bbr/
