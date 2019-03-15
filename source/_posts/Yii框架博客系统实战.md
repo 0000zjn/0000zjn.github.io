@@ -1,8 +1,12 @@
-﻿---
+---
 title: Yii博客系统实战
 date: 2017-07-17 19:55
-tags: Yii
+tags: PHP
+toc: true
 ---
+> 基于Yii框架的博客系统的开发记录，自用，他人勿看。
+
+<!-- more -->
 
 # 1.基础配置
 ## 1.1高级版：初始化-开发环境
@@ -10,8 +14,6 @@ tags: Yii
 ## 1.2连接数据库
 basic/config/db.php 或
 advanced\common\config\main-local.php
-
-<!-- more -->
 
 ## 1.3修改HOSTS、服务器配置
 ```

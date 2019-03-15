@@ -1,8 +1,12 @@
-﻿---
+---
 title: Yii基础
 date: 2017-07-06 11:20
-tags: Yii
+tags: PHP
+toc: true
 ---
+> Yii框架基础笔记
+
+<!-- more -->
 
 # 1. 控制器
 ## 1.1 介绍
@@ -20,8 +24,6 @@ use yii\web\Controller;
 http://basic/web/index.php`?r=test/index`
 当方法名非开头有大写时，actionShowUser()：
 http://basic/web/index.php`?r=test/show-user`
-
-<!-- more -->
 
 ## 1.2 内置函数
 + 时间(年)：

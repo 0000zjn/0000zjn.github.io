@@ -1,8 +1,12 @@
 ﻿---
 title: Node.js
 date: 2018-07-19 09:27
-tags: JS
+tags: JavaScript
 ---
+> Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。
+> Node + React 开发真的好方便~
+
+<!-- more -->
 
 # 1. NPM
 - 安装：`npm install <Module Name>@可空版本号`
@@ -11,8 +15,6 @@ tags: JS
 - 更新：`npm update express`
 - 淘宝镜像：`npm install -g cnpm --registry=https://registry.npm.taobao.org`
     使用：`cnpm install [name]`
-
-<!-- more -->
 
 # 2. Sundry
 - Node.js 基本上所有的事件机制都是用设计模式中**观察者模式**实现

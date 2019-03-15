@@ -1,8 +1,11 @@
-﻿---
+---
 title: Yii高效篇
 date: 2017-07-09 11:19
-tags: Yii
+tags: PHP
 ---
+> Yii框架性能优化笔记
+
+<!-- more -->
 
 # 1. 延迟加载
 ## 1.1 类的延迟加载
@@ -11,7 +14,7 @@ tags: Yii
 <?php
 class Class1{}  //空的Class1&Class2
 ```
-<!-- more -->
+
 ```
 <?php
 Require('class\Class1.php');

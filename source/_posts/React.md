@@ -1,14 +1,14 @@
 ﻿---
 title: React
 date: 2018-08-08 14:25
-tags: JS
+tags: JavaScript
 ---
+> 用于构建用户界面的 JavaScript 库，真的很好用！
 
+<!-- more -->
 
 # 1. 基础
 ## 1.1 库
-
-<!-- more -->
 
 ```
 <!DOCTYPE html>

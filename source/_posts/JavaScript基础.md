@@ -1,8 +1,9 @@
-﻿---
-title: JS基础
-date: 2018-07-13 14:48
-tags: JS
 ---
+title: JavaScript基础
+date: 2018-07-13 14:48
+tags: JavaScript
+---
+> 重学JavaScript时做的笔记。JS的语法真的是让人又爱又恨~
 # 1. Sundry
 - switch()参数可为多种类型
 - 标签：

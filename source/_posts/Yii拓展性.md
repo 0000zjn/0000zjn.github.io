@@ -1,8 +1,12 @@
-﻿---
+---
 title: Yii拓展性
 date: 2017-07-16 15:55
-tags: Yii
+tags: PHP
+toc: true
 ---
+> 学习Yii框架拓展性时记的笔记。
+
+<!-- more -->
 
 # 1. 模块化技术
 ## 1.1 用Gii新建模块
@@ -12,8 +16,6 @@ Module ID：`article`
 3. 添加配置项到config/web.php
 4. 生成 在basic下生成modules文件夹，包含Article.php和controllers、views文件夹
 5. 如果需要数据模型活动记录，需自行添加文件夹
-
-<!-- more -->
 
 ## 1.2 使用子模块-父模块调用
 控制器：

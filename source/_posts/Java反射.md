@@ -1,9 +1,9 @@
-﻿---
+---
 title: Java反射
 date: 2018-06-17 23:36
-tags: JAVA
+tags: Java
 ---
-
+> Spring中IOC的核心原理，将文本转换成jvm对象的方法。【本文有待修善】
 # 1. 获取类信息
 
 <!-- more -->

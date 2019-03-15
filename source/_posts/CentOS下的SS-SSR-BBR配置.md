@@ -1,8 +1,12 @@
-﻿---
+---
 title: CentOS下的SS/SSR/BBR配置
 date: 2018-07-02 19:51
 tags: 翻墙
 ---
+> 本文为自用Shadowsocks配置的备忘教程。文中部分链接由于不可抗力已失效。
+
+<!-- more -->
+
 # 1. [SS配置][1]
 ## 1.1 一键安装：
 ```
@@ -12,10 +16,7 @@ chmod +x shadowsocks-all.sh
  
 ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 ```
-如出现错误提示“bash: wget: command not found”。可以请在先执行`yum -y install wget`命令
-接着按照提醒输入你的密码，端口和加密方式（aes-256-cfb）。
-
-<!-- more -->
+如出现错误提示“bash: wget: command not found”。可以请在先执行`yum -y install wget`命令，接着按照提醒输入你的密码，端口和加密方式（aes-256-cfb）。
 
 # 2. [SSR配置][2]
 ## 2.1 一键部署ssr
