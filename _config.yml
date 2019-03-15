@@ -1,12 +1,12 @@
-# Hexo Configuration
+﻿# Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: SkyZ Blog
-subtitle: 记录！
-description: SkyZ的博客
-author: SkyZ
+title: Joiny's Blog
+subtitle: 加入世界，改变世界
+description: Joiny的博客
+author: Joiny
 language: zh-CN
 timezone:
 
