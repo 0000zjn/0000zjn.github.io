@@ -1,2 +1,1 @@
-# ZjnBlog
-0000zjn's Blog
+This is Joiny's Blog.
