@@ -34,7 +34,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true # Hexo将会在你每一次通过 hexo new [layout] <title> 命令创建新文章时自动创建一个资源文件夹
 relative_link: false
 future: true
 highlight:
