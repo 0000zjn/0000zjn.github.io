@@ -13,7 +13,6 @@ Java虚拟机阵营：Sun HotSpot VM、BEA JRockit VM、IBM J9 VM、Azul VM、Ap
 
 # 二、启动流程
 
-{% asset_img slug Java虚拟机 %}
 {% asset_img 640.webp 启动流程 %}
 
 # 三、基本架构
