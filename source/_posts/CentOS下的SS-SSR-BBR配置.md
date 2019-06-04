@@ -1,6 +1,7 @@
----
+﻿---
 title: CentOS下的SS/SSR/BBR配置
 date: 2018-07-02 19:51
+updated: 2019-06-04 14:21
 tags: 翻墙
 ---
 > 本文为自用Shadowsocks配置的备忘教程。
@@ -8,15 +9,15 @@ tags: 翻墙
 <!-- more -->
 
 # 1. [SS配置][1]
-## 1.1 一键安装：
+## 1.1 一键安装（Python版）：
 ```
-wget –no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/yigeni/Shadowsocks/master/shadowsocks-all.sh
+wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
  
-chmod +x shadowsocks-all.sh
- 
-./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
+chmod +x shadowsocks.sh
+./shadowsocks.sh 2>&1 | tee shadowsocks.log
 ```
-如出现错误提示“bash: wget: command not found”。可以请在先执行`yum -y install wget`命令，接着按照提醒输入你的密码，端口和加密方式（aes-256-cfb）。
+如出现错误提示“bash: wget: command not found”。可以请在先执行`yum -y install wget`命令
+接着按照提醒输入你的密码，端口和加密方式（aes-256-cfb）。
 
 # 2. [SSR配置][2]
 ## 2.1 一键部署ssr
@@ -139,9 +140,15 @@ Shadowsocks-Go 版：
 Shadowsocks-libev 版：
 /etc/shadowsocks-libev/config.json
 ```
+---
+# 5. simple-obfs混淆客户端设置
+下载 obfs-local.zip：
+https://github.com/shadowsocks/simple-obfs/releases
+下载后，解压出来的文件一定要和 Windows 客户端的 exe 文件放在同一文件夹下
+插件程序：obfs-local
+插件选项:obfs=http;obfs-host=www.bing.com  (http混淆时，网址随便写国内能访问到的)
 
-
-[1]: https://blog.csdn.net/weixin_42288676/article/details/80607837
-[2]: https://blog.csdn.net/weixin_42288676/article/details/80517662
-[3]: https://teddysun.com/489.html
-[4]: https://www.bawagon.com/openvz-google-bbr/
+  [1]: https://blog.csdn.net/weixin_42288676/article/details/80607837
+  [2]: https://blog.csdn.net/weixin_42288676/article/details/80517662
+  [3]: https://teddysun.com/489.html
+  [4]: https://www.bawagon.com/openvz-google-bbr/
