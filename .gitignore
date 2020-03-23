@@ -2,5 +2,3 @@
 node_modules/
 public/
 .idea/
-package.json
-package-lock.json
