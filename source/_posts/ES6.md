@@ -4,7 +4,9 @@ date: 2018-11-06 17:16
 updated: 2019-06-04 14:18
 tags: JavaScript
 ---
-> ES6还没学好，ES7、8已经来哒，TAT！！！【未完待续】
+# 0. 箭头函数
+
+箭头函数里指向的this是声明此函数的地方（比如window），所以涉及指向问题（如new、this等操作）需考虑用function还是箭头函数。
 
 <!-- more -->
 
@@ -23,7 +25,6 @@ tags: JavaScript
     //所以在let声明变量前，对tmp赋值会报错。
     ```
     总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。
-
 
 
 # 2. Promise

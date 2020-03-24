@@ -1,6 +1,7 @@
 ---
 title: Java虚拟机
 date: 2019-03-21 00:17
+updated: 2019-03-21 00:17
 tags: Java
 ---
 # 一、概念
