@@ -10,7 +10,7 @@ Node.js 通过提供 cluster、child_process API 创建 **子进程** 的方式�
 
 基于此 Node.js V10.5.0 提供了 worker_threads，它比 child_process 或 cluster更轻量级。worker_threads 的出现让 Node.js 拥有**多工作线程**。
 
-与child_process 或 cluster 不同，worker_threads 可以共享内存，通过传输 ArrayBuffer 实例或共享 SharedArrayBuffer 实例来实现。
+与 child_process 或 cluster 不同，worker_threads 可以共享内存，通过传输 ArrayBuffer 实例或共享 SharedArrayBuffer 实例来实现。
 
 <!-- more -->
 
@@ -94,12 +94,131 @@ exec、execFile、spawn和fork执行的子进程都是默认异步的，子进�
 当子进程是一个 Node.js 实例时（例如使用 `child_process.fork()` 衍生），也可以在子进程中调用 `process.disconnect()` 方法来关闭 IPC 通道。
 
 ### subprocess.kill([signal])
+向子进程发送一个信号。 如果没有给定参数，则进程将会发送 'SIGTERM' 信号。 如果 kill() 成功，则此函数返回 true，否则返回 false。
+
 
 # 二、cluster（集群）
 node的单线程，以单一进程运行，因此无法利用多核CPU以及其他资源，为了调度多核CPU等资源，node还提供了cluster模块，利用多核CPU的资源，使得可以通过一串node子进程去处理负载任务，同时保证一定的负载均衡性。
 
 cluster 底层就是 child_process，它通过一个**父进程**管理一堆**子进程**的方式来实现集群的功能。master 进程做总控，启动 1 个 agent 和 n 个 worker，agent 来做任务调度，获取任务，并分配给某个空闲的 worker 来做。
 
+官网例子：
+
+```javascript
+const cluster = require('cluster');
+const http = require('http');
+const numCPUs = require('os').cpus().length;
+
+if (cluster.isMaster) {
+    console.log(`主进程 ${process.pid} 正在运行`);
+
+    // 衍生工作进程。
+    for (let i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
+
+    cluster.on('exit', (worker, code, signal) => {
+        console.log(`工作进程 ${worker.process.pid} 已退出，code：${code}，signal：${signal}`);
+    });
+} else {
+    // 工作进程可以共享任何 TCP 连接。
+    // 在本例子中，共享的是 HTTP 服务器。
+    http.createServer((req, res) => {
+        res.writeHead(200);
+        res.end('你好世界\n');
+    }).listen(8000);
+
+    console.log(`工作进程 ${process.pid} 已启动`);
+}
+```
 
 # 三、worker_threads（工作线程）
+工作线程对于执行 CPU 密集型的 JavaScript 操作非常有用。 它们在 I/O 密集型的工作中用途不大。 Node.js 的内置的异步 I/O 操作比工作线程效率更高。
 
+官方例子：
+
+```javascript
+const {Worker, isMainThread, parentPort, workerData} = require('worker_threads');
+
+if (isMainThread) {
+    module.exports = function parseJSAsync(script) {
+        return new Promise((resolve, reject) => {
+            const worker = new Worker(__filename, {
+                workerData: script
+            });
+            worker.on('message', resolve);
+            worker.on('error', reject);
+            worker.on('exit', (code) => {
+                if (code !== 0)
+                    reject(new Error(`工作线程使用退出码 ${code} 停止`));
+            });
+        });
+    };
+} else {
+    const {parse} = require('一些 js 解析库');
+    const script = workerData;
+    parentPort.postMessage(parse(script));
+}
+```
+
+## 重要方法
+
+### port.postMessage(value[, transferList])
+ - value <any>
+ - transferList <Object[]>
+ 
+将JavaScript值发送到此通道的接收端。值将以与HTML结构化克隆算法兼容的方式进行传输。
+
+特别是，与JSON的显着区别是：
+
+`value`可能包含循环引用。
+`value`可能包含内置JS类型的实例，例如RegExps，BigInts，Maps，Sets等。
+`value`可能包含使用`ArrayBuffers`和`SharedArrayBuffers`的类型化数组。
+`value`可能包含`WebAssembly.Module`实例。
+`value`可能不包含`MessagePort`s以外的本机（C ++支持）对象。
+
+```javascript
+const { MessageChannel } = require('worker_threads');
+const { port1, port2 } = new MessageChannel();
+
+port1.on('message', (message) => console.log(message));
+
+const circularData = {};
+circularData.foo = circularData;// 循环引用
+// Prints: { foo: [Circular] }
+port2.postMessage(circularData);
+```
+
+`transferList`可能是`ArrayBuffer`和`MessagePort`对象的列表。传输后，它们将不再在通道的发送端使用（即使它们不包含在`value`中）。与子进程不同，当前不支持传输句柄（例如网络套接字）。
+
+如果`value`包含`SharedArrayBuffer`实例，则可以从任一线程访问这些实例。它们不能在`transferList`中列出。
+
+`value`可能包含不在`transferList`中的`ArrayBuffer`实例；在这种情况下，底层内存将被复制而不是移动。
+
+```javascript
+const { MessageChannel } = require('worker_threads');
+const { port1, port2 } = new MessageChannel();
+
+port1.on('message', (message) => console.log(message));
+
+const uint8Array = new Uint8Array([ 1, 2, 3, 4 ]);
+// 这发出了`uint8Array`的副本：
+port2.postMessage(uint8Array);
+// 这不会复制数据，但会导致`uint8Array`无法使用：
+port2.postMessage(uint8Array, [ uint8Array.buffer ]);
+
+//从`.on('message')`接收到的原始副本和副本中都可以访问`sharedUint8Array`的内存：
+const sharedUint8Array = new Uint8Array(new SharedArrayBuffer(4));
+port2.postMessage(sharedUint8Array);
+
+//这会将新创建的消息端口传输到接收器。
+//例如，这可用于在作为同一父线程的子级的多个`Worker`线程之间创建通信通道。
+const otherChannel = new MessageChannel();
+port2.postMessage({ port: otherChannel.port1 }, [ otherChannel.port1 ]);
+```
+
+由于对象克隆使用结构化克隆算法，因此不会保留不可枚举的属性，属性访问器和对象原型。特别是，在接收方，`Buffer`对象将作为普通的`Uint8Arrays`读取。
+
+消息对象将被立即克隆，并且可以在发出后进行修改而不会产生副作用。
+
+有关此API背后的序列化和反序列化机制的更多信息，请参见v8模块的序列化API。
