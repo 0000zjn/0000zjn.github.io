@@ -2,7 +2,7 @@
 title: React
 date: 2018-08-08 14:25
 updated: 2018-08-08 14:25
-tags: JavaScript
+tags: Node.js
 ---
 > 用于构建用户界面的 JavaScript 库，真的很好用！
 

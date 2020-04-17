@@ -2,7 +2,7 @@
 title: Node.js入门笔记
 date: 2018-07-19 09:27
 updated: 2018-07-19 09:27
-tags: JavaScript
+tags: Node.js
 ---
 > Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。
 > Node + React 开发真的好方便~

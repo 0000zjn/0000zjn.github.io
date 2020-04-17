@@ -2,7 +2,7 @@
 title: 异步中的eval()
 date: 2020-01-13
 updated: 2020-01-13
-tags: JavaScript
+tags: Node.js
 ---
 
 await仅在异步方法中有效
