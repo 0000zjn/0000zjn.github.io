@@ -164,8 +164,8 @@ if (isMainThread) {
 ## 重要方法
 
 ### port.postMessage(value[, transferList])
- - value <any>
- - transferList <Object[]>
+ - value <any> 传输值（或指针）
+ - transferList <Object[]> 传输内存（指针指向的）
  
 将JavaScript值发送到此通道的接收端。值将以与HTML结构化克隆算法兼容的方式进行传输。
 
