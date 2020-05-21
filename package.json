@@ -7,8 +7,7 @@
   },
   "scripts": {
     "save": "git add --all;git commit -m \"add/update posts\";git push origin Source;",
-    "deploy": "hexo d -g",
-    "photo": "echo 处理照片并上传至备份。。;../Blog-File-Back-Up/tool.py;"
+    "deploy": "hexo d -g"
   },
   "dependencies": {
     "hexo": "^3.9.0",
