@@ -1,3 +1,3 @@
 <a href="<%- url_for(post.path) %>" class="<%= class_name %>">
-  	<time datetime="<%= date_xml(post.updated) %>" itemprop="datePublished"><i class="icon-calendar icon"></i>Updated: <%= date(post.updated, date_format) %></time>
+  	<time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><i class="icon-calendar icon"></i>发布：<%= date(post.date, date_format) %>更新：<%= date(post.updated, date_format) %></time>
 </a>
