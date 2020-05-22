@@ -1,5 +1,5 @@
 ---
-title: Shell编程问题笔记
+title: Shell笔记
 date: 2019-08-05
 updated: 2019-08-13
 tags: Shell
@@ -24,4 +24,16 @@ MAC环境下的bash不支持 `sed -i "REG" filename` 来直接修改文件内容
 # 把结果保存到新的文件，再把文件重命名来覆盖原文件
 sed 's/\"API_VERSION\"/'${tagName}'/' filename > filename.tmp
 mv filename.tmp filename
+```
+
+# 3. 代理
+永久代理：
+Add this script to ~/.bash_profile.
+```shell script
+export http_proxy=socks5://127.0.0.1:1080
+export https_proxy=socks5://127.0.0.1:1080
+```
+只对当前窗口有效：
+```shell script
+export ALL_PROXY=socks5://127.0.0.1:1086
 ```

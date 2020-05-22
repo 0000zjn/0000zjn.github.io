@@ -2,7 +2,7 @@
 title: CentOS下的SS/SSR/BBR配置
 date: 2018-07-02 19:51
 updated: 2019-06-04 14:21
-tags: 翻墙
+tags: 代理
 ---
 > 本文为自用Shadowsocks配置的备忘教程。
 
