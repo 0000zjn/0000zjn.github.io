@@ -16,7 +16,7 @@
 <meta property="og:description" content="本站的搭建流程">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-01-24T08:10:00.000Z">
-<meta property="article:modified_time" content="2019-01-24T08:10:00.000Z">
+<meta property="article:modified_time" content="2020-05-22T09:55:00.000Z">
 <meta property="article:author" content="正义的伙伴">
 <meta property="article:tag" content="项目">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,8 @@
 
         
         <a href="/2019/01/24/%E5%BB%BA%E7%AB%99%E6%97%A5%E5%BF%97/" class="archive-article-date">
-  	<time datetime="2019-01-24T08:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>发布：2019-01-24更新：2019-01-24</time>
+  	<time datetime="2019-01-24T08:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		发布：2019-01-24 更新：2020-05-22</time>
 </a>
 
         
@@ -197,6 +198,24 @@
 
 <h2 id="4-3-添加文章访问量"><a href="#4-3-添加文章访问量" class="headerlink" title="4.3 添加文章访问量"></a>4.3 添加文章访问量</h2><p>添加在/themes/yilia/layout/_partial/article.ejs的header的日期后面：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;header class&#x3D;&quot;article-header&quot;&gt;</span><br><span class="line">&lt;%- partial(&#39;post&#x2F;title&#39;, &#123;class_name: &#39;article-title&#39;&#125;) %&gt;</span><br><span class="line">&lt;% if (!post.noDate)&#123; %&gt;</span><br><span class="line">&lt;%- partial(&#39;post&#x2F;date&#39;, &#123;class_name: &#39;archive-article-date&#39;, date_format: null&#125;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 添加代码 --&gt;</span><br><span class="line">&lt;% if ( !index )&#123; %&gt;</span><br><span class="line">    &lt;span class&#x3D;&quot;archive-article-date&quot;&gt;</span><br><span class="line">    阅读量 &lt;span id&#x3D;&quot;busuanzi_value_page_pv&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;&#x2F;span&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;header&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-踩坑"><a href="#5-踩坑" class="headerlink" title="5.踩坑"></a>5.踩坑</h1><h2 id="5-1-缺少Deployer"><a href="#5-1-缺少Deployer" class="headerlink" title="5.1 缺少Deployer"></a>5.1 缺少Deployer</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line">hexo初始化可能不自带这个包，要手动安装</span><br><span class="line">&#96;&#96;&#96;shell script</span><br><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-2-SSH问题"><a href="#5-2-SSH问题" class="headerlink" title="5.2 SSH问题"></a>5.2 SSH问题</h2><p>使用SSH KEY,本地生成id_rsa 和id_rsa_pub文件,并复制id_rsa_pub文件中的内容添加到帐号之后,部署(hexo d)报错:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey).</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: http:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br></pre></td></tr></table></figure>
+<p>测试当前的SSH是否配置成功,在git bash 中执行命令ssh -T <a href="mailto:git@github.com">git@github.com</a>报错如下:<br>Permission denied (publickey).</p>
+<p>原因:说明当前<code>SSH</code>没有配置成功</p>
+<p>解决:<br>请确保以下2步均做到<br>1、远程服务器已经有了对应于本地主机上公钥<br>2、本地主机ssh服务开启(windows上是ssh-agent.exe运行)，并且本地主机私钥要包含在ssh服务列表中</p>
+<p>第一步已经完成,:已经将<code>id_rsa.pub</code>文件中的内容添加到了github帐号</p>
+<p>检查本地私钥是否存在于ssh服务中</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br><span class="line">eval 'ssh-agent -s'</span><br></pre></td></tr></table></figure>
+<p>如果运行这句出现Could not open a connection to your authentication agent，那么就先运行<br><code>ssh-agent bash</code><br>再运行<br><code>ssh-add -l</code><br>如果不存在，需要添加进去<br><code>ssh-add ~/.ssh/id_rsa</code><br>添加完成之后,再执行<code>ssh -T git@github.com</code>测试SSH是否配置成功!!!</p>
+<p>如果出现以下内容说明配置成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You&#39;ve successfully authenticated,</span><br><span class="line"> but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-3-仓库设置问题"><a href="#5-3-仓库设置问题" class="headerlink" title="5.3 仓库设置问题"></a>5.3 仓库设置问题</h2><p>源代码分支可以正常提交，deploy失败，ssh连接建立成功。<br>原因：<br>clone时使用了https，这个信息保存在<code>.git/config</code>里，但是在yml中设置的是<code>git@</code>开头的ssh地址。</p>
+<p>解决方案，修改<code>.git/config</code>里的仓库地址，与yml一致。</p>
+
       
 
       
@@ -348,7 +367,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Hexo博客框架"><span class="toc-number">1.</span> <span class="toc-text">1. Hexo博客框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-yilia主题"><span class="toc-number">2.</span> <span class="toc-text">2. yilia主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Hexo-Github实现相册功能"><span class="toc-number">3.</span> <span class="toc-text">3. Hexo+Github实现相册功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-教程"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-参考实现"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 参考实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-hexo-yilia主题添加文章访问量统计-2019-03-28"><span class="toc-number">4.</span> <span class="toc-text">4. hexo+yilia主题添加文章访问量统计(2019-03-28)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-引入不蒜子"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 引入不蒜子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-添加站点访问量"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 添加站点访问量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-添加文章访问量"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 添加文章访问量</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Hexo博客框架"><span class="toc-number">1.</span> <span class="toc-text">1. Hexo博客框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-yilia主题"><span class="toc-number">2.</span> <span class="toc-text">2. yilia主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Hexo-Github实现相册功能"><span class="toc-number">3.</span> <span class="toc-text">3. Hexo+Github实现相册功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-教程"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-参考实现"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 参考实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-hexo-yilia主题添加文章访问量统计-2019-03-28"><span class="toc-number">4.</span> <span class="toc-text">4. hexo+yilia主题添加文章访问量统计(2019-03-28)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-引入不蒜子"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 引入不蒜子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-添加站点访问量"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 添加站点访问量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-添加文章访问量"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 添加文章访问量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-踩坑"><span class="toc-number">5.</span> <span class="toc-text">5.踩坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-缺少Deployer"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 缺少Deployer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-SSH问题"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 SSH问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-仓库设置问题"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 仓库设置问题</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
