@@ -16,6 +16,9 @@ url: https://0000zjn.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
+pretty_urls:
+  trailing_index: false # 设置为false可从永久链接中删除结尾的“ index.html”
+  trailing_html: false # 设置为false可从永久链接中删除结尾的“ .html”
 
 # Directory
 source_dir: source
@@ -31,17 +34,22 @@ skip_render:
 new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true # Hexo将会在你每一次通过 hexo new [layout] <title> 命令创建新文章时自动创建一个资源文件夹
+post_asset_folder: false
 relative_link: false
 future: true
 highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace:
+  tab_replace: ''
+  wrap: true
+  hljs: false
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -57,12 +65,18 @@ default_category: uncategorized
 category_map:
 tag_map:
 
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
+## Use post's date for updated date unless set in front-matter
+use_date_for_updated: false
 
 # Pagination
 ## Set per_page to 0 to disable pagination
