@@ -1,5 +1,5 @@
 ---
-title: 终端下为npm配置代理
+title: 为npm配置代理
 date: 2020-05-22
 updated: 2019-05-22
 tags: 代理
