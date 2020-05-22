@@ -1,7 +1,7 @@
 ---
-title: Git问题笔记
+title: Git笔记
 date: 2019-06-04 15:53
-updated: 2019-07-22
+updated: 2020-05-16
 tags: 版本控制
 ---
 
@@ -29,6 +29,11 @@ git config --global alias.rh 'reset HEAD'
 git config --global alias.si 'submodule init'
 git config --global alias.su 'submodule update --remote'
 git config --global alias.br 'branch'
+git config --global alias.spm 'stash push -m'
+git config --global alias.sl 'stash list'
+git config --global alias.sa 'stash apply'
+git config --global alias.sd 'stash drop'
+git config --global alias.sc 'stash clear'
 ```
 
 显示：
