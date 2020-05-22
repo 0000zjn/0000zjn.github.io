@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "save": "git add --all;git commit -m \"add/update posts\";git push origin Source;",
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy -g",
