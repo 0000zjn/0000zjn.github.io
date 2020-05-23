@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://0000zjn.github.io">
-  <title>事件循环 - 宏队列与微队列 | Zanyatta&#39;s Blog</title>
+  <title>阿里Serverless面试记录 | Zanyatta&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript 事件循环机制分为浏览器和 Node 事件循环机制，两者的实现技术不一样，浏览器 Event Loop 是 HTML 中定义的规范，Node Event Loop 是由 libuv 库实现。这里主要讲的是浏览器部分。Node下的逻辑差不太多。">
+  <meta name="description" content="阿里的技术专家认为我的工作经历和岗位比较相符，遂进入内推。虽然我和P7还有亿点差距，但这次面试为我提供了前进的方向，受益匪浅。感谢热忱的前辈们！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件循环 - 宏队列与微队列">
-<meta property="og:url" content="https://0000zjn.github.io/2020/05/16/2020/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%20-%20%E5%AE%8F%E9%98%9F%E5%88%97%E4%B8%8E%E5%BE%AE%E9%98%9F%E5%88%97/">
+<meta property="og:title" content="阿里Serverless面试记录">
+<meta property="og:url" content="https://0000zjn.github.io/2020/04/21/%E9%98%BF%E9%87%8CServerless%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/">
 <meta property="og:site_name" content="Zanyatta&#39;s Blog">
-<meta property="og:description" content="JavaScript 事件循环机制分为浏览器和 Node 事件循环机制，两者的实现技术不一样，浏览器 Event Loop 是 HTML 中定义的规范，Node Event Loop 是由 libuv 库实现。这里主要讲的是浏览器部分。Node下的逻辑差不太多。">
+<meta property="og:description" content="阿里的技术专家认为我的工作经历和岗位比较相符，遂进入内推。虽然我和P7还有亿点差距，但这次面试为我提供了前进的方向，受益匪浅。感谢热忱的前辈们！">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-16T10:16:00.000Z">
-<meta property="article:modified_time" content="2020-05-16T10:16:00.000Z">
+<meta property="article:published_time" content="2020-04-21T12:01:41.000Z">
+<meta property="article:modified_time" content="2020-04-21T12:01:41.000Z">
 <meta property="article:author" content="正义的伙伴">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="面经">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Zanyatta&#39;s Blog" type="application/atom+xml">
@@ -61,6 +61,8 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives/">归档</a></li>
 	        
 				<li><a href="/photos/">相册</a></li>
 	        
@@ -116,6 +118,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -129,12 +133,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/photos/">相册</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/photos/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -149,21 +155,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2020/05/事件循环 - 宏队列与微队列" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-阿里Serverless面试记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      事件循环 - 宏队列与微队列
+      阿里Serverless面试记录
     </h1>
   
 
         
-        <a href="/2020/05/16/2020/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%20-%20%E5%AE%8F%E9%98%9F%E5%88%97%E4%B8%8E%E5%BE%AE%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-05-16T10:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		发布：2020-05-16</time>
+        <a href="/2020/04/21/%E9%98%BF%E9%87%8CServerless%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2020-04-21T12:01:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		发布：2020-04-21</time>
 </a>
 
         
@@ -180,20 +186,29 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaScript 事件循环机制分为浏览器和 Node 事件循环机制，两者的实现技术不一样，浏览器 Event Loop 是 HTML 中定义的规范，Node Event Loop 是由 libuv 库实现。这里主要讲的是浏览器部分。Node下的逻辑差不太多。</p>
+        <blockquote>
+<p>阿里的技术专家认为我的工作经历和岗位比较相符，遂进入内推。虽然我和P7还有亿点差距，但这次面试为我提供了前进的方向，受益匪浅。感谢热忱的前辈们！</p>
+</blockquote>
 <a id="more"></a>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我是宏队列1'</span>)</span><br><span class="line">    <span class="built_in">Promise</span>.resolve(<span class="number">3</span>).then(<span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我是微队列'</span> + val)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我是宏队列2'</span>)</span><br><span class="line"></span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">Promise</span>.resolve(<span class="number">1</span>).then(<span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我是微队列'</span> + val)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Promise</span>.resolve(<span class="number">2</span>).then(<span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我是微队列'</span> + val)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'我是主线程'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行结果如下：</span></span><br><span class="line"><span class="comment">// 我是主线程</span></span><br><span class="line"><span class="comment">// 我是微队列1</span></span><br><span class="line"><span class="comment">// 我是微队列2</span></span><br><span class="line"><span class="comment">// 我是宏队列1</span></span><br><span class="line"><span class="comment">// 我是微队列3</span></span><br><span class="line"><span class="comment">// 我是宏队列2</span></span><br></pre></td></tr></table></figure>
-
-<p>Javascript 有一个 main thread 主线程和 call-stack 调用栈(执行栈)，所有的任务都会被放到调用栈等待主线程执行。</p>
-<h2 id="JS-调用栈"><a href="#JS-调用栈" class="headerlink" title="JS 调用栈"></a>JS 调用栈</h2><p>JS 调用栈是一种后进先出的数据结构。当函数被调用时，会被添加到栈中的顶部，执行完成之后就从栈顶部移出该函数，直到栈内被清空。</p>
-<h2 id="同步任务、异步任务"><a href="#同步任务、异步任务" class="headerlink" title="同步任务、异步任务"></a>同步任务、异步任务</h2><p>JavaScript 单线程中的任务分为同步任务和异步任务。同步任务会在调用栈中按照顺序排队等待主线程执行，异步任务则会在异步有了结果后将注册的回调函数添加到任务队列(消息队列)中等待主线程空闲的时候，也就是栈内被清空的时候，被读取到栈中等待主线程执行。任务队列是先进先出的数据结构。</p>
-<h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2><p>调用栈中的同步任务都执行完毕，栈内被清空了，就代表主线程空闲了，这个时候就会去任务队列中按照顺序读取一个任务放入到栈中执行。每次栈内被清空，都会去读取任务队列有没有任务，有就读取执行，一直循环读取-执行的操作，就形成了事件循环。</p>
-<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p>定时器会开启一条定时器触发线程来触发计时，定时器会在等待了指定的时间后将事件放入到任务队列中等待读取到主线程执行。</p>
-<p>定时器指定的延时毫秒数其实并不准确，因为定时器只是在到了指定的时间时将事件放入到任务队列中，必须要等到同步的任务和现有的任务队列中的事件全部执行完成之后，才会去读取定时器的事件到主线程执行，中间可能会存在耗时比较久的任务，那么就不可能保证在指定的时间执行。</p>
-<h2 id="宏任务-macro-task-、微任务-micro-task"><a href="#宏任务-macro-task-、微任务-micro-task" class="headerlink" title="宏任务(macro-task)、微任务(micro-task)"></a>宏任务(macro-task)、微任务(micro-task)</h2><p>除了广义的同步任务和异步任务，JavaScript 单线程中的任务可以细分为宏任务和微任务。JS 引擎首先必须先执行所有的初始化同步任务代码每次准备取出第一个宏任务执行前, 都要将所有的微任务一个一个取出来执行。</p>
-<p>macro-task包括：script(整体代码), setTimeout, setInterval, setImmediate, I/O, UI rendering。</p>
-<p>micro-task包括：process.nextTick, Promises, Object.observe, MutationObserver。</p>
+<h1 id="一、技术栈"><a href="#一、技术栈" class="headerlink" title="一、技术栈"></a>一、技术栈</h1><h3 id="关键词："><a href="#关键词：" class="headerlink" title="关键词："></a>关键词：</h3><p>技术栈、选择原因</p>
+<h3 id="答："><a href="#答：" class="headerlink" title="答："></a>答：</h3><p>面向aws编程：<br>router53：域名管理<br>API Gateway：创建基于 HTTP 的 RESTful API<br>Lambda：代码运行环境<br>S3：提供文件存储<br>DynamoDB：非关系型数据库<br>CDN加速： Amazon CloudFront<br>IAM：身份权限管理<br>X-Ray：查看请求和响应的详细信息，并提供用于查看、筛选和获取数据洞察力的工具，以确定问题和发现优化的机会。<br>AppSync：构建 GraphQL API。.yml定义数据源、映射模板(关联架构和解析程序)，.graphql构建架构，txt编写解析程序。<br>CloudWatch：日志收集，以及基于日志的错误抓取、警报。</p>
+<h3 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h3><p>说清楚技术构成，通过说明选择原因来体现技术积累。这些技术不是我拍板的，但其实也有东西可以讲，比如用过dashbird来做服务监控，但是由于和CloudWatch的功能重复以及设计缺陷（不能屏蔽未授权错误）而被放弃。</p>
+<h1 id="二、JMeter"><a href="#二、JMeter" class="headerlink" title="二、JMeter"></a>二、JMeter</h1><h3 id="关键词：-1"><a href="#关键词：-1" class="headerlink" title="关键词："></a>关键词：</h3><p>选择原因、如何使用、扩容问题</p>
+<h3 id="答：-1"><a href="#答：-1" class="headerlink" title="答："></a>答：</h3><p>因为自己简单写的node工具没有人家成熟的软件好用。讲了一下使用流程、测试目的以及结果，以及对未来数据量的计划，比如使用EC2搭建分布式测试环境。</p>
+<h3 id="小结：-1"><a href="#小结：-1" class="headerlink" title="小结："></a>小结：</h3><p>表现不错，对技术有深入理解，能体现能力。</p>
+<h1 id="三、GraphQL"><a href="#三、GraphQL" class="headerlink" title="三、GraphQL"></a>三、GraphQL</h1><h3 id="关键词：-2"><a href="#关键词：-2" class="headerlink" title="关键词："></a>关键词：</h3><p>踩过的坑、优缺点</p>
+<h3 id="答：-2"><a href="#答：-2" class="headerlink" title="答："></a>答：</h3><p>只讲了怎么使用，对N+1问题不了解，回忆不起踩过的坑，讲不出对比RESTful的优缺点。</p>
+<h3 id="小结：-2"><a href="#小结：-2" class="headerlink" title="小结："></a>小结：</h3><p>对简历上的技能可能遇到的常见问题应该有所准备。</p>
+<h1 id="四、Serverless原理"><a href="#四、Serverless原理" class="headerlink" title="四、Serverless原理"></a>四、Serverless原理</h1><h3 id="关键词：-3"><a href="#关键词：-3" class="headerlink" title="关键词："></a>关键词：</h3><p>docker、k8s、动态扩容</p>
+<h3 id="答：-3"><a href="#答：-3" class="headerlink" title="答："></a>答：</h3><p>只知道是基于容器实现的弹性计算集群，但是对上述关键词的具体知识完全不了解。</p>
+<h3 id="小结：-3"><a href="#小结：-3" class="headerlink" title="小结："></a>小结：</h3><p>虽然Lambda不是开源的东西，但是它的底层原理属于比较常见的技术手段。可以说是这个岗位的核心要求，死的明明白白。</p>
+<h1 id="五、CLI工具"><a href="#五、CLI工具" class="headerlink" title="五、CLI工具"></a>五、CLI工具</h1><h3 id="关键词：-4"><a href="#关键词：-4" class="headerlink" title="关键词："></a>关键词：</h3><p>为什么用bash不用node、做了什么</p>
+<h3 id="答：-4"><a href="#答：-4" class="headerlink" title="答："></a>答：</h3><p>大部分命令都是shell下运行的，比如sls，用Node也是要写对应的shell命令，画蛇添足了。<br>版本号迭代、git tag管理、依赖安装、并行发布、错误中止、拉起警报</p>
+<h3 id="小结：-4"><a href="#小结：-4" class="headerlink" title="小结："></a>小结：</h3><p>还行。</p>
+<h1 id="六、开源项目"><a href="#六、开源项目" class="headerlink" title="六、开源项目"></a>六、开源项目</h1><p>因为不了解如何参与开源项目，面试官为我做了讲解。</p>
+<h3 id="关键词：-5"><a href="#关键词：-5" class="headerlink" title="关键词："></a>关键词：</h3><p>提issue、看issue、提pr</p>
+<p>以Koa举例，将你在使用过程中踩过的坑（可以是bug，也可以是难点）在issue中提出。同时可以看看其他人提出的issue，想想为什么别人碰得到你却碰不到，以及这个问题要怎么解决。你可以在本地复现这个问题，如果得以解决，可以把自己的代码提交pull request（注意单元测试）。</p>
 
       
 
@@ -238,7 +253,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面经</a>
         		</li>
       		
 		</ul>
@@ -294,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://0000zjn.github.io/2020/05/16/2020/05/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%20-%20%E5%AE%8F%E9%98%9F%E5%88%97%E4%B8%8E%E5%BE%AE%E9%98%9F%E5%88%97/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://0000zjn.github.io/2020/04/21/%E9%98%BF%E9%87%8CServerless%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +323,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/19/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8A%E6%89%A7%E8%A1%8C%E8%A1%A8%E9%87%8D%E6%9E%84%E5%8F%91%E7%94%9F%E7%9A%84%E6%8E%A5%E5%8F%A3%E6%8C%82%E8%B5%B7/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/16/%E7%9B%B8%E5%AF%B9%E5%90%88%E7%90%86%E7%9A%84js%E5%AF%B9%E8%B1%A1%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          记一次客户端上执行表重构发生的接口挂起
+          相对合理的js对象深拷贝方法
         
       </div>
     </a>
   
   
-    <a href="/2020/05/16/%E5%8F%AF%E9%80%89%E9%93%BE%E3%80%81%E5%8F%8C%E9%97%AE%E5%8F%B7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">可选链、双问号</div>
+    <a href="/2020/04/13/Node.js%E5%A4%9A%E7%BA%BF%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node.js多线程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -346,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-调用栈"><span class="toc-number">1.</span> <span class="toc-text">JS 调用栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步任务、异步任务"><span class="toc-number">2.</span> <span class="toc-text">同步任务、异步任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Event-Loop"><span class="toc-number">3.</span> <span class="toc-text">Event Loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定时器"><span class="toc-number">4.</span> <span class="toc-text">定时器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#宏任务-macro-task-、微任务-micro-task"><span class="toc-number">5.</span> <span class="toc-text">宏任务(macro-task)、微任务(micro-task)</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、技术栈"><span class="toc-number">1.</span> <span class="toc-text">一、技术栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关键词："><span class="toc-number">1.0.1.</span> <span class="toc-text">关键词：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#答："><span class="toc-number">1.0.2.</span> <span class="toc-text">答：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结："><span class="toc-number">1.0.3.</span> <span class="toc-text">小结：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、JMeter"><span class="toc-number">2.</span> <span class="toc-text">二、JMeter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关键词：-1"><span class="toc-number">2.0.1.</span> <span class="toc-text">关键词：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#答：-1"><span class="toc-number">2.0.2.</span> <span class="toc-text">答：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结：-1"><span class="toc-number">2.0.3.</span> <span class="toc-text">小结：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、GraphQL"><span class="toc-number">3.</span> <span class="toc-text">三、GraphQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关键词：-2"><span class="toc-number">3.0.1.</span> <span class="toc-text">关键词：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#答：-2"><span class="toc-number">3.0.2.</span> <span class="toc-text">答：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结：-2"><span class="toc-number">3.0.3.</span> <span class="toc-text">小结：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Serverless原理"><span class="toc-number">4.</span> <span class="toc-text">四、Serverless原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关键词：-3"><span class="toc-number">4.0.1.</span> <span class="toc-text">关键词：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#答：-3"><span class="toc-number">4.0.2.</span> <span class="toc-text">答：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结：-3"><span class="toc-number">4.0.3.</span> <span class="toc-text">小结：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、CLI工具"><span class="toc-number">5.</span> <span class="toc-text">五、CLI工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关键词：-4"><span class="toc-number">5.0.1.</span> <span class="toc-text">关键词：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#答：-4"><span class="toc-number">5.0.2.</span> <span class="toc-text">答：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结：-4"><span class="toc-number">5.0.3.</span> <span class="toc-text">小结：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、开源项目"><span class="toc-number">6.</span> <span class="toc-text">六、开源项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关键词：-5"><span class="toc-number">6.0.1.</span> <span class="toc-text">关键词：</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -481,15 +496,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">代理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JAVA-Web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,15 +504,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,15 +516,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,7 +524,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,6 +541,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JAVA-Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
