@@ -148,19 +148,270 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-IDEA使用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2019-数据库基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/27/IDEA%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">IDEA使用技巧</a>
+      <a class="article-title" href="/2019/04/14/2019-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">数据库基础知识</a>
     </h1>
   
 
         
-        <a href="/2019/03/27/IDEA%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="archive-article-date">
+        <a href="/2019/04/14/2019-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2019-04-13T17:01:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		发布：2019-04-14 更新：2020-04-04</time>
+</a>
+
+        
+
+        <!-- 添加代码 -->
+        
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-数据库的不同类型"><a href="#1-数据库的不同类型" class="headerlink" title="1. 数据库的不同类型"></a>1. 数据库的不同类型</h1>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/14/2019-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2019-MySQL高性能优化规范建议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/09/2019-MySQL%E9%AB%98%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E8%A7%84%E8%8C%83%E5%BB%BA%E8%AE%AE/">MySQL高性能优化规范建议</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/09/2019-MySQL%E9%AB%98%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E8%A7%84%E8%8C%83%E5%BB%BA%E8%AE%AE/" class="archive-article-date">
+  	<time datetime="2019-04-08T16:08:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		发布：2019-04-09 更新：2019-06-20</time>
+</a>
+
+        
+
+        <!-- 添加代码 -->
+        
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、数据库命令规范"><a href="#一、数据库命令规范" class="headerlink" title="一、数据库命令规范"></a>一、数据库命令规范</h1><ul>
+<li>所有数据库对象名称必须使用小写字母并用下划线分割</li>
+<li>所有数据库对象名称禁止使用 MySQL 保留关键字（如果表名中包含关键字查询时，需要将其用单引号括起来）</li>
+<li>数据库对象的命名要能做到见名识意，并且最后不要超过 32 个字符</li>
+<li>临时库表必须以 tmp_为前缀并以日期为后缀，备份表必须以 bak_为前缀并以日期 (时间戳) 为后缀</li>
+<li>所有存储相同数据的列名和列类型必须一致（一般作为关联列，如果查询时关联列类型不一致会自动进行数据类型隐式转换，会造成列上的索引失效，导致查询效率降低）</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/09/2019-MySQL%E9%AB%98%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E8%A7%84%E8%8C%83%E5%BB%BA%E8%AE%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2019-学习网站推荐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/28/2019-%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/">学习网站推荐</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/28/2019-%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" class="archive-article-date">
+  	<time datetime="2019-03-27T16:40:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		发布：2019-03-28</time>
+</a>
+
+        
+
+        <!-- 添加代码 -->
+        
+
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文为近几年本人搜集的各类学习网站、社区论坛、项目，质量过硬，值得分享！<br>排序不分先后，欢迎补充！</p>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">收藏夹</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/28/2019-%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2019-IDEA使用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/27/2019-IDEA%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">IDEA使用技巧</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/27/2019-IDEA%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="archive-article-date">
   	<time datetime="2019-03-27T15:29:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		发布：2019-03-27</time>
 </a>
@@ -204,7 +455,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/27/IDEA%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/27/2019-IDEA%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">展开全文 >></a>
         </p>
       
 
@@ -234,19 +485,19 @@
 
 
   
-    <article id="post-树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2019-树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/26/%E6%A0%91/">树【未完待续】</a>
+      <a class="article-title" href="/2019/03/26/2019-%E6%A0%91/">树【未完待续】</a>
     </h1>
   
 
         
-        <a href="/2019/03/26/%E6%A0%91/" class="archive-article-date">
+        <a href="/2019/03/26/2019-%E6%A0%91/" class="archive-article-date">
   	<time datetime="2019-03-25T18:02:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		发布：2019-03-26</time>
 </a>
@@ -285,7 +536,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/26/%E6%A0%91/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/26/2019-%E6%A0%91/">展开全文 >></a>
         </p>
       
 
@@ -315,19 +566,19 @@
 
 
   
-    <article id="post-常用MySQL优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2019-常用MySQL优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/26/%E5%B8%B8%E7%94%A8MySQL%E4%BC%98%E5%8C%96/">常用MySQL优化</a>
+      <a class="article-title" href="/2019/03/26/2019-%E5%B8%B8%E7%94%A8MySQL%E4%BC%98%E5%8C%96/">常用MySQL优化</a>
     </h1>
   
 
         
-        <a href="/2019/03/26/%E5%B8%B8%E7%94%A8MySQL%E4%BC%98%E5%8C%96/" class="archive-article-date">
+        <a href="/2019/03/26/2019-%E5%B8%B8%E7%94%A8MySQL%E4%BC%98%E5%8C%96/" class="archive-article-date">
   	<time datetime="2019-03-25T17:13:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		发布：2019-03-26</time>
 </a>
@@ -369,7 +620,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/26/%E5%B8%B8%E7%94%A8MySQL%E4%BC%98%E5%8C%96/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/26/2019-%E5%B8%B8%E7%94%A8MySQL%E4%BC%98%E5%8C%96/">展开全文 >></a>
         </p>
       
 
@@ -399,19 +650,19 @@
 
 
   
-    <article id="post-Java虚拟机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2019-Java虚拟机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/21/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java虚拟机</a>
+      <a class="article-title" href="/2019/03/21/2019-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">Java虚拟机</a>
     </h1>
   
 
         
-        <a href="/2019/03/21/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="archive-article-date">
+        <a href="/2019/03/21/2019-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="archive-article-date">
   	<time datetime="2019-03-20T16:17:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		发布：2019-03-21</time>
 </a>
@@ -450,7 +701,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/21/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/21/2019-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">展开全文 >></a>
         </p>
       
 
@@ -480,19 +731,19 @@
 
 
   
-    <article id="post-Java高级开发必会的50个性能优化的细节" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2019-Java高级开发必会的50个性能优化的细节" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/17/Java%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E5%BF%85%E4%BC%9A%E7%9A%8450%E4%B8%AA%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E7%BB%86%E8%8A%82/">Java高级开发必会的50个性能优化的细节</a>
+      <a class="article-title" href="/2019/03/17/2019-Java%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E5%BF%85%E4%BC%9A%E7%9A%8450%E4%B8%AA%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E7%BB%86%E8%8A%82/">Java高级开发必会的50个性能优化的细节</a>
     </h1>
   
 
         
-        <a href="/2019/03/17/Java%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E5%BF%85%E4%BC%9A%E7%9A%8450%E4%B8%AA%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E7%BB%86%E8%8A%82/" class="archive-article-date">
+        <a href="/2019/03/17/2019-Java%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E5%BF%85%E4%BC%9A%E7%9A%8450%E4%B8%AA%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E7%BB%86%E8%8A%82/" class="archive-article-date">
   	<time datetime="2019-03-17T15:23:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		发布：2019-03-17</time>
 </a>
@@ -534,7 +785,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/17/Java%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E5%BF%85%E4%BC%9A%E7%9A%8450%E4%B8%AA%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E7%BB%86%E8%8A%82/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/17/2019-Java%E9%AB%98%E7%BA%A7%E5%BC%80%E5%8F%91%E5%BF%85%E4%BC%9A%E7%9A%8450%E4%B8%AA%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E7%BB%86%E8%8A%82/">展开全文 >></a>
         </p>
       
 
@@ -564,19 +815,19 @@
 
 
   
-    <article id="post-二、Java中的switch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2019-二、Java中的switch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/15/%E4%BA%8C%E3%80%81Java%E4%B8%AD%E7%9A%84switch/">二、Java中的switch</a>
+      <a class="article-title" href="/2019/03/15/2019-%E4%BA%8C%E3%80%81Java%E4%B8%AD%E7%9A%84switch/">二、Java中的switch</a>
     </h1>
   
 
         
-        <a href="/2019/03/15/%E4%BA%8C%E3%80%81Java%E4%B8%AD%E7%9A%84switch/" class="archive-article-date">
+        <a href="/2019/03/15/2019-%E4%BA%8C%E3%80%81Java%E4%B8%AD%E7%9A%84switch/" class="archive-article-date">
   	<time datetime="2019-03-15T15:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		发布：2019-03-15</time>
 </a>
@@ -620,7 +871,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/15/%E4%BA%8C%E3%80%81Java%E4%B8%AD%E7%9A%84switch/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/15/2019-%E4%BA%8C%E3%80%81Java%E4%B8%AD%E7%9A%84switch/">展开全文 >></a>
         </p>
       
 
@@ -650,19 +901,19 @@
 
 
   
-    <article id="post-一、Java引用类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2019-一、Java引用类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/15/%E4%B8%80%E3%80%81Java%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">一、Java引用类型</a>
+      <a class="article-title" href="/2019/03/15/2019-%E4%B8%80%E3%80%81Java%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">一、Java引用类型</a>
     </h1>
   
 
         
-        <a href="/2019/03/15/%E4%B8%80%E3%80%81Java%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
+        <a href="/2019/03/15/2019-%E4%B8%80%E3%80%81Java%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
   	<time datetime="2019-03-15T14:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		发布：2019-03-15</time>
 </a>
@@ -703,252 +954,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/15/%E4%B8%80%E3%80%81Java%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-乐观锁和悲观锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/27/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/">乐观锁和悲观锁</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/27/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/" class="archive-article-date">
-  	<time datetime="2019-02-27T06:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		发布：2019-02-27</time>
-</a>
-
-        
-
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前置知识"><a href="#1-前置知识" class="headerlink" title="1. 前置知识"></a>1. 前置知识</h1><h2 id="1-1-并行与并发"><a href="#1-1-并行与并发" class="headerlink" title="1.1 并行与并发"></a>1.1 并行与并发</h2><p>并发是指在一段时间内宏观上多个程序同时运行。<br>并行指的是同一个时刻，多个任务确实真的在同时运行。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/27/%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-建站日志" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/24/%E5%BB%BA%E7%AB%99%E6%97%A5%E5%BF%97/">建站日志</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/24/%E5%BB%BA%E7%AB%99%E6%97%A5%E5%BF%97/" class="archive-article-date">
-  	<time datetime="2019-01-24T08:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		发布：2019-01-24 更新：2020-05-22</time>
-</a>
-
-        
-
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>本站的搭建流程</p>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/24/%E5%BB%BA%E7%AB%99%E6%97%A5%E5%BF%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/06/ES6/">ES6</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/06/ES6/" class="archive-article-date">
-  	<time datetime="2018-11-06T09:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		发布：2018-11-06 更新：2019-06-04</time>
-</a>
-
-        
-
-        <!-- 添加代码 -->
-        
-
-      </header>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0-箭头函数"><a href="#0-箭头函数" class="headerlink" title="0. 箭头函数"></a>0. 箭头函数</h1><p>箭头函数里指向的this是声明此函数的地方（比如window），所以涉及指向问题（如new、this等操作）需考虑用function还是箭头函数。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/06/ES6/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/15/2019-%E4%B8%80%E3%80%81Java%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
         </p>
       
 

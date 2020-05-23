@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://0000zjn.github.io">
   <title>为git配置代理 | Zanyatta&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="各平台的 Shadowsocks 客户端都提供一个本地的 socks5 代理和一个 http 代理，建议使用socks5">
+  <meta name="description" content="一、http通道 各平台的 Shadowsocks 客户端都提供一个本地的 socks5 代理和一个 http 代理，建议使用socks5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为git配置代理">
 <meta property="og:url" content="https://0000zjn.github.io/2020/05/22/%E4%B8%BAgit%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/">
 <meta property="og:site_name" content="Zanyatta&#39;s Blog">
-<meta property="og:description" content="各平台的 Shadowsocks 客户端都提供一个本地的 socks5 代理和一个 http 代理，建议使用socks5">
+<meta property="og:description" content="一、http通道 各平台的 Shadowsocks 客户端都提供一个本地的 socks5 代理和一个 http 代理，建议使用socks5">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-21T16:00:00.000Z">
 <meta property="article:modified_time" content="2019-05-21T16:00:00.000Z">
@@ -180,19 +180,18 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <h1 id="一、http通道"><a href="#一、http通道" class="headerlink" title="一、http通道"></a>一、http通道</h1><blockquote>
 <p>各平台的 Shadowsocks 客户端都提供一个本地的 socks5 代理和一个 http 代理，建议使用socks5</p>
 </blockquote>
 <a id="more"></a>
 
-<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">地址带引号可能出错</span></span><br><span class="line"><span class="meta">#</span><span class="bash">不存在https.proxy</span></span><br><span class="line">git config --global http.proxy socks5://127.0.0.1:1086</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#地址带引号可能出错</span><br><span class="line">#不存在https.proxy</span><br><span class="line">git config --global http.proxy socks5:&#x2F;&#x2F;127.0.0.1:1086</span><br></pre></td></tr></table></figure>
 
 <p>还有针对 github.com 的单独配置，这更符合工作环境：</p>
-<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">只对github.com</span></span><br><span class="line">git config --global http.https://github.com.proxy socks5://127.0.0.1:1086</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">取消代理</span></span><br><span class="line">git config --global --unset http.https://github.com.proxy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#只对github.com</span><br><span class="line">git config --global http.https:&#x2F;&#x2F;github.com.proxy socks5:&#x2F;&#x2F;127.0.0.1:1086</span><br><span class="line"></span><br><span class="line">#取消代理</span><br><span class="line">git config --global --unset http.https:&#x2F;&#x2F;github.com.proxy</span><br></pre></td></tr></table></figure>
 
-<p>在使用 git 开头的路径时，也就是在使用 ssh 通道时<br>打开用户主目录下的 <code>.ssh/config</code> 文件，添加以下内容</p>
-<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 必须是 github.com</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">User git</span><br><span class="line">IdentityFile ~/.ssh/id_dsa</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 走 HTTP 代理</span></span><br><span class="line">ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport=8080</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 走 socks5 代理（如 Shadowsocks）</span></span><br><span class="line">ProxyCommand nc -v -x 127.0.0.1:1086 %h %p</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或</span></span><br><span class="line">ProxyCommand nc -X 5 -x 127.0.0.1:1086 %h %p</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">在windows上，因为这个bash是不带netcat的，也就找到不到nc命令。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">在win10上，有的msysgit版本集成了connect工具(没有就先安装)，所以在windows上，可以把ssh的config文件设置为：</span></span><br><span class="line">ProxyCommand connect -S 127.0.0.1:1080 %h %p</span><br><span class="line"><span class="meta">#</span><span class="bash">就可以给ssh加socks代理了。（未测试，有待勘误）</span></span><br></pre></td></tr></table></figure>
-
+<h1 id="二、ssh通道"><a href="#二、ssh通道" class="headerlink" title="二、ssh通道"></a>二、ssh通道</h1><p>打开用户主目录下的 <code>.ssh/config</code> 文件，添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 必须是 github.com</span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">User git</span><br><span class="line">IdentityFile ~&#x2F;.ssh&#x2F;id_dsa</span><br><span class="line"></span><br><span class="line"># 走 HTTP 代理</span><br><span class="line">ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport&#x3D;8080</span><br><span class="line"></span><br><span class="line"># 走 socks5 代理（如 Shadowsocks）</span><br><span class="line">ProxyCommand nc -v -x 127.0.0.1:1086 %h %p</span><br><span class="line"># 或</span><br><span class="line">ProxyCommand nc -X 5 -x 127.0.0.1:1086 %h %p</span><br><span class="line"></span><br><span class="line">#在windows上，因为这个bash是不带netcat的，也就找到不到nc命令。</span><br><span class="line">#在win10上，有的msysgit版本集成了connect工具(没有就先安装)，所以在windows上，可以把ssh的config文件设置为：</span><br><span class="line">ProxyCommand connect -S 127.0.0.1:1080 %h %p</span><br><span class="line">#就可以给ssh加socks代理了。（未测试，有待勘误）</span><br></pre></td></tr></table></figure>
 
       
 
@@ -307,9 +306,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/05/22/%E4%B8%BAnpm%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          为npm配置代理
+        
+      </div>
+    </a>
   
-    <a href="/2020/05/22/%E4%B8%BAnpm%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">为npm配置代理</div>
+  
+    <a href="/2020/05/21/%E8%87%AA%E5%B7%B1%E5%87%BA%E7%9A%84%E4%B8%80%E9%81%93%E9%A2%98%EF%BC%8C%E8%80%83%E9%AA%8C%E5%AF%B9js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E7%90%86%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js事件循环题目</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -336,7 +344,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、http通道"><span class="toc-number">1.</span> <span class="toc-text">一、http通道</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、ssh通道"><span class="toc-number">2.</span> <span class="toc-text">二、ssh通道</span></a></li></ol>
                     </div>
                 </span>
             </div>
