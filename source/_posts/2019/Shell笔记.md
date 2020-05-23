@@ -29,11 +29,11 @@ mv filename.tmp filename
 # 3. 代理
 永久代理：
 Add this script to ~/.bash_profile.
-```shell script
+```
 export http_proxy=socks5://127.0.0.1:1080
 export https_proxy=socks5://127.0.0.1:1080
 ```
 只对当前窗口有效：
-```shell script
+```
 export ALL_PROXY=socks5://127.0.0.1:1086
 ```

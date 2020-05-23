@@ -4,19 +4,19 @@ date: 2020-05-22
 updated: 2019-05-22
 tags: 代理
 ---
-
+# 一、http通道
 > 各平台的 Shadowsocks 客户端都提供一个本地的 socks5 代理和一个 http 代理，建议使用socks5
 
 <!-- more -->
 
-```shell script
+```
 #地址带引号可能出错
 #不存在https.proxy
 git config --global http.proxy socks5://127.0.0.1:1086
 ```
 
 还有针对 github.com 的单独配置，这更符合工作环境：
-```shell script
+```
 #只对github.com
 git config --global http.https://github.com.proxy socks5://127.0.0.1:1086
 
@@ -24,9 +24,9 @@ git config --global http.https://github.com.proxy socks5://127.0.0.1:1086
 git config --global --unset http.https://github.com.proxy
 ```
 
-在使用 git 开头的路径时，也就是在使用 ssh 通道时
+# 二、ssh通道
 打开用户主目录下的 `.ssh/config` 文件，添加以下内容
-```shell script
+```
 # 必须是 github.com
 Host github.com
 HostName github.com
@@ -46,4 +46,3 @@ ProxyCommand nc -X 5 -x 127.0.0.1:1086 %h %p
 ProxyCommand connect -S 127.0.0.1:1080 %h %p
 #就可以给ssh加socks代理了。（未测试，有待勘误）
 ```
-

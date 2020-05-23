@@ -10,7 +10,7 @@ cnpm太不靠谱，终端下程序又不走代理，这时候就需要一些设�
 
 # 针对npm配置的命令行操作
 
-```shell script
+```
    npm config set <key> <value> [--global]
    npm config get <key>
    npm config delete <key>
@@ -29,29 +29,29 @@ cnpm太不靠谱，终端下程序又不走代理，这时候就需要一些设�
 
 # 为npm设置代理
 
-```shell script
+```
 npm config set proxy http://127.0.0.1:1087
 npm config set https-proxy http://127.0.0.1:1087
 ```
 
 如果代理需要认证的话可以这样来设置。
-```shell script
+```
 npm config set proxy http://username:password@server:port
 npm config set https-proxy http://username:pawword@server:port
 ```
 
 如果代理不支持https的话需要修改npm存放package的网站地址。
-```shell script
+```
 npm config set registry "http://registry.npmjs.org/"
 ```
 
 清除npm的代理命令如下：
-```shell script
+```
 npm config delete http-proxy
 npm config delete https-proxy
 ```
 
 也可以单独为这次npm下载定义代理
-```shell script
+```
 npm install -g pomelo --proxy http://127.0.0.1:1087
 ```
