@@ -37,7 +37,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -51,18 +51,14 @@
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">正义的伙伴</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">加入世界，改变世界</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/archives/">归档</a></li>
 	        
 				<li><a href="/photos/">相册</a></li>
 	        
@@ -107,14 +103,10 @@
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">正义的伙伴</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>加入世界，改变世界<i class="icon icon-quo-right"></i></p>
 			
-			
-			
-				
 			
 				
 			
@@ -133,14 +125,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/photos/">相册</a></li>
+					<li style="width: 50%"><a href="/photos/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -193,13 +183,13 @@
 
 <h1 id="一、child-process（子进程）"><a href="#一、child-process（子进程）" class="headerlink" title="一、child_process（子进程）"></a>一、child_process（子进程）</h1><p>node的单线程使得在主线程不能进行CPU密集型操作，否则会阻塞主线程。对于CPU密集型操作，在node中通过child_process可以创建独立的子进程，父子进程通过IPC通信，子进程可以是外部应用也可以是node子程序，子进程执行后可以将结果返回给父进程。</p>
 <h2 id="创建子进程"><a href="#创建子进程" class="headerlink" title="创建子进程"></a>创建子进程</h2><h3 id="1-spawn-：-子进程中执行的是非node程序，提供一组参数后，执行的结果以流的形式返回。"><a href="#1-spawn-：-子进程中执行的是非node程序，提供一组参数后，执行的结果以流的形式返回。" class="headerlink" title="1.spawn ： 子进程中执行的是非node程序，提供一组参数后，执行的结果以流的形式返回。"></a>1.spawn ： 子进程中执行的是非node程序，提供一组参数后，执行的结果以流的形式返回。</h3><p>spawn同样是用于执行非node应用，且不能直接执行shell，与<code>execFile</code>相比，<code>spawn</code>执行应用后的结果并不是执行完成后一次性的输出的，而是以流的形式输出。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cp = <span class="built_in">require</span>(<span class="string">'child_process'</span>);</span><br><span class="line"><span class="keyword">let</span> cat = cp.spawn(<span class="string">'cat'</span>, [<span class="string">'input.txt'</span>]);</span><br><span class="line"><span class="keyword">let</span> sort = cp.spawn(<span class="string">'sort'</span>);</span><br><span class="line"><span class="keyword">let</span> uniq = cp.spawn(<span class="string">'uniq'</span>);</span><br><span class="line"></span><br><span class="line">cat.stdout.pipe(sort.stdin);</span><br><span class="line">sort.stdout.pipe(uniq.stdin);</span><br><span class="line">uniq.stdout.pipe(process.stdout);</span><br><span class="line"><span class="built_in">console</span>.log(process.stdout);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cp = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> cat = cp.spawn(<span class="string">&#x27;cat&#x27;</span>, [<span class="string">&#x27;input.txt&#x27;</span>]);</span><br><span class="line"><span class="keyword">let</span> sort = cp.spawn(<span class="string">&#x27;sort&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> uniq = cp.spawn(<span class="string">&#x27;uniq&#x27;</span>);</span><br><span class="line"></span><br><span class="line">cat.stdout.pipe(sort.stdin);</span><br><span class="line">sort.stdout.pipe(uniq.stdin);</span><br><span class="line">uniq.stdout.pipe(process.stdout);</span><br><span class="line"><span class="built_in">console</span>.log(process.stdout);</span><br></pre></td></tr></table></figure>
 
 <p>执行后，最后的结果将输入到process.stdout中。如果input.txt这个文件较大，那么以流的形式输入输出可以明显减小内存的占用，通过设置缓冲区的形式，减小内存占用的同时也可以提高输入输出的效率。</p>
-<h3 id="2-execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。"><a href="#2-execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。" class="headerlink" title="2.execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。"></a>2.execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">child_process.execFile(<span class="string">'echo'</span>, [<span class="string">'hello'</span>, <span class="string">'world'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">err, stdout</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(stdout);<span class="comment">// hello world</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="2-execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。"><a href="#2-execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。" class="headerlink" title="2.execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。"></a>2.execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">child_process.execFile(<span class="string">&#x27;echo&#x27;</span>, [<span class="string">&#x27;hello&#x27;</span>, <span class="string">&#x27;world&#x27;</span>], <span class="function"><span class="keyword">function</span> (<span class="params">err, stdout</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(stdout);<span class="comment">// hello world</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>execFile类似于执行了名为echo的应用，然后传入参数。execFlie会在process.env.PATH的路径中依次寻找是否有名为’echo’的应用，找到后就会执行。默认的process.env.PATH路径中包含了’usr/local/bin’，而这个’usr/local/bin’目录中就存在了这个名为’echo’的程序，传入hello和world两个参数，执行后返回。</p>
-<h3 id="3-exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。"><a href="#3-exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。" class="headerlink" title="3.exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。"></a>3.exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">child_process.exec(<span class="string">'echo hello world'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, stdout</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(stdout);<span class="comment">// hello world</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="3-exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。"><a href="#3-exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。" class="headerlink" title="3.exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。"></a>3.exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">child_process.exec(<span class="string">&#x27;echo hello world&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, stdout</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(stdout);<span class="comment">// hello world</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-fork：子进程执行的是node程序，提供一组参数后，执行的结果以流的形式返回，与spawn不同，fork生成的子进程只能执行node应用。"><a href="#4-fork：子进程执行的是node程序，提供一组参数后，执行的结果以流的形式返回，与spawn不同，fork生成的子进程只能执行node应用。" class="headerlink" title="4.fork：子进程执行的是node程序，提供一组参数后，执行的结果以流的形式返回，与spawn不同，fork生成的子进程只能执行node应用。"></a>4.fork：子进程执行的是node程序，提供一组参数后，执行的结果以流的形式返回，与<code>spawn</code>不同，<code>fork</code>生成的子进程只能执行node应用。</h3><p>在javascript中，在处理大量计算的任务方面，HTML里面通过web work来实现，使得任务脱离了主线程。node中提供了fork方法，通过fork方法在单独的进程中执行node程序，并且通过父子间的IPC通道通信，子进程接受父进程的信息，并将执行后的结果返回给父进程。</p>
 <p>在子进程中：</p>
@@ -207,9 +197,9 @@
 <p>在父进程中：</p>
 <p><strong>通过 child.on(‘message’) 和 child.send() 的机制来接收和发送消息。</strong></p>
 <p>具体例子，在child.js中：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    process.send(msg)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.on(<span class="string">&#x27;message&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    process.send(msg)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>在parent.js中：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> child_process = <span class="built_in">require</span>(<span class="string">'child_process'</span>);</span><br><span class="line"><span class="keyword">let</span> child = child_process.fork(<span class="string">'./child'</span>);</span><br><span class="line">child.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'got a message is'</span>, msg);</span><br><span class="line">&#125;);</span><br><span class="line">child.send(<span class="string">'hello world'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> child_process = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> child = child_process.fork(<span class="string">&#x27;./child&#x27;</span>);</span><br><span class="line">child.on(<span class="string">&#x27;message&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;got a message is&#x27;</span>, msg);</span><br><span class="line">&#125;);</span><br><span class="line">child.send(<span class="string">&#x27;hello world&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p>执行parent.js会在命令行输出：got a message is hello world</p>
 <h3 id="同步执行的子进程"><a href="#同步执行的子进程" class="headerlink" title="同步执行的子进程"></a>同步执行的子进程</h3><p>exec、execFile、spawn和fork执行的子进程都是默认异步的，子进程的运行不会阻塞主进程。除此之外，child_process模块同样也提供了execFileSync、spawnSync和execSync来实现同步的方式执行子进程。</p>
 <h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><h3 id="subprocess-disconnect"><a href="#subprocess-disconnect" class="headerlink" title="subprocess.disconnect()"></a>subprocess.disconnect()</h3><p>关闭父进程与子进程之间的 IPC 通道，一旦没有其他的连接使其保持活跃，则允许子进程正常退出。<br>可以通过在父进程中调用：<code>child.disconnect()</code>来实现断开父子间IPC通信。<br>当子进程是一个 Node.js 实例时（例如使用 <code>child_process.fork()</code> 衍生），也可以在子进程中调用 <code>process.disconnect()</code> 方法来关闭 IPC 通道。</p>
@@ -217,11 +207,11 @@
 <h1 id="二、cluster（集群）"><a href="#二、cluster（集群）" class="headerlink" title="二、cluster（集群）"></a>二、cluster（集群）</h1><p>node的单线程，以单一进程运行，因此无法利用多核CPU以及其他资源，为了调度多核CPU等资源，node还提供了cluster模块，利用多核CPU的资源，使得可以通过一串node子进程去处理负载任务，同时保证一定的负载均衡性。</p>
 <p>cluster 底层就是 child_process，它通过一个<strong>父进程</strong>管理一堆<strong>子进程</strong>的方式来实现集群的功能。master 进程做总控，启动 1 个 agent 和 n 个 worker，agent 来做任务调度，获取任务，并分配给某个空闲的 worker 来做。</p>
 <p>官网例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cluster = <span class="built_in">require</span>(<span class="string">'cluster'</span>);</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> numCPUs = <span class="built_in">require</span>(<span class="string">'os'</span>).cpus().length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`主进程 <span class="subst">$&#123;process.pid&#125;</span> 正在运行`</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 衍生工作进程。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numCPUs; i++) &#123;</span><br><span class="line">        cluster.fork();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cluster.on(<span class="string">'exit'</span>, (worker, code, signal) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`工作进程 <span class="subst">$&#123;worker.process.pid&#125;</span> 已退出，code：<span class="subst">$&#123;code&#125;</span>，signal：<span class="subst">$&#123;signal&#125;</span>`</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 工作进程可以共享任何 TCP 连接。</span></span><br><span class="line">    <span class="comment">// 在本例子中，共享的是 HTTP 服务器。</span></span><br><span class="line">    http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        res.writeHead(<span class="number">200</span>);</span><br><span class="line">        res.end(<span class="string">'你好世界\n'</span>);</span><br><span class="line">    &#125;).listen(<span class="number">8000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`工作进程 <span class="subst">$&#123;process.pid&#125;</span> 已启动`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cluster = <span class="built_in">require</span>(<span class="string">&#x27;cluster&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> numCPUs = <span class="built_in">require</span>(<span class="string">&#x27;os&#x27;</span>).cpus().length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`主进程 <span class="subst">$&#123;process.pid&#125;</span> 正在运行`</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 衍生工作进程。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numCPUs; i++) &#123;</span><br><span class="line">        cluster.fork();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cluster.on(<span class="string">&#x27;exit&#x27;</span>, <span class="function">(<span class="params">worker, code, signal</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`工作进程 <span class="subst">$&#123;worker.process.pid&#125;</span> 已退出，code：<span class="subst">$&#123;code&#125;</span>，signal：<span class="subst">$&#123;signal&#125;</span>`</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 工作进程可以共享任何 TCP 连接。</span></span><br><span class="line">    <span class="comment">// 在本例子中，共享的是 HTTP 服务器。</span></span><br><span class="line">    http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">        res.writeHead(<span class="number">200</span>);</span><br><span class="line">        res.end(<span class="string">&#x27;你好世界\n&#x27;</span>);</span><br><span class="line">    &#125;).listen(<span class="number">8000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`工作进程 <span class="subst">$&#123;process.pid&#125;</span> 已启动`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="三、worker-threads（工作线程）"><a href="#三、worker-threads（工作线程）" class="headerlink" title="三、worker_threads（工作线程）"></a>三、worker_threads（工作线程）</h1><p>工作线程对于执行 CPU 密集型的 JavaScript 操作非常有用。 它们在 I/O 密集型的工作中用途不大。 Node.js 的内置的异步 I/O 操作比工作线程效率更高。</p>
 <p>官方例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;Worker, isMainThread, parentPort, workerData&#125; = <span class="built_in">require</span>(<span class="string">'worker_threads'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (isMainThread) &#123;</span><br><span class="line">    <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">parseJSAsync</span>(<span class="params">script</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> worker = <span class="keyword">new</span> Worker(__filename, &#123;</span><br><span class="line">                workerData: script</span><br><span class="line">            &#125;);</span><br><span class="line">            worker.on(<span class="string">'message'</span>, resolve);</span><br><span class="line">            worker.on(<span class="string">'error'</span>, reject);</span><br><span class="line">            worker.on(<span class="string">'exit'</span>, (code) =&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span> (code !== <span class="number">0</span>)</span><br><span class="line">                    reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`工作线程使用退出码 <span class="subst">$&#123;code&#125;</span> 停止`</span>));</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;parse&#125; = <span class="built_in">require</span>(<span class="string">'一些 js 解析库'</span>);</span><br><span class="line">    <span class="keyword">const</span> script = workerData;</span><br><span class="line">    parentPort.postMessage(parse(script));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;Worker, isMainThread, parentPort, workerData&#125; = <span class="built_in">require</span>(<span class="string">&#x27;worker_threads&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (isMainThread) &#123;</span><br><span class="line">    <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">parseJSAsync</span>(<span class="params">script</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> worker = <span class="keyword">new</span> Worker(__filename, &#123;</span><br><span class="line">                workerData: script</span><br><span class="line">            &#125;);</span><br><span class="line">            worker.on(<span class="string">&#x27;message&#x27;</span>, resolve);</span><br><span class="line">            worker.on(<span class="string">&#x27;error&#x27;</span>, reject);</span><br><span class="line">            worker.on(<span class="string">&#x27;exit&#x27;</span>, <span class="function">(<span class="params">code</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (code !== <span class="number">0</span>)</span><br><span class="line">                    reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`工作线程使用退出码 <span class="subst">$&#123;code&#125;</span> 停止`</span>));</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;parse&#125; = <span class="built_in">require</span>(<span class="string">&#x27;一些 js 解析库&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> script = workerData;</span><br><span class="line">    parentPort.postMessage(parse(script));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="重要方法"><a href="#重要方法" class="headerlink" title="重要方法"></a>重要方法</h2><h3 id="port-postMessage-value-transferList"><a href="#port-postMessage-value-transferList" class="headerlink" title="port.postMessage(value[, transferList])"></a>port.postMessage(value[, transferList])</h3><ul>
 <li>value <any> 传输值（或指针）</li>
@@ -230,12 +220,12 @@
 <p>将JavaScript值发送到此通道的接收端。值将以与HTML结构化克隆算法兼容的方式进行传输。</p>
 <p>特别是，与JSON的显着区别是：</p>
 <p><code>value</code>可能包含循环引用。<br><code>value</code>可能包含内置JS类型的实例，例如RegExps，BigInts，Maps，Sets等。<br><code>value</code>可能包含使用<code>ArrayBuffers</code>和<code>SharedArrayBuffers</code>的类型化数组。<br><code>value</code>可能包含<code>WebAssembly.Module</code>实例。<br><code>value</code>可能不包含<code>MessagePort</code>s以外的本机（C ++支持）对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; MessageChannel &#125; = <span class="built_in">require</span>(<span class="string">'worker_threads'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; port1, port2 &#125; = <span class="keyword">new</span> MessageChannel();</span><br><span class="line"></span><br><span class="line">port1.on(<span class="string">'message'</span>, (message) =&gt; <span class="built_in">console</span>.log(message));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> circularData = &#123;&#125;;</span><br><span class="line">circularData.foo = circularData;<span class="comment">// 循环引用</span></span><br><span class="line"><span class="comment">// Prints: &#123; foo: [Circular] &#125;</span></span><br><span class="line">port2.postMessage(circularData);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; MessageChannel &#125; = <span class="built_in">require</span>(<span class="string">&#x27;worker_threads&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; port1, port2 &#125; = <span class="keyword">new</span> MessageChannel();</span><br><span class="line"></span><br><span class="line">port1.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">message</span>) =&gt;</span> <span class="built_in">console</span>.log(message));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> circularData = &#123;&#125;;</span><br><span class="line">circularData.foo = circularData;<span class="comment">// 循环引用</span></span><br><span class="line"><span class="comment">// Prints: &#123; foo: [Circular] &#125;</span></span><br><span class="line">port2.postMessage(circularData);</span><br></pre></td></tr></table></figure>
 
 <p><code>transferList</code>可能是<code>ArrayBuffer</code>和<code>MessagePort</code>对象的列表。传输后，它们将不再在通道的发送端使用（即使它们不包含在<code>value</code>中）。与子进程不同，当前不支持传输句柄（例如网络套接字）。</p>
 <p>如果<code>value</code>包含<code>SharedArrayBuffer</code>实例，则可以从任一线程访问这些实例。它们不能在<code>transferList</code>中列出。</p>
 <p><code>value</code>可能包含不在<code>transferList</code>中的<code>ArrayBuffer</code>实例；在这种情况下，底层内存将被复制而不是移动。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; MessageChannel &#125; = <span class="built_in">require</span>(<span class="string">'worker_threads'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; port1, port2 &#125; = <span class="keyword">new</span> MessageChannel();</span><br><span class="line"></span><br><span class="line">port1.on(<span class="string">'message'</span>, (message) =&gt; <span class="built_in">console</span>.log(message));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> uint8Array = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>([ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> ]);</span><br><span class="line"><span class="comment">// 这发出了`uint8Array`的副本：</span></span><br><span class="line">port2.postMessage(uint8Array);</span><br><span class="line"><span class="comment">// 这不会复制数据，但会导致`uint8Array`无法使用：</span></span><br><span class="line">port2.postMessage(uint8Array, [ uint8Array.buffer ]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//从`.on('message')`接收到的原始副本和副本中都可以访问`sharedUint8Array`的内存：</span></span><br><span class="line"><span class="keyword">const</span> sharedUint8Array = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(<span class="keyword">new</span> SharedArrayBuffer(<span class="number">4</span>));</span><br><span class="line">port2.postMessage(sharedUint8Array);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这会将新创建的消息端口传输到接收器。</span></span><br><span class="line"><span class="comment">//例如，这可用于在作为同一父线程的子级的多个`Worker`线程之间创建通信通道。</span></span><br><span class="line"><span class="keyword">const</span> otherChannel = <span class="keyword">new</span> MessageChannel();</span><br><span class="line">port2.postMessage(&#123; <span class="attr">port</span>: otherChannel.port1 &#125;, [ otherChannel.port1 ]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; MessageChannel &#125; = <span class="built_in">require</span>(<span class="string">&#x27;worker_threads&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; port1, port2 &#125; = <span class="keyword">new</span> MessageChannel();</span><br><span class="line"></span><br><span class="line">port1.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">message</span>) =&gt;</span> <span class="built_in">console</span>.log(message));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> uint8Array = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>([ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> ]);</span><br><span class="line"><span class="comment">// 这发出了`uint8Array`的副本：</span></span><br><span class="line">port2.postMessage(uint8Array);</span><br><span class="line"><span class="comment">// 这不会复制数据，但会导致`uint8Array`无法使用：</span></span><br><span class="line">port2.postMessage(uint8Array, [ uint8Array.buffer ]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//从`.on(&#x27;message&#x27;)`接收到的原始副本和副本中都可以访问`sharedUint8Array`的内存：</span></span><br><span class="line"><span class="keyword">const</span> sharedUint8Array = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(<span class="keyword">new</span> SharedArrayBuffer(<span class="number">4</span>));</span><br><span class="line">port2.postMessage(sharedUint8Array);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这会将新创建的消息端口传输到接收器。</span></span><br><span class="line"><span class="comment">//例如，这可用于在作为同一父线程的子级的多个`Worker`线程之间创建通信通道。</span></span><br><span class="line"><span class="keyword">const</span> otherChannel = <span class="keyword">new</span> MessageChannel();</span><br><span class="line">port2.postMessage(&#123; <span class="attr">port</span>: otherChannel.port1 &#125;, [ otherChannel.port1 ]);</span><br></pre></td></tr></table></figure>
 
 <p>由于对象克隆使用结构化克隆算法，因此不会保留不可枚举的属性，属性访问器和对象原型。特别是，在接收方，<code>Buffer</code>对象将作为普通的<code>Uint8Arrays</code>读取。</p>
 <p>消息对象将被立即克隆，并且可以在发出后进行修改而不会产生副作用。</p>
@@ -354,7 +344,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/21/%E9%98%BF%E9%87%8CServerless%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/21/2020/04/%E9%98%BF%E9%87%8CServerless%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -392,7 +382,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、child-process（子进程）"><span class="toc-number">2.</span> <span class="toc-text">一、child_process（子进程）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建子进程"><span class="toc-number">2.1.</span> <span class="toc-text">创建子进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-spawn-：-子进程中执行的是非node程序，提供一组参数后，执行的结果以流的形式返回。"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.spawn ： 子进程中执行的是非node程序，提供一组参数后，执行的结果以流的形式返回。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。"><span class="toc-number">2.1.3.</span> <span class="toc-text">3.exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-fork：子进程执行的是node程序，提供一组参数后，执行的结果以流的形式返回，与spawn不同，fork生成的子进程只能执行node应用。"><span class="toc-number">2.1.4.</span> <span class="toc-text">4.fork：子进程执行的是node程序，提供一组参数后，执行的结果以流的形式返回，与spawn不同，fork生成的子进程只能执行node应用。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步执行的子进程"><span class="toc-number">2.1.5.</span> <span class="toc-text">同步执行的子进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他方法"><span class="toc-number">2.2.</span> <span class="toc-text">其他方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#subprocess-disconnect"><span class="toc-number">2.2.1.</span> <span class="toc-text">subprocess.disconnect()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#subprocess-kill-signal"><span class="toc-number">2.2.2.</span> <span class="toc-text">subprocess.kill([signal])</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、cluster（集群）"><span class="toc-number">3.</span> <span class="toc-text">二、cluster（集群）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、worker-threads（工作线程）"><span class="toc-number">4.</span> <span class="toc-text">三、worker_threads（工作线程）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重要方法"><span class="toc-number">4.1.</span> <span class="toc-text">重要方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#port-postMessage-value-transferList"><span class="toc-number">4.1.1.</span> <span class="toc-text">port.postMessage(value[, transferList])</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81child-process%EF%BC%88%E5%AD%90%E8%BF%9B%E7%A8%8B%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">一、child_process（子进程）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%90%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">创建子进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-spawn-%EF%BC%9A-%E5%AD%90%E8%BF%9B%E7%A8%8B%E4%B8%AD%E6%89%A7%E8%A1%8C%E7%9A%84%E6%98%AF%E9%9D%9Enode%E7%A8%8B%E5%BA%8F%EF%BC%8C%E6%8F%90%E4%BE%9B%E4%B8%80%E7%BB%84%E5%8F%82%E6%95%B0%E5%90%8E%EF%BC%8C%E6%89%A7%E8%A1%8C%E7%9A%84%E7%BB%93%E6%9E%9C%E4%BB%A5%E6%B5%81%E7%9A%84%E5%BD%A2%E5%BC%8F%E8%BF%94%E5%9B%9E%E3%80%82"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.spawn ： 子进程中执行的是非node程序，提供一组参数后，执行的结果以流的形式返回。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-execFile%EF%BC%9A%E5%AD%90%E8%BF%9B%E7%A8%8B%E4%B8%AD%E6%89%A7%E8%A1%8C%E7%9A%84%E6%98%AF%E9%9D%9Enode%E7%A8%8B%E5%BA%8F%EF%BC%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8%EF%BC%8C%E6%8F%90%E4%BE%9B%E4%B8%80%E7%BB%84%E5%8F%82%E6%95%B0%E5%90%8E%EF%BC%8C%E6%89%A7%E8%A1%8C%E7%9A%84%E7%BB%93%E6%9E%9C%E4%BB%A5%E5%9B%9E%E8%B0%83%E7%9A%84%E5%BD%A2%E5%BC%8F%E8%BF%94%E5%9B%9E%E3%80%82"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.execFile：子进程中执行的是非node程序，是一个应用，提供一组参数后，执行的结果以回调的形式返回。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-exec%EF%BC%9A%E5%AD%90%E8%BF%9B%E7%A8%8B%E6%89%A7%E8%A1%8C%E7%9A%84%E6%98%AF%E9%9D%9Enode%E7%A8%8B%E5%BA%8F%EF%BC%8C%E4%BC%A0%E5%85%A5%E4%B8%80%E4%B8%B2shell%E5%91%BD%E4%BB%A4%EF%BC%8C%E6%89%A7%E8%A1%8C%E5%90%8E%E7%BB%93%E6%9E%9C%E4%BB%A5%E5%9B%9E%E8%B0%83%E7%9A%84%E5%BD%A2%E5%BC%8F%E8%BF%94%E5%9B%9E%E3%80%82"><span class="toc-number">2.1.3.</span> <span class="toc-text">3.exec：子进程执行的是非node程序，传入一串shell命令，执行后结果以回调的形式返回。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-fork%EF%BC%9A%E5%AD%90%E8%BF%9B%E7%A8%8B%E6%89%A7%E8%A1%8C%E7%9A%84%E6%98%AFnode%E7%A8%8B%E5%BA%8F%EF%BC%8C%E6%8F%90%E4%BE%9B%E4%B8%80%E7%BB%84%E5%8F%82%E6%95%B0%E5%90%8E%EF%BC%8C%E6%89%A7%E8%A1%8C%E7%9A%84%E7%BB%93%E6%9E%9C%E4%BB%A5%E6%B5%81%E7%9A%84%E5%BD%A2%E5%BC%8F%E8%BF%94%E5%9B%9E%EF%BC%8C%E4%B8%8Espawn%E4%B8%8D%E5%90%8C%EF%BC%8Cfork%E7%94%9F%E6%88%90%E7%9A%84%E5%AD%90%E8%BF%9B%E7%A8%8B%E5%8F%AA%E8%83%BD%E6%89%A7%E8%A1%8Cnode%E5%BA%94%E7%94%A8%E3%80%82"><span class="toc-number">2.1.4.</span> <span class="toc-text">4.fork：子进程执行的是node程序，提供一组参数后，执行的结果以流的形式返回，与spawn不同，fork生成的子进程只能执行node应用。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AD%90%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.1.5.</span> <span class="toc-text">同步执行的子进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">其他方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#subprocess-disconnect"><span class="toc-number">2.2.1.</span> <span class="toc-text">subprocess.disconnect()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#subprocess-kill-signal"><span class="toc-number">2.2.2.</span> <span class="toc-text">subprocess.kill([signal])</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81cluster%EF%BC%88%E9%9B%86%E7%BE%A4%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">二、cluster（集群）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81worker-threads%EF%BC%88%E5%B7%A5%E4%BD%9C%E7%BA%BF%E7%A8%8B%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">三、worker_threads（工作线程）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">重要方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#port-postMessage-value-transferList"><span class="toc-number">4.1.1.</span> <span class="toc-text">port.postMessage(value[, transferList])</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -527,54 +517,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代理</a>
               </li>
              
@@ -583,7 +525,55 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

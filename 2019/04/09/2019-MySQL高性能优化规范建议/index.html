@@ -37,7 +37,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -51,18 +51,14 @@
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">正义的伙伴</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">加入世界，改变世界</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/archives/">归档</a></li>
 	        
 				<li><a href="/photos/">相册</a></li>
 	        
@@ -107,14 +103,10 @@
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">正义的伙伴</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>加入世界，改变世界<i class="icon icon-quo-right"></i></p>
 			
-			
-			
-				
 			
 				
 			
@@ -133,14 +125,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/photos/">相册</a></li>
+					<li style="width: 50%"><a href="/photos/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -523,7 +513,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、数据库命令规范"><span class="toc-number">1.</span> <span class="toc-text">一、数据库命令规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、数据库基本设计规范"><span class="toc-number">2.</span> <span class="toc-text">二、数据库基本设计规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-所有表必须使用-Innodb-存储引擎"><span class="toc-number">2.1.</span> <span class="toc-text">1. 所有表必须使用 Innodb 存储引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-数据库和表的字符集统一使用-UTF-8"><span class="toc-number">2.2.</span> <span class="toc-text">2. 数据库和表的字符集统一使用 UTF-8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-所有表和字段都需要添加注释"><span class="toc-number">2.3.</span> <span class="toc-text">3. 所有表和字段都需要添加注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-尽量控制单表数据量的大小-建议控制在-500-万以内。"><span class="toc-number">2.4.</span> <span class="toc-text">4. 尽量控制单表数据量的大小,建议控制在 500 万以内。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-谨慎使用-MySQL-分区表"><span class="toc-number">2.5.</span> <span class="toc-text">5. 谨慎使用 MySQL 分区表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-尽量做到冷热数据分离-减小表的宽度"><span class="toc-number">2.6.</span> <span class="toc-text">6.尽量做到冷热数据分离,减小表的宽度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-禁止在表中建立预留字段"><span class="toc-number">2.7.</span> <span class="toc-text">7. 禁止在表中建立预留字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-禁止在数据库中存储图片-文件等大的二进制数据"><span class="toc-number">2.8.</span> <span class="toc-text">8. 禁止在数据库中存储图片,文件等大的二进制数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-禁止在线上做数据库压力测试"><span class="toc-number">2.9.</span> <span class="toc-text">9. 禁止在线上做数据库压力测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-禁止从开发环境-测试环境直接连接生成环境数据库"><span class="toc-number">2.10.</span> <span class="toc-text">10. 禁止从开发环境,测试环境直接连接生成环境数据库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、数据库字段设计规范"><span class="toc-number">3.</span> <span class="toc-text">三、数据库字段设计规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-优先选择符合存储需要的最小的数据类型"><span class="toc-number">3.1.</span> <span class="toc-text">1. 优先选择符合存储需要的最小的数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-避免使用-TEXT-BLOB-数据类型，最常见的-TEXT-类型可以存储-64k-的数据"><span class="toc-number">3.2.</span> <span class="toc-text">2. 避免使用 TEXT,BLOB 数据类型，最常见的 TEXT 类型可以存储 64k 的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-避免使用-ENUM-类型"><span class="toc-number">3.3.</span> <span class="toc-text">3. 避免使用 ENUM 类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-尽可能把所有列定义为-NOT-NULL"><span class="toc-number">3.4.</span> <span class="toc-text">4. 尽可能把所有列定义为 NOT NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-使用-TIMESTAMP-4-个字节-或-DATETIME-类型-8-个字节-存储时间"><span class="toc-number">3.5.</span> <span class="toc-text">5. 使用 TIMESTAMP(4 个字节) 或 DATETIME 类型 (8 个字节) 存储时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-同财务相关的金额类数据必须使用-decimal-类型"><span class="toc-number">3.6.</span> <span class="toc-text">6. 同财务相关的金额类数据必须使用 decimal 类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、索引设计规范"><span class="toc-number">4.</span> <span class="toc-text">四、索引设计规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-限制每张表上的索引数量-建议单张表索引不超过-5-个"><span class="toc-number">4.1.</span> <span class="toc-text">1. 限制每张表上的索引数量,建议单张表索引不超过 5 个</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-禁止给表中的每一列都建立单独的索引"><span class="toc-number">4.2.</span> <span class="toc-text">2. 禁止给表中的每一列都建立单独的索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-每个-Innodb-表必须有个主键"><span class="toc-number">4.3.</span> <span class="toc-text">3. 每个 Innodb 表必须有个主键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-常见索引列建议"><span class="toc-number">4.4.</span> <span class="toc-text">4. 常见索引列建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-如何选择索引列的顺序"><span class="toc-number">4.5.</span> <span class="toc-text">5. 如何选择索引列的顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-避免建立冗余索引和重复索引（增加了查询优化器生成执行计划的时间）"><span class="toc-number">4.6.</span> <span class="toc-text">6. 避免建立冗余索引和重复索引（增加了查询优化器生成执行计划的时间）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-对于频繁的查询优先考虑使用覆盖索引"><span class="toc-number">4.7.</span> <span class="toc-text">7. 对于频繁的查询优先考虑使用覆盖索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-索引-SET-规范"><span class="toc-number">4.8.</span> <span class="toc-text">8. 索引 SET 规范</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、数据库-SQL-开发规范"><span class="toc-number">5.</span> <span class="toc-text">五、数据库 SQL 开发规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-建议使用预编译语句进行数据库操作"><span class="toc-number">5.1.</span> <span class="toc-text">1. 建议使用预编译语句进行数据库操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-避免数据类型的隐式转换"><span class="toc-number">5.2.</span> <span class="toc-text">2. 避免数据类型的隐式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-充分利用表上已经存在的索引"><span class="toc-number">5.3.</span> <span class="toc-text">3. 充分利用表上已经存在的索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-数据库设计时，应该要对以后扩展进行考虑"><span class="toc-number">5.4.</span> <span class="toc-text">4. 数据库设计时，应该要对以后扩展进行考虑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-程序连接不同的数据库使用不同的账号，进制跨库查询"><span class="toc-number">5.5.</span> <span class="toc-text">5. 程序连接不同的数据库使用不同的账号，进制跨库查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-禁止使用-SELECT-必须使用-SELECT-lt-字段列表-gt-查询"><span class="toc-number">5.6.</span> <span class="toc-text">6. 禁止使用 SELECT * 必须使用 SELECT &lt;字段列表&gt; 查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-禁止使用不含字段列表的-INSERT-语句"><span class="toc-number">5.7.</span> <span class="toc-text">7. 禁止使用不含字段列表的 INSERT 语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-避免使用子查询，可以把子查询优化为-join-操作"><span class="toc-number">5.8.</span> <span class="toc-text">8. 避免使用子查询，可以把子查询优化为 join 操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-避免使用-JOIN-关联太多的表"><span class="toc-number">5.9.</span> <span class="toc-text">9. 避免使用 JOIN 关联太多的表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-减少同数据库的交互次数"><span class="toc-number">5.10.</span> <span class="toc-text">10. 减少同数据库的交互次数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-对应同一列进行-or-判断时，使用-in-代替-or"><span class="toc-number">5.11.</span> <span class="toc-text">11. 对应同一列进行 or 判断时，使用 in 代替 or</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-禁止使用-order-by-rand-进行随机排序"><span class="toc-number">5.12.</span> <span class="toc-text">12. 禁止使用 order by rand() 进行随机排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-WHERE-从句中禁止对列进行函数转换和计算"><span class="toc-number">5.13.</span> <span class="toc-text">13. WHERE 从句中禁止对列进行函数转换和计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-拆分复杂的大-SQL-为多个小-SQL"><span class="toc-number">5.14.</span> <span class="toc-text">15. 拆分复杂的大 SQL 为多个小 SQL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、数据库操作行为规范"><span class="toc-number">6.</span> <span class="toc-text">六、数据库操作行为规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-超-100-万行的批量写-UPDATE-DELETE-INSERT-操作-要分批多次进行操作"><span class="toc-number">6.1.</span> <span class="toc-text">1. 超 100 万行的批量写 (UPDATE,DELETE,INSERT) 操作,要分批多次进行操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-对于大表使用-pt-online-schema-change-修改表结构"><span class="toc-number">6.2.</span> <span class="toc-text">2. 对于大表使用 pt-online-schema-change 修改表结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-禁止为程序使用的账号赋予-super-权限"><span class="toc-number">6.3.</span> <span class="toc-text">3. 禁止为程序使用的账号赋予 super 权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-对于程序连接数据库账号-遵循权限最小原则"><span class="toc-number">6.4.</span> <span class="toc-text">4. 对于程序连接数据库账号,遵循权限最小原则</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E5%91%BD%E4%BB%A4%E8%A7%84%E8%8C%83"><span class="toc-number">1.</span> <span class="toc-text">一、数据库命令规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">二、数据库基本设计规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%89%80%E6%9C%89%E8%A1%A8%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8-Innodb-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">2.1.</span> <span class="toc-text">1. 所有表必须使用 Innodb 存储引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8%E7%9A%84%E5%AD%97%E7%AC%A6%E9%9B%86%E7%BB%9F%E4%B8%80%E4%BD%BF%E7%94%A8-UTF-8"><span class="toc-number">2.2.</span> <span class="toc-text">2. 数据库和表的字符集统一使用 UTF-8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%89%80%E6%9C%89%E8%A1%A8%E5%92%8C%E5%AD%97%E6%AE%B5%E9%83%BD%E9%9C%80%E8%A6%81%E6%B7%BB%E5%8A%A0%E6%B3%A8%E9%87%8A"><span class="toc-number">2.3.</span> <span class="toc-text">3. 所有表和字段都需要添加注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B0%BD%E9%87%8F%E6%8E%A7%E5%88%B6%E5%8D%95%E8%A1%A8%E6%95%B0%E6%8D%AE%E9%87%8F%E7%9A%84%E5%A4%A7%E5%B0%8F-%E5%BB%BA%E8%AE%AE%E6%8E%A7%E5%88%B6%E5%9C%A8-500-%E4%B8%87%E4%BB%A5%E5%86%85%E3%80%82"><span class="toc-number">2.4.</span> <span class="toc-text">4. 尽量控制单表数据量的大小,建议控制在 500 万以内。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B0%A8%E6%85%8E%E4%BD%BF%E7%94%A8-MySQL-%E5%88%86%E5%8C%BA%E8%A1%A8"><span class="toc-number">2.5.</span> <span class="toc-text">5. 谨慎使用 MySQL 分区表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B0%BD%E9%87%8F%E5%81%9A%E5%88%B0%E5%86%B7%E7%83%AD%E6%95%B0%E6%8D%AE%E5%88%86%E7%A6%BB-%E5%87%8F%E5%B0%8F%E8%A1%A8%E7%9A%84%E5%AE%BD%E5%BA%A6"><span class="toc-number">2.6.</span> <span class="toc-text">6.尽量做到冷热数据分离,减小表的宽度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%A6%81%E6%AD%A2%E5%9C%A8%E8%A1%A8%E4%B8%AD%E5%BB%BA%E7%AB%8B%E9%A2%84%E7%95%99%E5%AD%97%E6%AE%B5"><span class="toc-number">2.7.</span> <span class="toc-text">7. 禁止在表中建立预留字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%A6%81%E6%AD%A2%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%AD%98%E5%82%A8%E5%9B%BE%E7%89%87-%E6%96%87%E4%BB%B6%E7%AD%89%E5%A4%A7%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE"><span class="toc-number">2.8.</span> <span class="toc-text">8. 禁止在数据库中存储图片,文件等大的二进制数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E7%A6%81%E6%AD%A2%E5%9C%A8%E7%BA%BF%E4%B8%8A%E5%81%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95"><span class="toc-number">2.9.</span> <span class="toc-text">9. 禁止在线上做数据库压力测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E7%A6%81%E6%AD%A2%E4%BB%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83-%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E7%9B%B4%E6%8E%A5%E8%BF%9E%E6%8E%A5%E7%94%9F%E6%88%90%E7%8E%AF%E5%A2%83%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.10.</span> <span class="toc-text">10. 禁止从开发环境,测试环境直接连接生成环境数据库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%97%E6%AE%B5%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83"><span class="toc-number">3.</span> <span class="toc-text">三、数据库字段设计规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BC%98%E5%85%88%E9%80%89%E6%8B%A9%E7%AC%A6%E5%90%88%E5%AD%98%E5%82%A8%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.1.</span> <span class="toc-text">1. 优先选择符合存储需要的最小的数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8-TEXT-BLOB-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%8C%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84-TEXT-%E7%B1%BB%E5%9E%8B%E5%8F%AF%E4%BB%A5%E5%AD%98%E5%82%A8-64k-%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.</span> <span class="toc-text">2. 避免使用 TEXT,BLOB 数据类型，最常见的 TEXT 类型可以存储 64k 的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8-ENUM-%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.3.</span> <span class="toc-text">3. 避免使用 ENUM 类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B0%BD%E5%8F%AF%E8%83%BD%E6%8A%8A%E6%89%80%E6%9C%89%E5%88%97%E5%AE%9A%E4%B9%89%E4%B8%BA-NOT-NULL"><span class="toc-number">3.4.</span> <span class="toc-text">4. 尽可能把所有列定义为 NOT NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BD%BF%E7%94%A8-TIMESTAMP-4-%E4%B8%AA%E5%AD%97%E8%8A%82-%E6%88%96-DATETIME-%E7%B1%BB%E5%9E%8B-8-%E4%B8%AA%E5%AD%97%E8%8A%82-%E5%AD%98%E5%82%A8%E6%97%B6%E9%97%B4"><span class="toc-number">3.5.</span> <span class="toc-text">5. 使用 TIMESTAMP(4 个字节) 或 DATETIME 类型 (8 个字节) 存储时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%90%8C%E8%B4%A2%E5%8A%A1%E7%9B%B8%E5%85%B3%E7%9A%84%E9%87%91%E9%A2%9D%E7%B1%BB%E6%95%B0%E6%8D%AE%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8-decimal-%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.6.</span> <span class="toc-text">6. 同财务相关的金额类数据必须使用 decimal 类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83"><span class="toc-number">4.</span> <span class="toc-text">四、索引设计规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%99%90%E5%88%B6%E6%AF%8F%E5%BC%A0%E8%A1%A8%E4%B8%8A%E7%9A%84%E7%B4%A2%E5%BC%95%E6%95%B0%E9%87%8F-%E5%BB%BA%E8%AE%AE%E5%8D%95%E5%BC%A0%E8%A1%A8%E7%B4%A2%E5%BC%95%E4%B8%8D%E8%B6%85%E8%BF%87-5-%E4%B8%AA"><span class="toc-number">4.1.</span> <span class="toc-text">1. 限制每张表上的索引数量,建议单张表索引不超过 5 个</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%A6%81%E6%AD%A2%E7%BB%99%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%AF%8F%E4%B8%80%E5%88%97%E9%83%BD%E5%BB%BA%E7%AB%8B%E5%8D%95%E7%8B%AC%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="toc-number">4.2.</span> <span class="toc-text">2. 禁止给表中的每一列都建立单独的索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%AF%8F%E4%B8%AA-Innodb-%E8%A1%A8%E5%BF%85%E9%A1%BB%E6%9C%89%E4%B8%AA%E4%B8%BB%E9%94%AE"><span class="toc-number">4.3.</span> <span class="toc-text">3. 每个 Innodb 表必须有个主键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B8%B8%E8%A7%81%E7%B4%A2%E5%BC%95%E5%88%97%E5%BB%BA%E8%AE%AE"><span class="toc-number">4.4.</span> <span class="toc-text">4. 常见索引列建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E7%B4%A2%E5%BC%95%E5%88%97%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="toc-number">4.5.</span> <span class="toc-text">5. 如何选择索引列的顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%81%BF%E5%85%8D%E5%BB%BA%E7%AB%8B%E5%86%97%E4%BD%99%E7%B4%A2%E5%BC%95%E5%92%8C%E9%87%8D%E5%A4%8D%E7%B4%A2%E5%BC%95%EF%BC%88%E5%A2%9E%E5%8A%A0%E4%BA%86%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E5%99%A8%E7%94%9F%E6%88%90%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%89"><span class="toc-number">4.6.</span> <span class="toc-text">6. 避免建立冗余索引和重复索引（增加了查询优化器生成执行计划的时间）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%AF%B9%E4%BA%8E%E9%A2%91%E7%B9%81%E7%9A%84%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95"><span class="toc-number">4.7.</span> <span class="toc-text">7. 对于频繁的查询优先考虑使用覆盖索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%B4%A2%E5%BC%95-SET-%E8%A7%84%E8%8C%83"><span class="toc-number">4.8.</span> <span class="toc-text">8. 索引 SET 规范</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93-SQL-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83"><span class="toc-number">5.</span> <span class="toc-text">五、数据库 SQL 开发规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8%E9%A2%84%E7%BC%96%E8%AF%91%E8%AF%AD%E5%8F%A5%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">5.1.</span> <span class="toc-text">1. 建议使用预编译语句进行数据库操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%81%BF%E5%85%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number">5.2.</span> <span class="toc-text">2. 避免数据类型的隐式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%85%E5%88%86%E5%88%A9%E7%94%A8%E8%A1%A8%E4%B8%8A%E5%B7%B2%E7%BB%8F%E5%AD%98%E5%9C%A8%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="toc-number">5.3.</span> <span class="toc-text">3. 充分利用表上已经存在的索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E6%97%B6%EF%BC%8C%E5%BA%94%E8%AF%A5%E8%A6%81%E5%AF%B9%E4%BB%A5%E5%90%8E%E6%89%A9%E5%B1%95%E8%BF%9B%E8%A1%8C%E8%80%83%E8%99%91"><span class="toc-number">5.4.</span> <span class="toc-text">4. 数据库设计时，应该要对以后扩展进行考虑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%A8%8B%E5%BA%8F%E8%BF%9E%E6%8E%A5%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E8%B4%A6%E5%8F%B7%EF%BC%8C%E8%BF%9B%E5%88%B6%E8%B7%A8%E5%BA%93%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.5.</span> <span class="toc-text">5. 程序连接不同的数据库使用不同的账号，进制跨库查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E7%A6%81%E6%AD%A2%E4%BD%BF%E7%94%A8-SELECT-%E5%BF%85%E9%A1%BB%E4%BD%BF%E7%94%A8-SELECT-lt-%E5%AD%97%E6%AE%B5%E5%88%97%E8%A1%A8-gt-%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.6.</span> <span class="toc-text">6. 禁止使用 SELECT * 必须使用 SELECT &lt;字段列表&gt; 查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%A6%81%E6%AD%A2%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%AB%E5%AD%97%E6%AE%B5%E5%88%97%E8%A1%A8%E7%9A%84-INSERT-%E8%AF%AD%E5%8F%A5"><span class="toc-number">5.7.</span> <span class="toc-text">7. 禁止使用不含字段列表的 INSERT 语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E5%AD%90%E6%9F%A5%E8%AF%A2%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8A%8A%E5%AD%90%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E4%B8%BA-join-%E6%93%8D%E4%BD%9C"><span class="toc-number">5.8.</span> <span class="toc-text">8. 避免使用子查询，可以把子查询优化为 join 操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8-JOIN-%E5%85%B3%E8%81%94%E5%A4%AA%E5%A4%9A%E7%9A%84%E8%A1%A8"><span class="toc-number">5.9.</span> <span class="toc-text">9. 避免使用 JOIN 关联太多的表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%87%8F%E5%B0%91%E5%90%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BA%A4%E4%BA%92%E6%AC%A1%E6%95%B0"><span class="toc-number">5.10.</span> <span class="toc-text">10. 减少同数据库的交互次数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%AF%B9%E5%BA%94%E5%90%8C%E4%B8%80%E5%88%97%E8%BF%9B%E8%A1%8C-or-%E5%88%A4%E6%96%AD%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8-in-%E4%BB%A3%E6%9B%BF-or"><span class="toc-number">5.11.</span> <span class="toc-text">11. 对应同一列进行 or 判断时，使用 in 代替 or</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E7%A6%81%E6%AD%A2%E4%BD%BF%E7%94%A8-order-by-rand-%E8%BF%9B%E8%A1%8C%E9%9A%8F%E6%9C%BA%E6%8E%92%E5%BA%8F"><span class="toc-number">5.12.</span> <span class="toc-text">12. 禁止使用 order by rand() 进行随机排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-WHERE-%E4%BB%8E%E5%8F%A5%E4%B8%AD%E7%A6%81%E6%AD%A2%E5%AF%B9%E5%88%97%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E8%BD%AC%E6%8D%A2%E5%92%8C%E8%AE%A1%E7%AE%97"><span class="toc-number">5.13.</span> <span class="toc-text">13. WHERE 从句中禁止对列进行函数转换和计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-%E6%8B%86%E5%88%86%E5%A4%8D%E6%9D%82%E7%9A%84%E5%A4%A7-SQL-%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%B0%8F-SQL"><span class="toc-number">5.14.</span> <span class="toc-text">15. 拆分复杂的大 SQL 为多个小 SQL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E8%A1%8C%E4%B8%BA%E8%A7%84%E8%8C%83"><span class="toc-number">6.</span> <span class="toc-text">六、数据库操作行为规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%B6%85-100-%E4%B8%87%E8%A1%8C%E7%9A%84%E6%89%B9%E9%87%8F%E5%86%99-UPDATE-DELETE-INSERT-%E6%93%8D%E4%BD%9C-%E8%A6%81%E5%88%86%E6%89%B9%E5%A4%9A%E6%AC%A1%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C"><span class="toc-number">6.1.</span> <span class="toc-text">1. 超 100 万行的批量写 (UPDATE,DELETE,INSERT) 操作,要分批多次进行操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%B9%E4%BA%8E%E5%A4%A7%E8%A1%A8%E4%BD%BF%E7%94%A8-pt-online-schema-change-%E4%BF%AE%E6%94%B9%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="toc-number">6.2.</span> <span class="toc-text">2. 对于大表使用 pt-online-schema-change 修改表结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%A6%81%E6%AD%A2%E4%B8%BA%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8%E7%9A%84%E8%B4%A6%E5%8F%B7%E8%B5%8B%E4%BA%88-super-%E6%9D%83%E9%99%90"><span class="toc-number">6.3.</span> <span class="toc-text">3. 禁止为程序使用的账号赋予 super 权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AF%B9%E4%BA%8E%E7%A8%8B%E5%BA%8F%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E8%B4%A6%E5%8F%B7-%E9%81%B5%E5%BE%AA%E6%9D%83%E9%99%90%E6%9C%80%E5%B0%8F%E5%8E%9F%E5%88%99"><span class="toc-number">6.4.</span> <span class="toc-text">4. 对于程序连接数据库账号,遵循权限最小原则</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -658,54 +648,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代理</a>
               </li>
              
@@ -714,7 +656,55 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

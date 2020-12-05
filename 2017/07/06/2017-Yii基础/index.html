@@ -37,7 +37,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -51,18 +51,14 @@
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">正义的伙伴</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">加入世界，改变世界</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/archives/">归档</a></li>
 	        
 				<li><a href="/photos/">相册</a></li>
 	        
@@ -107,14 +103,10 @@
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">正义的伙伴</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>加入世界，改变世界<i class="icon icon-quo-right"></i></p>
 			
-			
-			
-				
 			
 				
 			
@@ -133,14 +125,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/photos/">相册</a></li>
+					<li style="width: 50%"><a href="/photos/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -193,42 +183,41 @@
 
 <h1 id="1-控制器"><a href="#1-控制器" class="headerlink" title="1. 控制器"></a>1. 控制器</h1><h2 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h2><ul>
 <li>命名空间与引用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">namespace app\controllers;</span><br><span class="line">use yii\web\Controller;</span><br></pre></td></tr></table></figure></li>
-<li>命名<ul>
+<li>命名</li>
 <li>控制器：以大写字母开头，加’Controller’后缀：TestController.php</li>
 <li>方法：在控制器里叫操作，’action’加大写字母开头的方法名：actionIndex()</li>
 <li>类名与文件名相同</li>
-</ul>
-</li>
-<li>访问控制器<br>访问TestController的index操作（r=控制器/操作）：<br><a href="http://basic/web/index.php`?r=test/index`" target="_blank" rel="noopener">http://basic/web/index.php`?r=test/index`</a><br>当方法名非开头有大写时，actionShowUser()：<br><a href="http://basic/web/index.php`?r=test/show-user`" target="_blank" rel="noopener">http://basic/web/index.php`?r=test/show-user`</a></li>
+<li>访问控制器<br>访问TestController的index操作（r=控制器/操作）：<br><a target="_blank" rel="noopener" href="http://basic/web/index.php%60?r=test/index%60">http://basic/web/index.php`?r=test/index`</a><br>当方法名非开头有大写时，actionShowUser()：<br><a target="_blank" rel="noopener" href="http://basic/web/index.php%60?r=test/show-user%60">http://basic/web/index.php`?r=test/show-user`</a></li>
 </ul>
 <h2 id="1-2-内置函数"><a href="#1-2-内置函数" class="headerlink" title="1.2 内置函数"></a>1.2 内置函数</h2><ul>
-<li>时间(年)：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 重定向：</span><br><span class="line">&#96;&#96;&#96;$this-&gt;redirect([&#39;site&#x2F;index&#39;]);&#x2F;&#x2F;数组内为调用控制器+操作</span><br></pre></td></tr></table></figure></li>
-<li>回主页：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 返回上一个页面：</span><br><span class="line">&#96;&#96;&#96;$this-&gt;goBack();</span><br></pre></td></tr></table></figure></li>
-<li>刷新：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 1.3 请求处理request</span><br><span class="line">+ 地址栏get：GET用于信息获取，而且应该是安全的和幂等的。</span><br><span class="line">地址栏：http:&#x2F;&#x2F;basic&#x2F;web&#x2F;index.php?r&#x3D;test&#x2F;index&amp;id&#x3D;3</span><br><span class="line">取参：</span><br></pre></td></tr></table></figure>
-$request = \YII::$app-&gt;request; //YII全局变量，以\表根。或引入命名空间use YII;省去<br>echo $request-&gt;get(‘id’,20);    //when ！return，return 20，optional<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 表单post：POST表示可能修改变服务器上的资源的请求。</span><br><span class="line">&#96;&#96;&#96;$request-&gt;post(&#39;name&#39;, 2333);</span><br></pre></td></tr></table></figure></li>
-<li>判定请求类型：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if ($request-&gt;isPost) &#123;</span><br><span class="line">    echo &#39;This is Post method.&#39;;</span><br><span class="line">&#125; elseif ($request-&gt;isGet) &#123;</span><br><span class="line">    echo &#39;This is Get method.&#39;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>IP地址<figure class="highlight plain"><figcaption><span>$request->userIp;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">## 1.4 响应处理response</span><br><span class="line">&#96;&#96;&#96;$res &#x3D; \YII::$app-&gt;response;</span><br></pre></td></tr></table></figure></li>
-<li>状态码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 头部</span><br></pre></td></tr></table></figure>
-$res-&gt;headers-&gt;add(‘pragma’, ‘no-cache’);//添加html头pragma,不要缓存<br>$res-&gt;headers-&gt;set(‘pragma’, ‘max-age=5’);//修改<br>$res-&gt;headers-&gt;remove(‘pragma’);//删除<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 跳转</span><br></pre></td></tr></table></figure>
-$res-&gt;headers-&gt;add(‘location’,’<a href="http://www.baidu.com&#39;);//跳转，试图访问的对象已经被移到别的位置了，到该头部指定的位置去取。" target="_blank" rel="noopener">http://www.baidu.com&#39;);//跳转，试图访问的对象已经被移到别的位置了，到该头部指定的位置去取。</a><br>$this-&gt;redirect(‘<a href="http://www.baidu.com&#39;" target="_blank" rel="noopener">http://www.baidu.com&#39;</a>, 302);//controller跳转专用函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 下载</span><br></pre></td></tr></table></figure>
-$res-&gt;headers-&gt;add(‘content-disposition’, ‘attachment;filename=”a.jpg”‘);//attachment附件形式<br>$res-&gt;sendFile(‘robots.txt’);//下载当前页面文件目录下的robots.txt<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 1.5 session</span><br></pre></td></tr></table></figure>
-$session = \YII::$app-&gt;session; //设置变量</li>
+<li>时间(年)：<br><code>&lt;?= date(&#39;Y&#39;) ?&gt;</code></li>
+<li>重定向：<br><code>$this-&gt;redirect([&#39;site/index&#39;]);//数组内为调用控制器+操作</code></li>
+<li>回主页：<br><code>$this-&gt;goHome();</code></li>
+<li>返回上一个页面：<br><code>$this-&gt;goBack();</code></li>
+<li>刷新：<br><code>$this-&gt;refresh();//死循环报错</code></li>
 </ul>
-<p>$session-&gt;open();               //开启session</p>
-<p>if($session-&gt;isActive){         //判断session是否开启<br>    echo “session is active.”;<br>}</p>
-<p>$session-&gt;set(‘user’, ‘张三’);  //设置方法一</p>
-<p>$session[‘user’] = ‘张三’;      //设置方法二</p>
-<p>echo $session[‘user’];          //取session</p>
-<p>$session-&gt;remove(‘user’);       //删除方法一</p>
-<p>unset($session[‘user’]);        //删除方法二</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 1.6 cookie</span><br></pre></td></tr></table></figure>
-<p>$cookie = \YII::$app-&gt;cookies;  //设置变量</p>
-<p>$cookie_data = array(‘name’=&gt;’user’,’value’=’zhangsan’);</p>
-<p>$cookie-&gt;add(new Cookie($cookie_data));     //赋值，覆盖式修改</p>
-<p>$cookie-&gt;remove(‘id’);          //删除</p>
-<p>$cookies = \YII::$app-&gt;request-&gt;cookies;    //取cookie<br>echo $cookies -&gt;getValue(‘users’,400);      //when !found’users’ return’400’ it’s optional value</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 2. 视图（页面）</span><br><span class="line">## 2.1 创建</span><br><span class="line">在views目录下创建控制器同名文件夹test，小写即可。</span><br><span class="line">文件夹内新建页面php，可以直接使用html代码，可添加&#96;&lt;?php ?&gt;&#96;标签来进行using等操作</span><br><span class="line"></span><br><span class="line">## 2.2 使用</span><br><span class="line">&#96;&#96;&#96;return $this-&gt;renderPartial(&#39;index&#39;);        &#x2F;&#x2F;使用test&#x2F;index视图文件</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-请求处理request"><a href="#1-3-请求处理request" class="headerlink" title="1.3 请求处理request"></a>1.3 请求处理request</h2><ul>
+<li>地址栏get：GET用于信息获取，而且应该是安全的和幂等的。<br>地址栏：<a target="_blank" rel="noopener" href="http://basic/web/index.php?r=test/index&amp;id=3">http://basic/web/index.php?r=test/index&amp;id=3</a><br>取参：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$request &#x3D; \YII::$app-&gt;request; &#x2F;&#x2F;YII全局变量，以\表根。或引入命名空间use YII;省去\</span><br><span class="line">echo $request-&gt;get(&#39;id&#39;,20);    &#x2F;&#x2F;when ！return，return 20，optional</span><br></pre></td></tr></table></figure></li>
+<li>表单post：POST表示可能修改变服务器上的资源的请求。<br><code>$request-&gt;post(&#39;name&#39;, 2333);</code></li>
+<li>判定请求类型：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if ($request-&gt;isPost) &#123;</span><br><span class="line">    echo &#39;This is Post method.&#39;;</span><br><span class="line">&#125; elseif ($request-&gt;isGet) &#123;</span><br><span class="line">    echo &#39;This is Get method.&#39;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>IP地址<br><code>echo $request-&gt;userIp;</code></li>
+</ul>
+<hr>
+<h2 id="1-4-响应处理response"><a href="#1-4-响应处理response" class="headerlink" title="1.4 响应处理response"></a>1.4 响应处理response</h2><p><code>$res = \YII::$app-&gt;response;</code></p>
+<ul>
+<li>状态码<br><code>$res-&gt;statusCode = &#39;404&#39;;</code></li>
+<li>头部<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$res-&gt;headers-&gt;add(&#39;pragma&#39;, &#39;no-cache&#39;);&#x2F;&#x2F;添加html头pragma,不要缓存</span><br><span class="line">$res-&gt;headers-&gt;set(&#39;pragma&#39;, &#39;max-age&#x3D;5&#39;);&#x2F;&#x2F;修改</span><br><span class="line">$res-&gt;headers-&gt;remove(&#39;pragma&#39;);&#x2F;&#x2F;删除</span><br></pre></td></tr></table></figure></li>
+<li>跳转<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$res-&gt;headers-&gt;add(&#39;location&#39;,&#39;http:&#x2F;&#x2F;www.baidu.com&#39;);&#x2F;&#x2F;跳转，试图访问的对象已经被移到别的位置了，到该头部指定的位置去取。</span><br><span class="line">$this-&gt;redirect(&#39;http:&#x2F;&#x2F;www.baidu.com&#39;, 302);&#x2F;&#x2F;controller跳转专用函数</span><br></pre></td></tr></table></figure></li>
+<li>下载<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$res-&gt;headers-&gt;add(&#39;content-disposition&#39;, &#39;attachment;filename&#x3D;&quot;a.jpg&quot;&#39;);&#x2F;&#x2F;attachment附件形式</span><br><span class="line">$res-&gt;sendFile(&#39;robots.txt&#39;);&#x2F;&#x2F;下载当前页面文件目录下的robots.txt</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
+<h2 id="1-5-session"><a href="#1-5-session" class="headerlink" title="1.5 session"></a>1.5 session</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$session &#x3D; \YII::$app-&gt;session; &#x2F;&#x2F;设置变量</span><br><span class="line"></span><br><span class="line">$session-&gt;open();               &#x2F;&#x2F;开启session</span><br><span class="line"></span><br><span class="line">if($session-&gt;isActive)&#123;         &#x2F;&#x2F;判断session是否开启</span><br><span class="line">    echo &quot;session is active.&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$session-&gt;set(&#39;user&#39;, &#39;张三&#39;);  &#x2F;&#x2F;设置方法一</span><br><span class="line"></span><br><span class="line">$session[&#39;user&#39;] &#x3D; &#39;张三&#39;;      &#x2F;&#x2F;设置方法二</span><br><span class="line"></span><br><span class="line">echo $session[&#39;user&#39;];          &#x2F;&#x2F;取session</span><br><span class="line"></span><br><span class="line">$session-&gt;remove(&#39;user&#39;);       &#x2F;&#x2F;删除方法一</span><br><span class="line"></span><br><span class="line">unset($session[&#39;user&#39;]);        &#x2F;&#x2F;删除方法二</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-6-cookie"><a href="#1-6-cookie" class="headerlink" title="1.6 cookie"></a>1.6 cookie</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$cookie &#x3D; \YII::$app-&gt;cookies;  &#x2F;&#x2F;设置变量</span><br><span class="line"></span><br><span class="line">$cookie_data &#x3D; array(&#39;name&#39;&#x3D;&gt;&#39;user&#39;,&#39;value&#39;&#x3D;&#39;zhangsan&#39;);</span><br><span class="line"></span><br><span class="line">$cookie-&gt;add(new Cookie($cookie_data));     &#x2F;&#x2F;赋值，覆盖式修改</span><br><span class="line"></span><br><span class="line">$cookie-&gt;remove(&#39;id&#39;);          &#x2F;&#x2F;删除</span><br><span class="line"></span><br><span class="line">$cookies &#x3D; \YII::$app-&gt;request-&gt;cookies;    &#x2F;&#x2F;取cookie</span><br><span class="line">echo $cookies -&gt;getValue(&#39;users&#39;,400);      &#x2F;&#x2F;when !found&#39;users&#39; return&#39;400&#39; it&#39;s optional value</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-视图（页面）"><a href="#2-视图（页面）" class="headerlink" title="2. 视图（页面）"></a>2. 视图（页面）</h1><h2 id="2-1-创建"><a href="#2-1-创建" class="headerlink" title="2.1 创建"></a>2.1 创建</h2><p>在views目录下创建控制器同名文件夹test，小写即可。<br>文件夹内新建页面php，可以直接使用html代码，可添加<code>&lt;?php ?&gt;</code>标签来进行using等操作</p>
+<h2 id="2-2-使用"><a href="#2-2-使用" class="headerlink" title="2.2 使用"></a>2.2 使用</h2><p><code>return $this-&gt;renderPartial(&#39;index&#39;);        //使用test/index视图文件</code></p>
 <h2 id="2-3-传值"><a href="#2-3-传值" class="headerlink" title="2.3 传值"></a>2.3 传值</h2><p>控制器：TestController</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$hello_str&#x3D; &quot;Hello God&quot;;</span><br><span class="line">$test_arr&#x3D;array(1,2);</span><br><span class="line"></span><br><span class="line">$data &#x3D; array();                                &#x2F;&#x2F;创建数组存放数据</span><br><span class="line"></span><br><span class="line">$data[&#39;view_hello_str&#39;] &#x3D; $hello_str;           &#x2F;&#x2F;加入&#39;view_hello_str&#39;键</span><br><span class="line">$data[&#39;view_test_arr&#39;] &#x3D; $test_arr;             &#x2F;&#x2F;加入数组键</span><br><span class="line"></span><br><span class="line">return $this-&gt;renderPartial(&#39;index&#39;, $data);    &#x2F;&#x2F;使用index视图文件并传递数据data</span><br></pre></td></tr></table></figure>
 <p>视图：index.php</p>
@@ -247,7 +236,7 @@ $session = \YII::$app-&gt;session; //设置变量</li>
 <p>视图：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;index&lt;&#x2F;h1&gt;</span><br></pre></td></tr></table></figure>
 <p>布局：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        <span class="meta">&lt;?</span>=$content;<span class="meta">?&gt;</span>          &lt;!--视图插入到这里--&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">&quot;utf-8&quot;</span>&gt;</span><br><span class="line">        &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        <span class="meta">&lt;?=</span><span class="variable">$content</span>;<span class="meta">?&gt;</span>          &lt;!--视图插入到这里--&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>控制器：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public $layout &#x3D; &#39;common&#39;;      &#x2F;&#x2F;用$layout声明所用的布局文件</span><br><span class="line">public function actionShowUser()</span><br><span class="line">&#123;</span><br><span class="line">    return $this-&gt;render(&#39;index&#39;);  </span><br><span class="line">    &#x2F;&#x2F;render决定访问当前活动时服务器要渲染的视图，render会渲染layout，而renderPartial不会渲染</span><br><span class="line">    &#x2F;&#x2F;render()的实际上是先renderPartial view文件，然后renderFile layoutfile,并将view文件的结果做为$content变量传入。 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>更新：</p>
@@ -461,7 +450,7 @@ $session = \YII::$app-&gt;session; //设置变量</li>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-控制器"><span class="toc-number">1.</span> <span class="toc-text">1. 控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-介绍"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-内置函数"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 内置函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-传值"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 传值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-传值的安全问题"><span class="toc-number">1.4.</span> <span class="toc-text">2.4 传值的安全问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-布局文件（模板）"><span class="toc-number">1.5.</span> <span class="toc-text">2.5 布局文件（模板）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-视图的嵌套"><span class="toc-number">1.6.</span> <span class="toc-text">2.6 视图的嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-数据块"><span class="toc-number">1.7.</span> <span class="toc-text">2.7 数据块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-数据模型"><span class="toc-number">2.</span> <span class="toc-text">3. 数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-连接数据库与Yii"><span class="toc-number">2.1.</span> <span class="toc-text">3.1 连接数据库与Yii</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-什么是活动记录："><span class="toc-number">2.2.</span> <span class="toc-text">3.2 什么是活动记录：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-活动记录的声明"><span class="toc-number">2.3.</span> <span class="toc-text">3.3 活动记录的声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4查询-findBySql"><span class="toc-number">2.4.</span> <span class="toc-text">3.4查询 findBySql()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-占位符防注入"><span class="toc-number">2.5.</span> <span class="toc-text">3.5 占位符防注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-简化版-数组查询法-find"><span class="toc-number">2.6.</span> <span class="toc-text">3.6 简化版-数组查询法 find()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-选择查询-分页"><span class="toc-number">2.7.</span> <span class="toc-text">3.7 选择查询-分页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-删除"><span class="toc-number">2.8.</span> <span class="toc-text">3.8 删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增加"><span class="toc-number">2.9.</span> <span class="toc-text">增加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9输入合法验证"><span class="toc-number">2.10.</span> <span class="toc-text">3.9输入合法验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-10-改"><span class="toc-number">2.11.</span> <span class="toc-text">3.10 改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-11-增减updateCounters"><span class="toc-number">2.12.</span> <span class="toc-text">3.11 增减updateCounters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-12-关联查询一"><span class="toc-number">2.13.</span> <span class="toc-text">3.12 关联查询一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-13-关联查询二"><span class="toc-number">2.14.</span> <span class="toc-text">3.13 关联查询二</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-14-查询结果缓存"><span class="toc-number">2.15.</span> <span class="toc-text">3.14 查询结果缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-15-多次查询优化"><span class="toc-number">2.16.</span> <span class="toc-text">3.15 多次查询优化</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">1. 控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 内置函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86request"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 请求处理request</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E5%93%8D%E5%BA%94%E5%A4%84%E7%90%86response"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 响应处理response</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-session"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-cookie"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 cookie</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%A7%86%E5%9B%BE%EF%BC%88%E9%A1%B5%E9%9D%A2%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">2. 视图（页面）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%88%9B%E5%BB%BA"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E4%BC%A0%E5%80%BC"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 传值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E4%BC%A0%E5%80%BC%E7%9A%84%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 传值的安全问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E5%B8%83%E5%B1%80%E6%96%87%E4%BB%B6%EF%BC%88%E6%A8%A1%E6%9D%BF%EF%BC%89"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 布局文件（模板）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E8%A7%86%E5%9B%BE%E7%9A%84%E5%B5%8C%E5%A5%97"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 视图的嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-%E6%95%B0%E6%8D%AE%E5%9D%97"><span class="toc-number">2.7.</span> <span class="toc-text">2.7 数据块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8EYii"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 连接数据库与Yii</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E4%BB%80%E4%B9%88%E6%98%AF%E6%B4%BB%E5%8A%A8%E8%AE%B0%E5%BD%95%EF%BC%9A"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 什么是活动记录：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E6%B4%BB%E5%8A%A8%E8%AE%B0%E5%BD%95%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 活动记录的声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4%E6%9F%A5%E8%AF%A2-findBySql"><span class="toc-number">3.4.</span> <span class="toc-text">3.4查询 findBySql()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E5%8D%A0%E4%BD%8D%E7%AC%A6%E9%98%B2%E6%B3%A8%E5%85%A5"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 占位符防注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E7%AE%80%E5%8C%96%E7%89%88-%E6%95%B0%E7%BB%84%E6%9F%A5%E8%AF%A2%E6%B3%95-find"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 简化版-数组查询法 find()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E9%80%89%E6%8B%A9%E6%9F%A5%E8%AF%A2-%E5%88%86%E9%A1%B5"><span class="toc-number">3.7.</span> <span class="toc-text">3.7 选择查询-分页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-%E5%88%A0%E9%99%A4"><span class="toc-number">3.8.</span> <span class="toc-text">3.8 删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0"><span class="toc-number">3.9.</span> <span class="toc-text">增加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9%E8%BE%93%E5%85%A5%E5%90%88%E6%B3%95%E9%AA%8C%E8%AF%81"><span class="toc-number">3.10.</span> <span class="toc-text">3.9输入合法验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-10-%E6%94%B9"><span class="toc-number">3.11.</span> <span class="toc-text">3.10 改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-11-%E5%A2%9E%E5%87%8FupdateCounters"><span class="toc-number">3.12.</span> <span class="toc-text">3.11 增减updateCounters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-12-%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2%E4%B8%80"><span class="toc-number">3.13.</span> <span class="toc-text">3.12 关联查询一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-13-%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2%E4%BA%8C"><span class="toc-number">3.14.</span> <span class="toc-text">3.13 关联查询二</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-14-%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E7%BC%93%E5%AD%98"><span class="toc-number">3.15.</span> <span class="toc-text">3.14 查询结果缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-15-%E5%A4%9A%E6%AC%A1%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="toc-number">3.16.</span> <span class="toc-text">3.15 多次查询优化</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -596,54 +585,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代理</a>
               </li>
              
@@ -652,7 +593,55 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

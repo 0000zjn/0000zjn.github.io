@@ -37,7 +37,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -51,18 +51,14 @@
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">正义的伙伴</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">加入世界，改变世界</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/archives/">归档</a></li>
 	        
 				<li><a href="/photos/">相册</a></li>
 	        
@@ -107,14 +103,10 @@
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">正义的伙伴</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>加入世界，改变世界<i class="icon icon-quo-right"></i></p>
 			
-			
-			
-				
 			
 				
 			
@@ -133,14 +125,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/photos/">相册</a></li>
+					<li style="width: 50%"><a href="/photos/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -204,148 +194,77 @@
 <p>2.路由优化<br>将下面的代码添加至<code>frontend\config\main.php</code> <code>components</code>中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#39;urlManager&#39;&#x3D;&gt;[</span><br><span class="line"></span><br><span class="line">             &#39;enablePrettyUrl&#39; &#x3D;&gt; true, &#x2F;&#x2F;对url进行美化</span><br><span class="line"></span><br><span class="line">             &#39;showScriptName&#39; &#x3D;&gt; false,&#x2F;&#x2F;隐藏index.php</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;  &#39;suffix&#39; &#x3D;&gt; &#39;.html&#39;,&#x2F;&#x2F;后缀</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;  &#39;enableStrictParsing&#39;&#x3D;&gt;FALSE,&#x2F;&#x2F;不要求网址严格匹配，则不需要输入rules</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;  &#39;rules&#39; &#x3D;&gt; []&#x2F;&#x2F;网址匹配规则</span><br><span class="line"></span><br><span class="line">        ],</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="1-5-语言包配置-选"><a href="#1-5-语言包配置-选" class="headerlink" title="1.5 语言包配置(选)"></a>1.5 语言包配置(选)</h3><p>注意大小写<br>1.开启语言<code>frontend\config\main.php</code> <code>return[]</code>加入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.添加自己的词库配置到&#96;components&#96;中</span><br></pre></td></tr></table></figure>
-<p>‘i18n’ =&gt; [<br>            ‘translations’ =&gt; [<br>                ‘*’ =&gt; [<br>                    ‘class’ =&gt; ‘yii\i18n\PhpMessageSource’,<br>                    // ‘basePath’ =&gt; ‘/messages’,//默认<br>                    ‘fileMap’ =&gt; [<br>                        ‘common’ =&gt; ‘common.php’,//有多个包可以并列下去<br>                    ],<br>                ],<br>            ],<br>        ],</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.创建自定义的语言包&#96;frontend&#x2F;messages&#x2F;zh-CN&#x2F;common.php&#96;，名字和上面对应</span><br></pre></td></tr></table></figure>
-<?php
-return[
-    'Blog'=>'博客',
-];
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4.使用</span><br><span class="line">1:main视图中</span><br></pre></td></tr></table></figure>
-['label' => 'Home', 'url' => ['/site/index']],
-//改成
-['label' =>Yii::t('yii','Home'), 'url' => ['/site/index']],
-//使用了yii自带的语言包，同理：
-['label' =>Yii::t('common','Home'), 'url' => ['/site/index']],
-//就使用了自定义的语言包
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2:对于视图中&#96;&lt;?&#x3D; $form-&gt;field($model, &#39;email&#39;) ?&gt;&#96;格式，在模型中添加翻译：</span><br></pre></td></tr></table></figure>
-public function attributeLabels()
-{
-    return[
-        'username'=>'用户名',
-        'email'=>\Yii::t('common', 'Email'),
-    ];
-}
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">### 1.6 独立的用户系统</span><br><span class="line"></span><br><span class="line">#### 1.6.1 模型的区分</span><br><span class="line">&#96;models&#96;分为&#96;***Form.php&#96;表单模型和&#96;User.php&#96;这种数据模型</span><br><span class="line"></span><br><span class="line">#### 1.6.2 设计思路</span><br><span class="line">1. 前后台数据表分离：user&amp;admin</span><br><span class="line">2. 代码调整</span><br><span class="line"> 1. 表单模型放在前后台中，&#96;数据模型&#96;放在common（移动LoginForm.php到前后台修改命名空间）</span><br><span class="line"> 2. 配置文件&#96;config&#x2F;main.php&#96;</span><br><span class="line"> 3. 修改&#96;表单模型&#96;里的对应数据模型的使用</span><br><span class="line"> 4. 前后台&#96;站点控制器&#96;的表单use的命名空间</span><br><span class="line"> 5. 语言包</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## 2. 技术点</span><br><span class="line">---</span><br><span class="line">### 2.1 部件的使用</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">### 2.2 查询方法</span><br><span class="line">#### 2.2.1 Query</span><br><span class="line">#### 2.2.2 *Model::find()</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">### 2.3 params的使用</span><br></pre></td></tr></table></figure>
-//params.php中
-return [
-    'avatar' => [
-        'small' => '/statics/images/avatar/small.jpg',
-    ]
-];
-//view中
-<img src ="'.Yii::$app->params['avatar']['small'].'" alt="'.Yii::$app->user->identity->username.'">
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">### 2.4 禁用自带的 Yii、JQuery 和 Bootstrap 脚本</span><br><span class="line">- 去除 Yii.js 相关脚本</span><br><span class="line">编辑 &#96;frontend\asset\AppAsset.php&#96; 文件，注释掉变量 &#96;$depends&#96; 里的 &#96;yii\web\YiiAsset&#96; 值。</span><br><span class="line">编辑 &#96;frontend\config\main.php&#96; 文件，在字段 &#96;components&#96; 下面添加配置：</span><br></pre></td></tr></table></figure>
-'assetManager' => [
- 'bundles' => [
-     'yii\web\YiiAsset' => [
-         'js' => [],  // 去除 yii.js
-         'sourcePath' => null,  // 防止在 frontend/web/asset 下生产文件
-     ],
+<h3 id="1-5-语言包配置-选"><a href="#1-5-语言包配置-选" class="headerlink" title="1.5 语言包配置(选)"></a>1.5 语言包配置(选)</h3><p>注意大小写<br>1.开启语言<code>frontend\config\main.php</code> <code>return[]</code>加入<br><code>&#39;language&#39; =&gt; &#39;zh-CN&#39;,//这时已经可以使用自带的部分翻译</code><br>2.添加自己的词库配置到<code>components</code>中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#39;i18n&#39; &#x3D;&gt; [</span><br><span class="line">            &#39;translations&#39; &#x3D;&gt; [</span><br><span class="line">                &#39;*&#39; &#x3D;&gt; [</span><br><span class="line">                    &#39;class&#39; &#x3D;&gt; &#39;yii\i18n\PhpMessageSource&#39;,</span><br><span class="line">                    &#x2F;&#x2F; &#39;basePath&#39; &#x3D;&gt; &#39;&#x2F;messages&#39;,&#x2F;&#x2F;默认</span><br><span class="line">                    &#39;fileMap&#39; &#x3D;&gt; [</span><br><span class="line">                        &#39;common&#39; &#x3D;&gt; &#39;common.php&#39;,&#x2F;&#x2F;有多个包可以并列下去</span><br><span class="line">                    ],</span><br><span class="line">                ],</span><br><span class="line">            ],</span><br><span class="line">        ],</span><br></pre></td></tr></table></figure>
+<p>3.创建自定义的语言包<code>frontend/messages/zh-CN/common.php</code>，名字和上面对应</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">return[</span><br><span class="line">    &#39;Blog&#39;&#x3D;&gt;&#39;博客&#39;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<p>4.使用<br>1:main视图中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[&#39;label&#39; &#x3D;&gt; &#39;Home&#39;, &#39;url&#39; &#x3D;&gt; [&#39;&#x2F;site&#x2F;index&#39;]],</span><br><span class="line">&#x2F;&#x2F;改成</span><br><span class="line">[&#39;label&#39; &#x3D;&gt;Yii::t(&#39;yii&#39;,&#39;Home&#39;), &#39;url&#39; &#x3D;&gt; [&#39;&#x2F;site&#x2F;index&#39;]],</span><br><span class="line">&#x2F;&#x2F;使用了yii自带的语言包，同理：</span><br><span class="line">[&#39;label&#39; &#x3D;&gt;Yii::t(&#39;common&#39;,&#39;Home&#39;), &#39;url&#39; &#x3D;&gt; [&#39;&#x2F;site&#x2F;index&#39;]],</span><br><span class="line">&#x2F;&#x2F;就使用了自定义的语言包</span><br></pre></td></tr></table></figure>
+<p>2:对于视图中<code>&lt;?= $form-&gt;field($model, &#39;email&#39;) ?&gt;</code>格式，在模型中添加翻译：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public function attributeLabels()</span><br><span class="line">&#123;</span><br><span class="line">    return[</span><br><span class="line">        &#39;username&#39;&#x3D;&gt;&#39;用户名&#39;,</span><br><span class="line">        &#39;email&#39;&#x3D;&gt;\Yii::t(&#39;common&#39;, &#39;Email&#39;),</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="1-6-独立的用户系统"><a href="#1-6-独立的用户系统" class="headerlink" title="1.6 独立的用户系统"></a>1.6 独立的用户系统</h3><h4 id="1-6-1-模型的区分"><a href="#1-6-1-模型的区分" class="headerlink" title="1.6.1 模型的区分"></a>1.6.1 模型的区分</h4><p><code>models</code>分为<code>***Form.php</code>表单模型和<code>User.php</code>这种数据模型</p>
+<h4 id="1-6-2-设计思路"><a href="#1-6-2-设计思路" class="headerlink" title="1.6.2 设计思路"></a>1.6.2 设计思路</h4><ol>
+<li>前后台数据表分离：user&amp;admin</li>
+<li>代码调整</li>
+<li>表单模型放在前后台中，<code>数据模型</code>放在common（移动LoginForm.php到前后台修改命名空间）</li>
+<li>配置文件<code>config/main.php</code></li>
+<li>修改<code>表单模型</code>里的对应数据模型的使用</li>
+<li>前后台<code>站点控制器</code>的表单use的命名空间</li>
+<li>语言包</li>
+</ol>
+<hr>
+<h2 id="2-技术点"><a href="#2-技术点" class="headerlink" title="2. 技术点"></a>2. 技术点</h2><hr>
+<h3 id="2-1-部件的使用"><a href="#2-1-部件的使用" class="headerlink" title="2.1 部件的使用"></a>2.1 部件的使用</h3><hr>
+<h3 id="2-2-查询方法"><a href="#2-2-查询方法" class="headerlink" title="2.2 查询方法"></a>2.2 查询方法</h3><h4 id="2-2-1-Query"><a href="#2-2-1-Query" class="headerlink" title="2.2.1 Query"></a>2.2.1 Query</h4><h4 id="2-2-2-Model-find"><a href="#2-2-2-Model-find" class="headerlink" title="2.2.2 *Model::find()"></a>2.2.2 *Model::find()</h4><hr>
+<h3 id="2-3-params的使用"><a href="#2-3-params的使用" class="headerlink" title="2.3 params的使用"></a>2.3 params的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;params.php中</span><br><span class="line">return [</span><br><span class="line">    &#39;avatar&#39; &#x3D;&gt; [</span><br><span class="line">        &#39;small&#39; &#x3D;&gt; &#39;&#x2F;statics&#x2F;images&#x2F;avatar&#x2F;small.jpg&#39;,</span><br><span class="line">    ]</span><br><span class="line">];</span><br><span class="line">&#x2F;&#x2F;view中</span><br><span class="line">&lt;img src &#x3D;&quot;&#39;.Yii::$app-&gt;params[&#39;avatar&#39;][&#39;small&#39;].&#39;&quot; alt&#x3D;&quot;&#39;.Yii::$app-&gt;user-&gt;identity-&gt;username.&#39;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-4-禁用自带的-Yii、JQuery-和-Bootstrap-脚本"><a href="#2-4-禁用自带的-Yii、JQuery-和-Bootstrap-脚本" class="headerlink" title="2.4 禁用自带的 Yii、JQuery 和 Bootstrap 脚本"></a>2.4 禁用自带的 Yii、JQuery 和 Bootstrap 脚本</h3><ul>
+<li>去除 Yii.js 相关脚本<br>编辑 <code>frontend\asset\AppAsset.php</code> 文件，注释掉变量 <code>$depends</code> 里的 <code>yii\web\YiiAsset</code> 值。<br>编辑 <code>frontend\config\main.php</code> 文件，在字段 <code>components</code> 下面添加配置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#39;assetManager&#39; &#x3D;&gt; [</span><br><span class="line"> &#39;bundles&#39; &#x3D;&gt; [</span><br><span class="line">     &#39;yii\web\YiiAsset&#39; &#x3D;&gt; [</span><br><span class="line">         &#39;js&#39; &#x3D;&gt; [],  &#x2F;&#x2F; 去除 yii.js</span><br><span class="line">         &#39;sourcePath&#39; &#x3D;&gt; null,  &#x2F;&#x2F; 防止在 frontend&#x2F;web&#x2F;asset 下生产文件</span><br><span class="line">     ],</span><br><span class="line">                        </span><br><span class="line">     &#39;yii\widgets\ActiveFormAsset&#39; &#x3D;&gt; [</span><br><span class="line">         &#39;js&#39; &#x3D;&gt; [],  &#x2F;&#x2F; 去除 yii.activeForm.js</span><br><span class="line">         &#39;sourcePath&#39; &#x3D;&gt; null,  &#x2F;&#x2F; 防止在 frontend&#x2F;web&#x2F;asset 下生产文件</span><br><span class="line">     ],</span><br><span class="line">        </span><br><span class="line">     &#39;yii\validators\ValidationAsset&#39; &#x3D;&gt; [</span><br><span class="line">         &#39;js&#39; &#x3D;&gt; [],  &#x2F;&#x2F; 去除 yii.validation.js</span><br><span class="line">         &#39;sourcePath&#39; &#x3D;&gt; null,  &#x2F;&#x2F; 防止在 frontend&#x2F;web&#x2F;asset 下生产文件</span><br><span class="line">     ],</span><br><span class="line"> ],</span><br><span class="line">],</span><br></pre></td></tr></table></figure></li>
+<li>去除 JQuery 脚本<br>编辑 frontend\config\main.php 文件，在字段 ‘components’ 下面添加配置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#39;assetManager&#39; &#x3D;&gt; [</span><br><span class="line">    &#39;bundles&#39; &#x3D;&gt; [</span><br><span class="line">        &#39;yii\web\JqueryAsset&#39; &#x3D;&gt; [</span><br><span class="line">            &#39;js&#39; &#x3D;&gt; [],  &#x2F;&#x2F; 去除 jquery.js</span><br><span class="line">            &#39;sourcePath&#39; &#x3D;&gt; null,  &#x2F;&#x2F; 防止在 frontend&#x2F;web&#x2F;asset 下生产文件</span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">],</span><br></pre></td></tr></table></figure></li>
+<li>去除 Bootstrap 库<br>编辑 <code>frontend\asset\AppAsset.php</code> 文件，注释掉变量 <code>$depends</code> 里的 <code>yii\bootstrap\BootstrapAsset</code> 值。<br>编辑 <code>frontend\config\main.php</code> 文件，在字段 <code>components</code> 下面添加配置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#39;assetManager&#39; &#x3D;&gt; [</span><br><span class="line"> &#39;bundles&#39; &#x3D;&gt; [</span><br><span class="line">     &#39;yii\bootstrap\BootstrapAsset&#39; &#x3D;&gt; [</span><br><span class="line">         &#39;css&#39; &#x3D;&gt; [],  &#x2F;&#x2F; 去除 bootstrap.css</span><br><span class="line">         &#39;sourcePath&#39; &#x3D;&gt; null, &#x2F;&#x2F; 防止在 frontend&#x2F;web&#x2F;asset 下生产文件</span><br><span class="line">     ],</span><br><span class="line">     &#39;yii\bootstrap\BootstrapPluginAsset&#39; &#x3D;&gt; [</span><br><span class="line">         &#39;js&#39; &#x3D;&gt; [],  &#x2F;&#x2F; 去除 bootstrap.js</span><br><span class="line">         &#39;sourcePath&#39; &#x3D;&gt; null,  &#x2F;&#x2F; 防止在 frontend&#x2F;web&#x2F;asset 下生产文件</span><br><span class="line">     ],</span><br><span class="line"> ],</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="2-5-AppAsset前端资源使用"><a href="#2-5-AppAsset前端资源使用" class="headerlink" title="2.5 AppAsset前端资源使用"></a>2.5 AppAsset前端资源使用</h3><p>tips:</p>
+<ol>
+<li>如果在其他地方注册资源包，应提供视图对象，如在 小部件 类中注册资源包， 可以通过 $this-&gt;view 获取视图对象。</li>
+<li>代码块用registerJs，代码文件用registerJsFile</li>
+<li>@web是可省的<br>法一：资源包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;***************AppAsset中***************&#x2F;</span><br><span class="line">public $basePath &#x3D; &#39;@webroot&#39;;  &#x2F;&#x2F;类指定资源文件放在 @webroot 目录下</span><br><span class="line">public $baseUrl &#x3D; &#39;@web&#39;;       &#x2F;&#x2F;对应的URL为 @web</span><br><span class="line">public $css &#x3D; [</span><br><span class="line">    &#39;css&#x2F;site.css&#39;,             &#x2F;&#x2F;资源包中包含一个CSS文件 css&#x2F;site.css</span><br><span class="line">];</span><br><span class="line">public $js &#x3D; [                  &#x2F;&#x2F;没有JavaScript文件</span><br><span class="line">];</span><br><span class="line">public $depends &#x3D; [             &#x2F;&#x2F;依赖其他两个包</span><br><span class="line">    &#39;yii\web\YiiAsset&#39;,</span><br><span class="line">    &#39;yii\bootstrap\BootstrapAsset&#39;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">&#x2F;***************视图中使用***************&#x2F;</span><br><span class="line">use frontend\assets\AppAsset;    &#x2F;&#x2F;别忘了use</span><br><span class="line">AppAsset::register($this);      &#x2F;&#x2F;按AppAsset注册</span><br></pre></td></tr></table></figure>
 
-     'yii\widgets\ActiveFormAsset' => [
-         'js' => [],  // 去除 yii.activeForm.js
-         'sourcePath' => null,  // 防止在 frontend/web/asset 下生产文件
-     ],
+</li>
+</ol>
+<p>法二：自定方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;***************AppAsset中***************&#x2F;</span><br><span class="line">&#x2F;&#x2F;自定方法，然后在视图中注册</span><br><span class="line">public static function addScript($view, $jsfile) &#123;</span><br><span class="line">    $view-&gt;registerJsFile($jsfile, [AppAsset::className(), &#39;depends&#39; &#x3D;&gt; &#39;frontend\assets\AppAsset&#39;, &#39;position&#39;&#x3D;&gt;\yii\web\View::POS_END]);</span><br><span class="line">    </span><br><span class="line">&#x2F;&#x2F;如果不加depends，自定方法的渲染优先级高于AppAsset，so会先于jq渲染，so必加</span><br><span class="line">&#x2F;&#x2F;二参的position指明加载位置</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;***************视图中使用***************&#x2F;</span><br><span class="line">use frontend\assets\AppAsset;</span><br><span class="line">AppAsset::addScript($this,&#39;@web&#x2F;statics&#x2F;js&#x2F;ui.js&#39;);&#x2F;&#x2F;使用自定方法注册</span><br></pre></td></tr></table></figure>
 
-     'yii\validators\ValidationAsset' => [
-         'js' => [],  // 去除 yii.validation.js
-         'sourcePath' => null,  // 防止在 frontend/web/asset 下生产文件
-     ],
- ],
-],
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 去除 JQuery 脚本</span><br><span class="line">编辑 frontend\config\main.php 文件，在字段 &#39;components&#39; 下面添加配置：</span><br></pre></td></tr></table></figure>
-'assetManager' => [
-    'bundles' => [
-        'yii\web\JqueryAsset' => [
-            'js' => [],  // 去除 jquery.js
-            'sourcePath' => null,  // 防止在 frontend/web/asset 下生产文件
-        ],
-    ],
-],
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 去除 Bootstrap 库</span><br><span class="line">编辑 &#96;frontend\asset\AppAsset.php&#96; 文件，注释掉变量 &#96;$depends&#96; 里的 &#96;yii\bootstrap\BootstrapAsset&#96; 值。</span><br><span class="line">编辑 &#96;frontend\config\main.php&#96; 文件，在字段 &#96;components&#96; 下面添加配置：</span><br></pre></td></tr></table></figure>
-'assetManager' => [
- 'bundles' => [
-     'yii\bootstrap\BootstrapAsset' => [
-         'css' => [],  // 去除 bootstrap.css
-         'sourcePath' => null, // 防止在 frontend/web/asset 下生产文件
-     ],
-     'yii\bootstrap\BootstrapPluginAsset' => [
-         'js' => [],  // 去除 bootstrap.js
-         'sourcePath' => null,  // 防止在 frontend/web/asset 下生产文件
-     ],
- ],
-],
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">### 2.5 AppAsset前端资源使用</span><br><span class="line">tips:</span><br><span class="line">1. 如果在其他地方注册资源包，应提供视图对象，如在 小部件 类中注册资源包， 可以通过 $this-&gt;view 获取视图对象。</span><br><span class="line">2. 代码块用registerJs，代码文件用registerJsFile</span><br><span class="line">3. @web是可省的</span><br><span class="line">法一：资源包</span><br></pre></td></tr></table></figure>
-/***************AppAsset中***************/
-public $basePath = '@webroot';  //类指定资源文件放在 @webroot 目录下
-public $baseUrl = '@web';       //对应的URL为 @web
-public $css = [
-    'css/site.css',             //资源包中包含一个CSS文件 css/site.css
-];
-public $js = [                  //没有JavaScript文件
-];
-public $depends = [             //依赖其他两个包
-    'yii\web\YiiAsset',
-    'yii\bootstrap\BootstrapAsset',
-];
+<p>法三：registerCssFile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;会先于AppAsset渲染</span><br><span class="line">$this-&gt;registerCssFile(&#39;&#x2F;statics&#x2F;css&#x2F;denglu.css&#39;);</span><br></pre></td></tr></table></figure>
 
-/***************视图中使用***************/
-use frontend\assets\AppAsset;    //别忘了use
-AppAsset::register($this);      //按AppAsset注册
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">法二：自定方法</span><br></pre></td></tr></table></figure>
-/***************AppAsset中***************/
-//自定方法，然后在视图中注册
-public static function addScript($view, $jsfile) {
-    $view->registerJsFile($jsfile, [AppAsset::className(), 'depends' => 'frontend\assets\AppAsset', 'position'=>\yii\web\View::POS_END]);
+<p>法四：嵌入式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;嵌入式的优先级最低，代码最后渲染</span><br><span class="line">$this-&gt;registerJs(&#39;</span><br><span class="line">    $(document).ready(function()&#123;&#x2F;&#x2F;直接使用</span><br><span class="line">    &#125;);</span><br><span class="line">&#39;);</span><br></pre></td></tr></table></figure>
 
-//如果不加depends，自定方法的渲染优先级高于AppAsset，so会先于jq渲染，so必加
-//二参的position指明加载位置
-}
+<p>法五：元素块-不建议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;mybutton&quot;&gt;点我弹出OK&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">&lt;?php $this-&gt;beginBlock(&#39;test&#39;) ?&gt;  </span><br><span class="line">    $(function($) &#123;</span><br><span class="line">      $(&#39;#mybutton&#39;).click(function() &#123;</span><br><span class="line">        alert(&#39;OK&#39;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;?php $this-&gt;endBlock() ?&gt;</span><br><span class="line">&lt;?php $this-&gt;registerJs($this-&gt;blocks[&#39;test&#39;], \yii\web\View::POS_END); ?&gt;</span><br><span class="line"></span><br><span class="line">POS_HEAD——head结束标签之前：$this-&gt;registerJs(&#39;alert(4)&#39;,View::POS_HEAD);</span><br><span class="line">POS_BEGIN——body开始标签之后：$this-&gt;registerJs(&#39;alert(4)&#39;,View::POS_BEGIN);</span><br><span class="line">POS_END——body结束标签之前：$this-&gt;registerJs(&#39;alert(4)&#39;,View::POS_END);</span><br><span class="line">POS_READY POS_LOAD：$this-&gt;registerJs(&#39;alert(4)&#39;, View::POS_READY);</span><br></pre></td></tr></table></figure>
 
-/***************视图中使用***************/
-use frontend\assets\AppAsset;
-AppAsset::addScript($this,'@web/statics/js/ui.js');//使用自定方法注册
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">法三：registerCssFile</span><br></pre></td></tr></table></figure>
-//会先于AppAsset渲染
-$this->registerCssFile('/statics/css/denglu.css');
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">法四：嵌入式</span><br></pre></td></tr></table></figure>
-//嵌入式的优先级最低，代码最后渲染
-$this->registerJs('
-    $(document).ready(function(){//直接使用
-    });
-');
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">法五：元素块-不建议</span><br></pre></td></tr></table></figure>
-<div id="mybutton">点我弹出OK</div>
-
-<?php $this->beginBlock('test') ?><p><br>    $(function($) {<br>      $(‘#mybutton’).click(function() {<br>        alert(‘OK’);<br>      });<br>    });<br><?php $this->endBlock() ?><br><?php $this->registerJs($this->blocks['test'], \yii\web\View::POS_END); ?></p>
-<p>POS_HEAD——head结束标签之前：$this-&gt;registerJs(‘alert(4)’,View::POS_HEAD);<br>POS_BEGIN——body开始标签之后：$this-&gt;registerJs(‘alert(4)’,View::POS_BEGIN);<br>POS_END——body结束标签之前：$this-&gt;registerJs(‘alert(4)’,View::POS_END);<br>POS_READY POS_LOAD：$this-&gt;registerJs(‘alert(4)’, View::POS_READY);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">法六：等同于直接写</span><br></pre></td></tr></table></figure>
-<?= Html::jsFile('@web/js/main.js'); ?>
-<?= Html::script('alert("Hello!");', ['defer' => true]);
-<?= Html::cssFile('@web/css/ie5.css', ['condition' => 'IE 5']) ?><p>//<!--[if IE 5]><![endif]--><br><?= Html::style('.danger { color: #f00; }') ?></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">### 2.6 init() run()函数略解</span><br></pre></td></tr></table></figure>
-<p>如在插件中：<br>class TopMenu extends Widget{<br>    public function init(){<br>        parent::init();<br>        echo ‘<ul>‘；<br>    }<br>    public funtion run(){<br>        return ‘</ul>‘;<br>    }<br>    public function addMenu($menuName){<br>        return ‘<li>‘.$menuName.’</li>‘;<br>    }<br>}</p>
-<p>视图中：<br><?php $menu = TopMenu::begin();?><br>//输出<ul><br><?=$menu->addMenu('menu1');?><br><?=$menu->addMenu('menu12');?><br><?php TopMenu::begin();?><br>//输出</ul></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">## 3. 基本流程</span><br><span class="line">---</span><br><span class="line">### 3.1 活动记录（数据模型）和控制器设置基类</span><br></pre></td></tr></table></figure>
-<p>//—————base/BaseModel.php——————-<br>&lt;?php<br>namespace common\models\base;<br>/**<br>*基础模型<br>*/<br>use yii\db\ActiveRecord;</p>
-<p>class BaseModel extends ActiveRecord<br>{}</p>
-<p>//————base/BaseController.php———————<br>&lt;?php<br>namespace frontend\controllers\base;<br>/**<br>*基础控制器<br>*/<br>use yii\web\Controller;</p>
-<p>class BaseController extends Controller<br>{<br>    public function beforeAction($action)<br>    {<br>        //检测-如果父级的beforeAction返回的是不通过<br>        if (!parent::beforeAction($action)) {<br>            return false;<br>        }<br>        return true;<br>    }<br>}</p>
-<pre><code>### 3.2 创建数据库&amp;数据模型
-use Gii
-### 3.3 创建表单模型
-+ 字段
-+ 规则`rules()`
-+ 字段名称（标签属性）`attributeLabels()`
-
-### 3.4 创建控制器
-+ 创建行为action
- + new表单对象
- + 渲染视图`return $this-&gt;render(&apos;create&apos;,[&apos;model&apos;=&gt;$model]);`
-
-### 3.5 创建视图view</code></pre>
+<p>法六：等同于直接写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?&#x3D; Html::jsFile(&#39;@web&#x2F;js&#x2F;main.js&#39;); ?&gt;</span><br><span class="line">&lt;?&#x3D; Html::script(&#39;alert(&quot;Hello!&quot;);&#39;, [&#39;defer&#39; &#x3D;&gt; true]);</span><br><span class="line">&lt;?&#x3D; Html::cssFile(&#39;@web&#x2F;css&#x2F;ie5.css&#39;, [&#39;condition&#39; &#x3D;&gt; &#39;IE 5&#39;]) ?&gt;&#x2F;&#x2F;&lt;!--[if IE 5]&gt;&lt;![endif]--&gt;</span><br><span class="line">&lt;?&#x3D; Html::style(&#39;.danger &#123; color: #f00; &#125;&#39;) ?&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-6-init-run-函数略解"><a href="#2-6-init-run-函数略解" class="headerlink" title="2.6 init() run()函数略解"></a>2.6 init() run()函数略解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">如在插件中：</span><br><span class="line">class TopMenu extends Widget&#123;</span><br><span class="line">    public function init()&#123;</span><br><span class="line">        parent::init();</span><br><span class="line">        echo &#39;&lt;ul&gt;&#39;；</span><br><span class="line">    &#125;</span><br><span class="line">    public funtion run()&#123;</span><br><span class="line">        return &#39;&lt;&#x2F;ul&gt;&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    public function addMenu($menuName)&#123;</span><br><span class="line">        return &#39;&lt;li&gt;&#39;.$menuName.&#39;&lt;&#x2F;li&gt;&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">视图中：</span><br><span class="line">&lt;?php $menu &#x3D; TopMenu::begin();?&gt;</span><br><span class="line">&#x2F;&#x2F;输出&lt;ul&gt;</span><br><span class="line">&lt;?&#x3D;$menu-&gt;addMenu(&#39;menu1&#39;);?&gt;</span><br><span class="line">&lt;?&#x3D;$menu-&gt;addMenu(&#39;menu12&#39;);?&gt;</span><br><span class="line">&lt;?php TopMenu::begin();?&gt;</span><br><span class="line">&#x2F;&#x2F;输出&lt;&#x2F;ul&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="3-基本流程"><a href="#3-基本流程" class="headerlink" title="3. 基本流程"></a>3. 基本流程</h2><hr>
+<h3 id="3-1-活动记录（数据模型）和控制器设置基类"><a href="#3-1-活动记录（数据模型）和控制器设置基类" class="headerlink" title="3.1 活动记录（数据模型）和控制器设置基类"></a>3.1 活动记录（数据模型）和控制器设置基类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;---------------base&#x2F;BaseModel.php-------------------</span><br><span class="line">&lt;?php</span><br><span class="line">namespace common\models\base;</span><br><span class="line">&#x2F;**</span><br><span class="line">*基础模型</span><br><span class="line">*&#x2F;</span><br><span class="line">use yii\db\ActiveRecord;</span><br><span class="line"></span><br><span class="line">class BaseModel extends ActiveRecord</span><br><span class="line">&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;------------base&#x2F;BaseController.php---------------------</span><br><span class="line">&lt;?php</span><br><span class="line">namespace frontend\controllers\base;</span><br><span class="line">&#x2F;**</span><br><span class="line">*基础控制器</span><br><span class="line">*&#x2F;</span><br><span class="line">use yii\web\Controller;</span><br><span class="line"></span><br><span class="line">class BaseController extends Controller</span><br><span class="line">&#123;</span><br><span class="line">    public function beforeAction($action)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;检测-如果父级的beforeAction返回的是不通过</span><br><span class="line">        if (!parent::beforeAction($action)) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-创建数据库-amp-数据模型"><a href="#3-2-创建数据库-amp-数据模型" class="headerlink" title="3.2 创建数据库&amp;数据模型"></a>3.2 创建数据库&amp;数据模型</h3><p>use Gii</p>
+<h3 id="3-3-创建表单模型"><a href="#3-3-创建表单模型" class="headerlink" title="3.3 创建表单模型"></a>3.3 创建表单模型</h3><ul>
+<li>字段</li>
+<li>规则<code>rules()</code></li>
+<li>字段名称（标签属性）<code>attributeLabels()</code></li>
+</ul>
+<h3 id="3-4-创建控制器"><a href="#3-4-创建控制器" class="headerlink" title="3.4 创建控制器"></a>3.4 创建控制器</h3><ul>
+<li>创建行为action</li>
+<li>new表单对象</li>
+<li>渲染视图<code>return $this-&gt;render(&#39;create&#39;,[&#39;model&#39;=&gt;$model]);</code></li>
+</ul>
+<h3 id="3-5-创建视图view"><a href="#3-5-创建视图view" class="headerlink" title="3.5 创建视图view"></a>3.5 创建视图view</h3>
       
 
       
@@ -497,7 +416,7 @@ use Gii
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基础配置"><span class="toc-number">1.</span> <span class="toc-text">1. 基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-高级版：初始化-开发环境"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 高级版：初始化-开发环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-连接数据库"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 连接数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-修改HOSTS、服务器配置模板"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 修改HOSTS、服务器配置模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-路由配置优化"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 路由配置优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-语言包配置-选"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 语言包配置(选)</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">1. 基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E9%AB%98%E7%BA%A7%E7%89%88%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 高级版：初始化-开发环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 连接数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%BF%AE%E6%94%B9HOSTS%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 修改HOSTS、服务器配置模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 路由配置优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E8%AF%AD%E8%A8%80%E5%8C%85%E9%85%8D%E7%BD%AE-%E9%80%89"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 语言包配置(选)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E7%8B%AC%E7%AB%8B%E7%9A%84%E7%94%A8%E6%88%B7%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 独立的用户系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-1-%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%86"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.6.1 模型的区分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-2-%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF"><span class="toc-number">1.6.2.</span> <span class="toc-text">1.6.2 设计思路</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%8A%80%E6%9C%AF%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">2. 技术点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%83%A8%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 部件的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 查询方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-Query"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1 Query</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-Model-find"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2 *Model::find()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-params%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 params的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E7%A6%81%E7%94%A8%E8%87%AA%E5%B8%A6%E7%9A%84-Yii%E3%80%81JQuery-%E5%92%8C-Bootstrap-%E8%84%9A%E6%9C%AC"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 禁用自带的 Yii、JQuery 和 Bootstrap 脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-AppAsset%E5%89%8D%E7%AB%AF%E8%B5%84%E6%BA%90%E4%BD%BF%E7%94%A8"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 AppAsset前端资源使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-init-run-%E5%87%BD%E6%95%B0%E7%95%A5%E8%A7%A3"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 init() run()函数略解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 基本流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%B4%BB%E5%8A%A8%E8%AE%B0%E5%BD%95%EF%BC%88%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%EF%BC%89%E5%92%8C%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BE%E7%BD%AE%E5%9F%BA%E7%B1%BB"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 活动记录（数据模型）和控制器设置基类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93-amp-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 创建数据库&amp;数据模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%8D%95%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 创建表单模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%88%9B%E5%BB%BA%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 创建控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BEview"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 创建视图view</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -632,54 +551,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代理</a>
               </li>
              
@@ -688,7 +559,55 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

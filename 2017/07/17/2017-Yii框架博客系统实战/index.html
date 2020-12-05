@@ -37,7 +37,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -51,18 +51,14 @@
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">正义的伙伴</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">加入世界，改变世界</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/archives/">归档</a></li>
 	        
 				<li><a href="/photos/">相册</a></li>
 	        
@@ -107,14 +103,10 @@
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">正义的伙伴</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>加入世界，改变世界<i class="icon icon-quo-right"></i></p>
 			
-			
-			
-				
 			
 				
 			
@@ -133,14 +125,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/photos/">相册</a></li>
+					<li style="width: 50%"><a href="/photos/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -199,123 +189,152 @@
 <p>2.路由优化<br>将下面的代码添加至<code>frontend\config\main.php</code> <code>components</code>中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#39;urlManager&#39;&#x3D;&gt;[</span><br><span class="line"></span><br><span class="line">             &#39;enablePrettyUrl&#39; &#x3D;&gt; true, &#x2F;&#x2F;对url进行美化</span><br><span class="line"></span><br><span class="line">             &#39;showScriptName&#39; &#x3D;&gt; false,&#x2F;&#x2F;隐藏index.php</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;  &#39;suffix&#39; &#x3D;&gt; &#39;.html&#39;,&#x2F;&#x2F;后缀</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;  &#39;enableStrictParsing&#39;&#x3D;&gt;FALSE,&#x2F;&#x2F;不要求网址严格匹配，则不需要输入rules</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;  &#39;rules&#39; &#x3D;&gt; []&#x2F;&#x2F;网址匹配规则</span><br><span class="line"></span><br><span class="line">        ],</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-5语言包配置"><a href="#1-5语言包配置" class="headerlink" title="1.5语言包配置"></a>1.5语言包配置</h2><p>注意大小写<br>1.开启语言<code>frontend\config\main.php</code> <code>return[]</code>加入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.添加自己的词库配置到&#96;components&#96;中</span><br></pre></td></tr></table></figure>
-<p>‘i18n’ =&gt; [<br>            ‘translations’ =&gt; [<br>                ‘*’ =&gt; [<br>                    ‘class’ =&gt; ‘yii\i18n\PhpMessageSource’,<br>                    // ‘basePath’ =&gt; ‘/messages’,//默认<br>                    ‘fileMap’ =&gt; [<br>                        ‘common’ =&gt; ‘common.php’,//有多个包可以并列下去<br>                    ],<br>                ],<br>            ],<br>        ],</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.创建自定义的语言包&#96;frontend&#x2F;messages&#x2F;zh-CN&#x2F;common.php&#96;，名字和上面对应</span><br></pre></td></tr></table></figure>
-<?php
-return[
-    'Blog'=>'博客',
-];
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4.使用</span><br><span class="line">1:main视图中</span><br></pre></td></tr></table></figure>
-['label' => 'Home', 'url' => ['/site/index']],
-//改成
-['label' =>Yii::t('yii','Home'), 'url' => ['/site/index']],
-//使用了yii自带的语言包，同理：
-['label' =>Yii::t('common','Home'), 'url' => ['/site/index']],
-//就使用了自定义的语言包
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2:对于视图中&#96;&lt;?&#x3D; $form-&gt;field($model, &#39;email&#39;) ?&gt;&#96;格式，在模型中添加翻译：</span><br></pre></td></tr></table></figure>
-public function attributeLabels()
-{
-    return[
-        'username'=>'用户名',
-        'email'=>\Yii::t('common', 'Email'),
-    ];
-}
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 1.6 独立的用户系统</span><br><span class="line">### 1.6.1 模型的区分</span><br><span class="line">&#96;models&#96;分为&#96;***Form.php&#96;表单模型和&#96;User.php&#96;这种数据模型</span><br><span class="line"></span><br><span class="line">### 1.6.2设计思路</span><br><span class="line">1. 前后台数据表分离：user&amp;admin</span><br><span class="line">2. 代码调整</span><br><span class="line"> 1. 表单模型放在前后台中，&#96;数据模型&#96;放在common（移动LoginForm.php到前后台修改命名空间）</span><br><span class="line"> 2. 配置文件&#96;config&#x2F;main.php&#96;</span><br><span class="line"> 3. 修改&#96;表单模型&#96;里的数据模型对应</span><br><span class="line"> 4. 前后台&#96;站点控制器&#96;的表单use的命名空间</span><br><span class="line"> 5. 语言包</span><br><span class="line"></span><br><span class="line"># 2. 前台开发</span><br><span class="line">## 2.1 前台布局</span><br><span class="line">在main.php框架中：</span><br><span class="line"></span><br><span class="line">### 2.1.1 菜单导航</span><br><span class="line">+ 删除修改导航栏目改成left&#x2F;rightMenus</span><br><span class="line">+ 修改l&#x2F;r相关代码</span><br><span class="line"></span><br><span class="line">### 2.1.2登陆显示</span><br><span class="line">+ 放入头像</span><br><span class="line">&#96;&#39;label&#39; &#x3D;&gt; &#39;&lt;img src &#x3D;&quot;。。。&quot;&gt;&#39;,&#96;</span><br><span class="line">为后期方便，位置调用参数显示，在config&#x2F;params.php中加入</span><br></pre></td></tr></table></figure>
-'avatar' => [
-        'small' => '/statics/images/avatar/small.jpg',
-    ]
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ 在对应的&#96;Nav::widget()&#96;中加入&#96;&#39;encodeLabels&#39;&#x3D;&gt;false,&#96;关闭代码过滤</span><br><span class="line">+ 修改对应样式css文件</span><br><span class="line">+ &#96;linkOptions&#96;：添加词缀，每个&#96;&#39;label&#39;&#96;是一个&#96;&lt;a&gt;&#96;。</span><br><span class="line">+ 添加&#96;&#39;items&#39;&#96;下拉框</span><br><span class="line"></span><br><span class="line">### 2.1.3 引入font-awesome</span><br><span class="line">1. 放入文件夹到css下</span><br><span class="line">2. 在&#96;assets&#x2F;AppAsset.php&#96;静态资源管理中添加min.css引用</span><br></pre></td></tr></table></figure>
-$rightMenus[] = [
-    'label' => '<img src ="'.Yii::$app->params['avatar']['small'].'" alt="'.Yii::$app->user->identity->username.'">',
-    'linkOptions' => ['class'=>'avatar'],
-    'items' => [
-        ['label' => '<i class="fa fa-sign-out"></i> 退出','url' => ['/site/logout'],'linkOptions' => ['data-method'=>'post']],
-    ],
-];
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 2.2 登录注册</span><br><span class="line">### 2.2.1 重复密码&amp;验证码</span><br><span class="line">+ SignupForm里加入对应字段、配置</span><br></pre></td></tr></table></figure>
-public $rePassword;
-public $verifyCode;
+<h2 id="1-5语言包配置"><a href="#1-5语言包配置" class="headerlink" title="1.5语言包配置"></a>1.5语言包配置</h2><p>注意大小写<br>1.开启语言<code>frontend\config\main.php</code> <code>return[]</code>加入<br><code>&#39;language&#39; =&gt; &#39;zh-CN&#39;,//这时已经可以使用自带的部分翻译</code><br>2.添加自己的词库配置到<code>components</code>中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#39;i18n&#39; &#x3D;&gt; [</span><br><span class="line">            &#39;translations&#39; &#x3D;&gt; [</span><br><span class="line">                &#39;*&#39; &#x3D;&gt; [</span><br><span class="line">                    &#39;class&#39; &#x3D;&gt; &#39;yii\i18n\PhpMessageSource&#39;,</span><br><span class="line">                    &#x2F;&#x2F; &#39;basePath&#39; &#x3D;&gt; &#39;&#x2F;messages&#39;,&#x2F;&#x2F;默认</span><br><span class="line">                    &#39;fileMap&#39; &#x3D;&gt; [</span><br><span class="line">                        &#39;common&#39; &#x3D;&gt; &#39;common.php&#39;,&#x2F;&#x2F;有多个包可以并列下去</span><br><span class="line">                    ],</span><br><span class="line">                ],</span><br><span class="line">            ],</span><br><span class="line">        ],</span><br></pre></td></tr></table></figure>
+<p>3.创建自定义的语言包<code>frontend/messages/zh-CN/common.php</code>，名字和上面对应</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">return[</span><br><span class="line">    &#39;Blog&#39;&#x3D;&gt;&#39;博客&#39;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<p>4.使用<br>1:main视图中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[&#39;label&#39; &#x3D;&gt; &#39;Home&#39;, &#39;url&#39; &#x3D;&gt; [&#39;&#x2F;site&#x2F;index&#39;]],</span><br><span class="line">&#x2F;&#x2F;改成</span><br><span class="line">[&#39;label&#39; &#x3D;&gt;Yii::t(&#39;yii&#39;,&#39;Home&#39;), &#39;url&#39; &#x3D;&gt; [&#39;&#x2F;site&#x2F;index&#39;]],</span><br><span class="line">&#x2F;&#x2F;使用了yii自带的语言包，同理：</span><br><span class="line">[&#39;label&#39; &#x3D;&gt;Yii::t(&#39;common&#39;,&#39;Home&#39;), &#39;url&#39; &#x3D;&gt; [&#39;&#x2F;site&#x2F;index&#39;]],</span><br><span class="line">&#x2F;&#x2F;就使用了自定义的语言包</span><br></pre></td></tr></table></figure>
+<p>2:对于视图中<code>&lt;?= $form-&gt;field($model, &#39;email&#39;) ?&gt;</code>格式，在模型中添加翻译：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public function attributeLabels()</span><br><span class="line">&#123;</span><br><span class="line">    return[</span><br><span class="line">        &#39;username&#39;&#x3D;&gt;&#39;用户名&#39;,</span><br><span class="line">        &#39;email&#39;&#x3D;&gt;\Yii::t(&#39;common&#39;, &#39;Email&#39;),</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public function rules()
-{
-    return [
-        ['username', 'match','pattern'=>'/^[(\x{4E00}-\x{9FA5})a-zA-Z]+[(\x{4E00}-\x{9FA5})a-zA-Z_\d]*$/u','message'=>'用户名由字母，汉字，数字，下划线组成，且不能以数字和下划线开头。'],
+<h2 id="1-6-独立的用户系统"><a href="#1-6-独立的用户系统" class="headerlink" title="1.6 独立的用户系统"></a>1.6 独立的用户系统</h2><h3 id="1-6-1-模型的区分"><a href="#1-6-1-模型的区分" class="headerlink" title="1.6.1 模型的区分"></a>1.6.1 模型的区分</h3><p><code>models</code>分为<code>***Form.php</code>表单模型和<code>User.php</code>这种数据模型</p>
+<h3 id="1-6-2设计思路"><a href="#1-6-2设计思路" class="headerlink" title="1.6.2设计思路"></a>1.6.2设计思路</h3><ol>
+<li>前后台数据表分离：user&amp;admin</li>
+<li>代码调整</li>
+<li>表单模型放在前后台中，<code>数据模型</code>放在common（移动LoginForm.php到前后台修改命名空间）</li>
+<li>配置文件<code>config/main.php</code></li>
+<li>修改<code>表单模型</code>里的数据模型对应</li>
+<li>前后台<code>站点控制器</code>的表单use的命名空间</li>
+<li>语言包</li>
+</ol>
+<h1 id="2-前台开发"><a href="#2-前台开发" class="headerlink" title="2. 前台开发"></a>2. 前台开发</h1><h2 id="2-1-前台布局"><a href="#2-1-前台布局" class="headerlink" title="2.1 前台布局"></a>2.1 前台布局</h2><p>在main.php框架中：</p>
+<h3 id="2-1-1-菜单导航"><a href="#2-1-1-菜单导航" class="headerlink" title="2.1.1 菜单导航"></a>2.1.1 菜单导航</h3><ul>
+<li>删除修改导航栏目改成left/rightMenus</li>
+<li>修改l/r相关代码</li>
+</ul>
+<h3 id="2-1-2登陆显示"><a href="#2-1-2登陆显示" class="headerlink" title="2.1.2登陆显示"></a>2.1.2登陆显示</h3><ul>
+<li>放入头像<br><code>&#39;label&#39; =&gt; &#39;&lt;img src =&quot;。。。&quot;&gt;&#39;,</code><br>为后期方便，位置调用参数显示，在config/params.php中加入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#39;avatar&#39; &#x3D;&gt; [</span><br><span class="line">        &#39;small&#39; &#x3D;&gt; &#39;&#x2F;statics&#x2F;images&#x2F;avatar&#x2F;small.jpg&#39;,</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure></li>
+<li>在对应的<code>Nav::widget()</code>中加入<code>&#39;encodeLabels&#39;=&gt;false,</code>关闭代码过滤</li>
+<li>修改对应样式css文件</li>
+<li><code>linkOptions</code>：添加词缀，每个<code>&#39;label&#39;</code>是一个<code>&lt;a&gt;</code>。</li>
+<li>添加<code>&#39;items&#39;</code>下拉框</li>
+</ul>
+<h3 id="2-1-3-引入font-awesome"><a href="#2-1-3-引入font-awesome" class="headerlink" title="2.1.3 引入font-awesome"></a>2.1.3 引入font-awesome</h3><ol>
+<li>放入文件夹到css下</li>
+<li>在<code>assets/AppAsset.php</code>静态资源管理中添加min.css引用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$rightMenus[] &#x3D; [</span><br><span class="line">    &#39;label&#39; &#x3D;&gt; &#39;&lt;img src &#x3D;&quot;&#39;.Yii::$app-&gt;params[&#39;avatar&#39;][&#39;small&#39;].&#39;&quot; alt&#x3D;&quot;&#39;.Yii::$app-&gt;user-&gt;identity-&gt;username.&#39;&quot;&gt;&#39;,</span><br><span class="line">    &#39;linkOptions&#39; &#x3D;&gt; [&#39;class&#39;&#x3D;&gt;&#39;avatar&#39;],</span><br><span class="line">    &#39;items&#39; &#x3D;&gt; [</span><br><span class="line">        [&#39;label&#39; &#x3D;&gt; &#39;&lt;i class&#x3D;&quot;fa fa-sign-out&quot;&gt;&lt;&#x2F;i&gt; 退出&#39;,&#39;url&#39; &#x3D;&gt; [&#39;&#x2F;site&#x2F;logout&#39;],&#39;linkOptions&#39; &#x3D;&gt; [&#39;data-method&#39;&#x3D;&gt;&#39;post&#39;]],</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
 
-        [['password','rePassword'], 'required'],
-        [['password','rePassword'], 'string', 'min' => 6],
-        ['rePassword','compare','compareAttribute'=>'password','message'=>\Yii::t('common', 'Tow times the password is not consitent.')],
+</li>
+</ol>
+<h2 id="2-2-登录注册"><a href="#2-2-登录注册" class="headerlink" title="2.2 登录注册"></a>2.2 登录注册</h2><h3 id="2-2-1-重复密码-amp-验证码"><a href="#2-2-1-重复密码-amp-验证码" class="headerlink" title="2.2.1 重复密码&amp;验证码"></a>2.2.1 重复密码&amp;验证码</h3><ul>
+<li>SignupForm里加入对应字段、配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public $rePassword;</span><br><span class="line">public $verifyCode;</span><br><span class="line"></span><br><span class="line">public function rules()</span><br><span class="line">&#123;</span><br><span class="line">    return [</span><br><span class="line">        [&#39;username&#39;, &#39;match&#39;,&#39;pattern&#39;&#x3D;&gt;&#39;&#x2F;^[(\x&#123;4E00&#125;-\x&#123;9FA5&#125;)a-zA-Z]+[(\x&#123;4E00&#125;-\x&#123;9FA5&#125;)a-zA-Z_\d]*$&#x2F;u&#39;,&#39;message&#39;&#x3D;&gt;&#39;用户名由字母，汉字，数字，下划线组成，且不能以数字和下划线开头。&#39;],</span><br><span class="line">    </span><br><span class="line">        [[&#39;password&#39;,&#39;rePassword&#39;], &#39;required&#39;],</span><br><span class="line">        [[&#39;password&#39;,&#39;rePassword&#39;], &#39;string&#39;, &#39;min&#39; &#x3D;&gt; 6],</span><br><span class="line">        [&#39;rePassword&#39;,&#39;compare&#39;,&#39;compareAttribute&#39;&#x3D;&gt;&#39;password&#39;,&#39;message&#39;&#x3D;&gt;\Yii::t(&#39;common&#39;, &#39;Tow times the password is not consitent.&#39;)],</span><br><span class="line">    </span><br><span class="line">        [&#39;verifyCode&#39;, &#39;captcha&#39;],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br><span class="line">public function attributeLabels()</span><br><span class="line">&#123;</span><br><span class="line">    return[</span><br><span class="line">        &#39;rePassword&#39;&#x3D;&gt;&#39;重复密码&#39;,</span><br><span class="line">        &#39;verifyCode&#39;&#x3D;&gt;&#39;验证码&#39;,</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>视图中加入对应输入框</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use yii\captcha\Captcha;</span><br><span class="line">&#x2F;&#x2F;--------------------------</span><br><span class="line">&lt;?&#x3D; $form-&gt;field($model, &#39;rePassword&#39;)-&gt;passwordInput() ?&gt;</span><br><span class="line"></span><br><span class="line">&lt;?&#x3D; $form-&gt;field($model, &#39;verifyCode&#39;)-&gt;widget(Captcha::ClassName()) ?&gt;</span><br></pre></td></tr></table></figure>
 
-        ['verifyCode', 'captcha'],
-    ];
-}
-public function attributeLabels()
-{
-    return[
-        'rePassword'=>'重复密码',
-        'verifyCode'=>'验证码',
-    ];
-}
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 视图中加入对应输入框</span><br></pre></td></tr></table></figure>
-use yii\captcha\Captcha;
-//--------------------------
-<?= $form->field($model, 'rePassword')->passwordInput() ?>
+<h2 id="2-3创建文章控制器和数据表"><a href="#2-3创建文章控制器和数据表" class="headerlink" title="2.3创建文章控制器和数据表"></a>2.3创建文章控制器和数据表</h2><ol>
+<li>设置前台控制器基类</li>
+<li>创建<code>base/BaseController.php</code>和<code>PostController</code>控制器</li>
+<li>使<code>SiteController</code>、<code>PostController</code>继承<code>BaseController</code></li>
+<li>创建<code>post/index.php</code>视图</li>
+<li>创建数据表</li>
+</ol>
+<h2 id="2-4创建文章模型Form-amp-Model"><a href="#2-4创建文章模型Form-amp-Model" class="headerlink" title="2.4创建文章模型Form&amp;Model"></a>2.4创建文章模型Form&amp;Model</h2><ol>
+<li>Gii在common里创建数据模型<code>PostModel</code>(可以使用语言包)</li>
+<li>设置公共数据模型基类</li>
+<li>创建<code>base\BaseModel.php</code></li>
+<li>其他Model<code>use</code>&amp;<code>extends</code>基类模型</li>
+<li>创建<code>PostForm</code>表单模型</li>
+</ol>
+<h2 id="2-5创建文章功能"><a href="#2-5创建文章功能" class="headerlink" title="2.5创建文章功能"></a>2.5创建文章功能</h2><h3 id="2-5-1表单生成"><a href="#2-5-1表单生成" class="headerlink" title="2.5.1表单生成"></a>2.5.1表单生成</h3><ol>
+<li>在文章控制器<code>PostController</code>中加入创建文章<code>Create</code>操作</li>
+<li><code>post</code>视图文件夹中创建<code>create</code>页面</li>
+<li>面包屑</li>
+<li>表单（字段限于<code>PostForm</code>中定义的）</li>
+</ol>
+<h3 id="2-5-2分类表单"><a href="#2-5-2分类表单" class="headerlink" title="2.5.2分类表单"></a>2.5.2分类表单</h3><ol>
+<li>创建分类模型<code>CatModel</code></li>
+<li>获取分类数据</li>
+<li>修改模型继承</li>
+<li>创建取数据方法<code>getAllCats()</code></li>
+<li>在控制器调用取数据方法并渲染</li>
+</ol>
+<h3 id="2-5-3组件-标签图上传"><a href="#2-5-3组件-标签图上传" class="headerlink" title="2.5.3组件-标签图上传"></a>2.5.3组件-标签图上传</h3><ul>
+<li>按说明下载安装图片上传拓展<br><code>http://www.yii-china.com/post/detail/15.html</code></li>
+</ul>
+<h3 id="2-5-4组件-富文本编辑器"><a href="#2-5-4组件-富文本编辑器" class="headerlink" title="2.5.4组件-富文本编辑器"></a>2.5.4组件-富文本编辑器</h3><ul>
+<li>按说明下载安装拓展<br><code>http://www.yii-china.com/post/detail/3.html</code></li>
+</ul>
+<h3 id="2-5-5组件-标签"><a href="#2-5-5组件-标签" class="headerlink" title="2.5.5组件-标签"></a>2.5.5组件-标签</h3><ul>
+<li>从教程资源包中取出tags放入common\widgets</li>
+<li>编辑<code>create</code>视图和样式</li>
+</ul>
+<h3 id="2-5-6定义场景与文章创建逻辑"><a href="#2-5-6定义场景与文章创建逻辑" class="headerlink" title="2.5.6定义场景与文章创建逻辑"></a>2.5.6定义场景与文章创建逻辑</h3><p>创建应用：场景<br>场景：不同场景能使用的列不同</p>
+<ol>
+<li>在表单模型中创建场景：</li>
+<li>定义常量作为场景名<code>const SCENARIOS_UPDATE = &#39;update&#39;；</code></li>
+<li>重写<code>scenarios()</code></li>
+<li>在<code>rules()</code>里<code>on</code>要应用的场景</li>
+<li>在控制器的<code>create</code>行为中使用场景</li>
+<li>定义表单要使用的场景</li>
+<li>使用表单模型中的create事务</li>
+</ol>
+<h3 id="2-5-7文章create事务方法"><a href="#2-5-7文章create事务方法" class="headerlink" title="2.5.7文章create事务方法"></a>2.5.7文章create事务方法</h3><p>事务：作为单个逻辑工作单元执行的一系列操作(数据库概念)<br>在表单模型创建<code>create</code>事务：</p>
+<ol>
+<li>表单模型use数据模型</li>
+<li>给数据模型对象赋值</li>
+<li>save()</li>
+<li>设计<code>_getSummary()</code>函数截取文章摘要</li>
+</ol>
+<h3 id="2-5-8文章创建后-使用事件"><a href="#2-5-8文章创建后-使用事件" class="headerlink" title="2.5.8文章创建后-使用事件"></a>2.5.8文章创建后-使用事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public function _eventAfterCreate($data)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;向常量事件中添加(绑定)事件(事件名,[对象,方法],参数)</span><br><span class="line">    $this-&gt;on(self::EVENT_AFTER_CREATE,[$this,&#39;_eventAddTag&#39;],$data);</span><br><span class="line">    &#x2F;&#x2F;触发事件</span><br><span class="line">    $this-&gt;trigger(self::EVENT_AFTER_CREATE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<?= $form->field($model, 'verifyCode')->widget(Captcha::ClassName()) ?>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 2.3创建文章控制器和数据表</span><br><span class="line">1. 设置前台控制器基类</span><br><span class="line"> 1. 创建&#96;base&#x2F;BaseController.php&#96;和&#96;PostController&#96;控制器</span><br><span class="line"> 2. 使&#96;SiteController&#96;、&#96;PostController&#96;继承&#96;BaseController&#96;</span><br><span class="line">2. 创建&#96;post&#x2F;index.php&#96;视图</span><br><span class="line">3. 创建数据表</span><br><span class="line"></span><br><span class="line">## 2.4创建文章模型Form&amp;Model</span><br><span class="line">1. Gii在common里创建数据模型&#96;PostModel&#96;(可以使用语言包)</span><br><span class="line">2. 设置公共数据模型基类</span><br><span class="line"> 1. 创建&#96;base\BaseModel.php&#96;</span><br><span class="line"> 2. 其他Model&#96;use&#96;&amp;&#96;extends&#96;基类模型</span><br><span class="line">3. 创建&#96;PostForm&#96;表单模型</span><br><span class="line"></span><br><span class="line">## 2.5创建文章功能</span><br><span class="line">### 2.5.1表单生成</span><br><span class="line">1. 在文章控制器&#96;PostController&#96;中加入创建文章&#96;Create&#96;操作</span><br><span class="line">2. &#96;post&#96;视图文件夹中创建&#96;create&#96;页面</span><br><span class="line"> 1. 面包屑</span><br><span class="line"> 2. 表单（字段限于&#96;PostForm&#96;中定义的）</span><br><span class="line"></span><br><span class="line">### 2.5.2分类表单</span><br><span class="line">1. 创建分类模型&#96;CatModel&#96;</span><br><span class="line">2. 获取分类数据</span><br><span class="line"> 1. 修改模型继承</span><br><span class="line"> 2. 创建取数据方法&#96;getAllCats()&#96;</span><br><span class="line"> 3. 在控制器调用取数据方法并渲染</span><br><span class="line"></span><br><span class="line">### 2.5.3组件-标签图上传</span><br><span class="line">- 按说明下载安装图片上传拓展</span><br><span class="line"> &#96;http:&#x2F;&#x2F;www.yii-china.com&#x2F;post&#x2F;detail&#x2F;15.html&#96;</span><br><span class="line"></span><br><span class="line">### 2.5.4组件-富文本编辑器</span><br><span class="line">- 按说明下载安装拓展</span><br><span class="line"> &#96;http:&#x2F;&#x2F;www.yii-china.com&#x2F;post&#x2F;detail&#x2F;3.html&#96;</span><br><span class="line"></span><br><span class="line">### 2.5.5组件-标签</span><br><span class="line">- 从教程资源包中取出tags放入common\widgets</span><br><span class="line">- 编辑&#96;create&#96;视图和样式</span><br><span class="line"></span><br><span class="line">### 2.5.6定义场景与文章创建逻辑</span><br><span class="line">创建应用：场景</span><br><span class="line">场景：不同场景能使用的列不同</span><br><span class="line">1. 在表单模型中创建场景：</span><br><span class="line"> 1. 定义常量作为场景名&#96;const SCENARIOS_UPDATE &#x3D; &#39;update&#39;；&#96;</span><br><span class="line"> 2. 重写&#96;scenarios()&#96;</span><br><span class="line"> 3. 在&#96;rules()&#96;里&#96;on&#96;要应用的场景</span><br><span class="line">2. 在控制器的&#96;create&#96;行为中使用场景</span><br><span class="line"> 1. 定义表单要使用的场景</span><br><span class="line"> 2. 使用表单模型中的create事务</span><br><span class="line"></span><br><span class="line">### 2.5.7文章create事务方法</span><br><span class="line">事务：作为单个逻辑工作单元执行的一系列操作(数据库概念)</span><br><span class="line">在表单模型创建&#96;create&#96;事务：</span><br><span class="line">1. 表单模型use数据模型</span><br><span class="line">2. 给数据模型对象赋值</span><br><span class="line">3. save()</span><br><span class="line">4. 设计&#96;_getSummary()&#96;函数截取文章摘要</span><br><span class="line"></span><br><span class="line">### 2.5.8文章创建后-使用事件</span><br></pre></td></tr></table></figure>
-<p>public function _eventAfterCreate($data)<br>{<br>    //向常量事件中添加(绑定)事件(事件名,[对象,方法],参数)<br>    $this-&gt;on(self::EVENT_AFTER_CREATE,[$this,’_eventAddTag’],$data);<br>    //触发事件<br>    $this-&gt;trigger(self::EVENT_AFTER_CREATE);<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 2.5.9标签功能</span><br><span class="line">1. 创建标签表单模型&#96;TagForm&#96;</span><br><span class="line">2. 生成文章-表单关系数据模型&#96;RelationPostTagModel&#96;</span><br><span class="line">3. 在文章表单&#96;PostForm&#96;code 添加标签&#96;_eventAddTag&#96;函数</span><br></pre></td></tr></table></figure>
-<p>public function _eventAddTag($event)<br>{<br>    //保存标签</p>
-<pre><code>//删除原先的关联
+<h3 id="2-5-9标签功能"><a href="#2-5-9标签功能" class="headerlink" title="2.5.9标签功能"></a>2.5.9标签功能</h3><ol>
+<li>创建标签表单模型<code>TagForm</code></li>
+<li>生成文章-表单关系数据模型<code>RelationPostTagModel</code></li>
+<li>在文章表单<code>PostForm</code>code 添加标签<code>_eventAddTag</code>函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public function _eventAddTag($event)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;保存标签</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;删除原先的关联</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;批量保存文章和标签的关联关系</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;批量插入</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-//批量保存文章和标签的关联关系
-
-    //批量插入</code></pre><p>}</p>
-<pre><code>
-## 2.6文章展示
-### 2.6.1文章详情
-1. 控制器中加入`actionView($id)`
-2. 创建`views/post/view.php`
-3. `PostForm`添加`getViewById($id)`访问文章
- 1. 查询
- 2. 处理格式
- 3. 返回
-4. `PostModel`&amp;`RelationPostTagModel`中添加`getRelate()`&amp;`getTag()`
-
-### 2.6.2文章统计
-1. 建表、`PostExtendModel`
-2. 在控制器-文章详情操作里添加`upCounter()`
-3. 在model中code`upCounter()`
-4. `PostForm`里添加查询关联`with(&apos;relate.tag&apos;, &apos;extend&apos;)`
-5. `PostModel`里添加`getExtend()`关联
-6. view添加浏览的数据`&lt;?=isset($data[&apos;extend&apos;][&apos;browser&apos;])?$data[&apos;extend&apos;][&apos;browser&apos;]:0?&gt;`
-
-### 2.6.3组件-文章列表
-小部件：通过封装组件实现功能
-部件调用表单，表单调用模型，在要使用的视图中use`yii\base\Widget;`和要使用的部件，在要展现的地方插入`&lt;?=部件名::widget();?&gt;`
-1. 创建挂件文件结构
-2. code文章列表组件`PostWidget`调用`PostForm`的`getList()`
-3. 在文章表单添加 获取文章列表`getList()`调用`_formatList`&amp;`BaseModel`的`getPages()`
-
-## 2.7博客首页
-### 2.7.1组件-图片轮播
-1. 制作轮播组件`frontend\widgets\banner`
-2. 使用`&lt;?=BannerWidget::widget()?&gt;`
-
-### 2.7.2组件-留言板
-1. 创建表和模型
-2. 创建表单，添加获取留言板数据`getList()`和添加留言`create()`函数
-3. 创建chat挂件
-4. 在`site/index.php`里添加chat组件
-4. 添加js（ajax），修改AppAsset
-5. 在SiteController里添加接收
-
-### 2.7.3组件-热门浏览
-1. 制作轮播组件`frontend\widgets\hot`
-2. 使用`&lt;?=HotWidget::widget()?&gt;`
-
-### 2.7.4标签云</code></pre>
+</li>
+</ol>
+<h2 id="2-6文章展示"><a href="#2-6文章展示" class="headerlink" title="2.6文章展示"></a>2.6文章展示</h2><h3 id="2-6-1文章详情"><a href="#2-6-1文章详情" class="headerlink" title="2.6.1文章详情"></a>2.6.1文章详情</h3><ol>
+<li>控制器中加入<code>actionView($id)</code></li>
+<li>创建<code>views/post/view.php</code></li>
+<li><code>PostForm</code>添加<code>getViewById($id)</code>访问文章</li>
+<li>查询</li>
+<li>处理格式</li>
+<li>返回</li>
+<li><code>PostModel</code>&amp;<code>RelationPostTagModel</code>中添加<code>getRelate()</code>&amp;<code>getTag()</code></li>
+</ol>
+<h3 id="2-6-2文章统计"><a href="#2-6-2文章统计" class="headerlink" title="2.6.2文章统计"></a>2.6.2文章统计</h3><ol>
+<li>建表、<code>PostExtendModel</code></li>
+<li>在控制器-文章详情操作里添加<code>upCounter()</code></li>
+<li>在model中code<code>upCounter()</code></li>
+<li><code>PostForm</code>里添加查询关联<code>with(&#39;relate.tag&#39;, &#39;extend&#39;)</code></li>
+<li><code>PostModel</code>里添加<code>getExtend()</code>关联</li>
+<li>view添加浏览的数据<code>&lt;?=isset($data[&#39;extend&#39;][&#39;browser&#39;])?$data[&#39;extend&#39;][&#39;browser&#39;]:0?&gt;</code></li>
+</ol>
+<h3 id="2-6-3组件-文章列表"><a href="#2-6-3组件-文章列表" class="headerlink" title="2.6.3组件-文章列表"></a>2.6.3组件-文章列表</h3><p>小部件：通过封装组件实现功能<br>部件调用表单，表单调用模型，在要使用的视图中use<code>yii\base\Widget;</code>和要使用的部件，在要展现的地方插入<code>&lt;?=部件名::widget();?&gt;</code></p>
+<ol>
+<li>创建挂件文件结构</li>
+<li>code文章列表组件<code>PostWidget</code>调用<code>PostForm</code>的<code>getList()</code></li>
+<li>在文章表单添加 获取文章列表<code>getList()</code>调用<code>_formatList</code>&amp;<code>BaseModel</code>的<code>getPages()</code></li>
+</ol>
+<h2 id="2-7博客首页"><a href="#2-7博客首页" class="headerlink" title="2.7博客首页"></a>2.7博客首页</h2><h3 id="2-7-1组件-图片轮播"><a href="#2-7-1组件-图片轮播" class="headerlink" title="2.7.1组件-图片轮播"></a>2.7.1组件-图片轮播</h3><ol>
+<li>制作轮播组件<code>frontend\widgets\banner</code></li>
+<li>使用<code>&lt;?=BannerWidget::widget()?&gt;</code></li>
+</ol>
+<h3 id="2-7-2组件-留言板"><a href="#2-7-2组件-留言板" class="headerlink" title="2.7.2组件-留言板"></a>2.7.2组件-留言板</h3><ol>
+<li>创建表和模型</li>
+<li>创建表单，添加获取留言板数据<code>getList()</code>和添加留言<code>create()</code>函数</li>
+<li>创建chat挂件</li>
+<li>在<code>site/index.php</code>里添加chat组件</li>
+<li>添加js（ajax），修改AppAsset</li>
+<li>在SiteController里添加接收</li>
+</ol>
+<h3 id="2-7-3组件-热门浏览"><a href="#2-7-3组件-热门浏览" class="headerlink" title="2.7.3组件-热门浏览"></a>2.7.3组件-热门浏览</h3><ol>
+<li>制作轮播组件<code>frontend\widgets\hot</code></li>
+<li>使用<code>&lt;?=HotWidget::widget()?&gt;</code></li>
+</ol>
+<h3 id="2-7-4标签云"><a href="#2-7-4标签云" class="headerlink" title="2.7.4标签云"></a>2.7.4标签云</h3>
       
 
       
@@ -467,7 +486,7 @@ use yii\captcha\Captcha;
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-基础配置"><span class="toc-number">1.</span> <span class="toc-text">1.基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1高级版：初始化-开发环境"><span class="toc-number">1.1.</span> <span class="toc-text">1.1高级版：初始化-开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2连接数据库"><span class="toc-number">1.2.</span> <span class="toc-text">1.2连接数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3修改HOSTS、服务器配置"><span class="toc-number">1.3.</span> <span class="toc-text">1.3修改HOSTS、服务器配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4路由配置优化"><span class="toc-number">1.4.</span> <span class="toc-text">1.4路由配置优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5语言包配置"><span class="toc-number">1.5.</span> <span class="toc-text">1.5语言包配置</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">1.基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1%E9%AB%98%E7%BA%A7%E7%89%88%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%8C%96-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">1.1.</span> <span class="toc-text">1.1高级版：初始化-开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.2.</span> <span class="toc-text">1.2连接数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3%E4%BF%AE%E6%94%B9HOSTS%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">1.3修改HOSTS、服务器配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">1.4路由配置优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5%E8%AF%AD%E8%A8%80%E5%8C%85%E9%85%8D%E7%BD%AE"><span class="toc-number">1.5.</span> <span class="toc-text">1.5语言包配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E7%8B%AC%E7%AB%8B%E7%9A%84%E7%94%A8%E6%88%B7%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 独立的用户系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%86"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.6.1 模型的区分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF"><span class="toc-number">1.6.2.</span> <span class="toc-text">1.6.2设计思路</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%89%8D%E5%8F%B0%E5%BC%80%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">2. 前台开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%89%8D%E5%8F%B0%E5%B8%83%E5%B1%80"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 前台布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-%E8%8F%9C%E5%8D%95%E5%AF%BC%E8%88%AA"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.1.1 菜单导航</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2%E7%99%BB%E9%99%86%E6%98%BE%E7%A4%BA"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.1.2登陆显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-%E5%BC%95%E5%85%A5font-awesome"><span class="toc-number">2.1.3.</span> <span class="toc-text">2.1.3 引入font-awesome</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 登录注册</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E9%87%8D%E5%A4%8D%E5%AF%86%E7%A0%81-amp-%E9%AA%8C%E8%AF%81%E7%A0%81"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1 重复密码&amp;验证码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-number">2.3.</span> <span class="toc-text">2.3创建文章控制器和数据表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0%E6%A8%A1%E5%9E%8BForm-amp-Model"><span class="toc-number">2.4.</span> <span class="toc-text">2.4创建文章模型Form&amp;Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0%E5%8A%9F%E8%83%BD"><span class="toc-number">2.5.</span> <span class="toc-text">2.5创建文章功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1%E8%A1%A8%E5%8D%95%E7%94%9F%E6%88%90"><span class="toc-number">2.5.1.</span> <span class="toc-text">2.5.1表单生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2%E5%88%86%E7%B1%BB%E8%A1%A8%E5%8D%95"><span class="toc-number">2.5.2.</span> <span class="toc-text">2.5.2分类表单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-3%E7%BB%84%E4%BB%B6-%E6%A0%87%E7%AD%BE%E5%9B%BE%E4%B8%8A%E4%BC%A0"><span class="toc-number">2.5.3.</span> <span class="toc-text">2.5.3组件-标签图上传</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-4%E7%BB%84%E4%BB%B6-%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">2.5.4.</span> <span class="toc-text">2.5.4组件-富文本编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-5%E7%BB%84%E4%BB%B6-%E6%A0%87%E7%AD%BE"><span class="toc-number">2.5.5.</span> <span class="toc-text">2.5.5组件-标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-6%E5%AE%9A%E4%B9%89%E5%9C%BA%E6%99%AF%E4%B8%8E%E6%96%87%E7%AB%A0%E5%88%9B%E5%BB%BA%E9%80%BB%E8%BE%91"><span class="toc-number">2.5.6.</span> <span class="toc-text">2.5.6定义场景与文章创建逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-7%E6%96%87%E7%AB%A0create%E4%BA%8B%E5%8A%A1%E6%96%B9%E6%B3%95"><span class="toc-number">2.5.7.</span> <span class="toc-text">2.5.7文章create事务方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-8%E6%96%87%E7%AB%A0%E5%88%9B%E5%BB%BA%E5%90%8E-%E4%BD%BF%E7%94%A8%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.5.8.</span> <span class="toc-text">2.5.8文章创建后-使用事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-9%E6%A0%87%E7%AD%BE%E5%8A%9F%E8%83%BD"><span class="toc-number">2.5.9.</span> <span class="toc-text">2.5.9标签功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6%E6%96%87%E7%AB%A0%E5%B1%95%E7%A4%BA"><span class="toc-number">2.6.</span> <span class="toc-text">2.6文章展示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-1%E6%96%87%E7%AB%A0%E8%AF%A6%E6%83%85"><span class="toc-number">2.6.1.</span> <span class="toc-text">2.6.1文章详情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-2%E6%96%87%E7%AB%A0%E7%BB%9F%E8%AE%A1"><span class="toc-number">2.6.2.</span> <span class="toc-text">2.6.2文章统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-3%E7%BB%84%E4%BB%B6-%E6%96%87%E7%AB%A0%E5%88%97%E8%A1%A8"><span class="toc-number">2.6.3.</span> <span class="toc-text">2.6.3组件-文章列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5"><span class="toc-number">2.7.</span> <span class="toc-text">2.7博客首页</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-1%E7%BB%84%E4%BB%B6-%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD"><span class="toc-number">2.7.1.</span> <span class="toc-text">2.7.1组件-图片轮播</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-2%E7%BB%84%E4%BB%B6-%E7%95%99%E8%A8%80%E6%9D%BF"><span class="toc-number">2.7.2.</span> <span class="toc-text">2.7.2组件-留言板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-3%E7%BB%84%E4%BB%B6-%E7%83%AD%E9%97%A8%E6%B5%8F%E8%A7%88"><span class="toc-number">2.7.3.</span> <span class="toc-text">2.7.3组件-热门浏览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-4%E6%A0%87%E7%AD%BE%E4%BA%91"><span class="toc-number">2.7.4.</span> <span class="toc-text">2.7.4标签云</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -602,54 +621,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代理</a>
               </li>
              
@@ -658,7 +629,55 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

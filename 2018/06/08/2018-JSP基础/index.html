@@ -37,7 +37,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -51,18 +51,14 @@
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">正义的伙伴</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">加入世界，改变世界</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/archives/">归档</a></li>
 	        
 				<li><a href="/photos/">相册</a></li>
 	        
@@ -107,14 +103,10 @@
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">正义的伙伴</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>加入世界，改变世界<i class="icon icon-quo-right"></i></p>
 			
-			
-			
-				
 			
 				
 			
@@ -133,14 +125,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/photos/">相册</a></li>
+					<li style="width: 50%"><a href="/photos/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -239,7 +229,7 @@
 <li>object getAttribute(String name) 返回指定属性的属性值</li>
 <li>String getContentType() 得到请求体的MIME属性</li>
 <li>String getProtocol 返回请求用的协议类型及版本号</li>
-<li>String getServerName() 返回接受请求的服务器主机<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">在作用域里设置键值对&lt;%request.setAttribute(&quot;pwd&quot;,&quot;123456&quot;); %&gt;</span><br><span class="line">获取密码：&lt;%&#x3D;request.getAttribute(&quot;pwd&quot;) %&gt;&lt;br&gt;</span><br><span class="line">请求体的MIME类型：&lt;%&#x3D;request.getContentType() %&gt;&lt;br&gt;</span><br><span class="line">协议类型及版本号：&lt;%&#x3D;request.getProtocol() %&gt;&lt;br&gt;</span><br><span class="line">服务器主机名：&lt;%&#x3D;request.getServerName() %&gt;&lt;br&gt;</span><br><span class="line">服务器端口号：&lt;%&#x3D;request.getServerPort() %&gt;&lt;br&gt;</span><br><span class="line">请求文件的长度：&lt;%&#x3D;request.getContentLength() %&gt;&lt;br&gt;</span><br><span class="line">请求客户端的IP地址：&lt;%&#x3D;request.getRemoteAddr() %&gt;&lt;br&gt;</span><br><span class="line">&lt;!--只能获取静态的IP地址，动态的话获取不到--&gt;</span><br><span class="line">请求的真实路径：&lt;%&#x3D;request.getRealPath(&quot;request.jsp&quot;) %&gt;&lt;br&gt;</span><br><span class="line">请求的上下文路径：&lt;%&#x3D;request.getContextPath() %&gt;&lt;br&gt;</span><br></pre></td></tr></table></figure></li>
+<li>String getServerName() 返回接受请求的服务器主机<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">在作用域里设置键值对&lt;%request.setAttribute(&quot;pwd&quot;,&quot;123456&quot;); %&gt;</span><br><span class="line">获取密码：&lt;%&#x3D;request.getAttribute(&quot;pwd&quot;) %&gt;&lt;br&gt;</span><br><span class="line">请求体的MIME类型：&lt;%&#x3D;request.getContentType() %&gt;&lt;br&gt;</span><br><span class="line">协议类型及版本号：&lt;%&#x3D;request.getProtocol() %&gt;&lt;br&gt;</span><br><span class="line">服务器主机名：&lt;%&#x3D;request.getServerName() %&gt;&lt;br&gt;</span><br><span class="line">服务器端口号：&lt;%&#x3D;request.getServerPort() %&gt;&lt;br&gt;</span><br><span class="line">请求文件的长度：&lt;%&#x3D;request.getContentLength() %&gt;&lt;br&gt;</span><br><span class="line">请求客户端的IP地址：&lt;%&#x3D;request.getRemoteAddr() %&gt;&lt;br&gt;</span><br><span class="line">&lt;!--只能获取静态的IP地址，动态的话获取不到--&gt;</span><br><span class="line">请求的真实路径：&lt;%&#x3D;request.getRealPath(&quot;request.jsp&quot;) %&gt;&lt;br&gt;</span><br><span class="line">请求的上下文路径：&lt;%&#x3D;request.getContextPath() %&gt;&lt;br&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 <li><p>中文乱码问题：<br>  post表单提交：request.setCharacterEncoding(“utf-8”);<br>  URL传参：修改server.xml文件</p>
@@ -397,7 +387,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-JSP基础语法"><span class="toc-number">1.</span> <span class="toc-text">1. JSP基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-JSP指令"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 JSP指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-JSP脚本、声明、表达式"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 JSP脚本、声明、表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-JSP页面生命周期"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 JSP页面生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-JSP四种范围对象的作用域"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 JSP四种范围对象的作用域</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-JSP内置对象"><span class="toc-number">2.</span> <span class="toc-text">2. JSP内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-out"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 out</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-request"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 request</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-JSP%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">1. JSP基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-JSP%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 JSP指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-JSP%E8%84%9A%E6%9C%AC%E3%80%81%E5%A3%B0%E6%98%8E%E3%80%81%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 JSP脚本、声明、表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-JSP%E9%A1%B5%E9%9D%A2%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 JSP页面生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-JSP%E5%9B%9B%E7%A7%8D%E8%8C%83%E5%9B%B4%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 JSP四种范围对象的作用域</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text">2. JSP内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-out"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 out</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-request"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 request</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -532,54 +522,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代理</a>
               </li>
              
@@ -588,7 +530,55 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

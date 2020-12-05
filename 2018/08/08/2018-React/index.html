@@ -40,7 +40,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -54,18 +54,14 @@
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">正义的伙伴</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">加入世界，改变世界</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/archives/">归档</a></li>
 	        
 				<li><a href="/photos/">相册</a></li>
 	        
@@ -110,14 +106,10 @@
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">正义的伙伴</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>加入世界，改变世界<i class="icon icon-quo-right"></i></p>
 			
-			
-			
-				
 			
 				
 			
@@ -136,14 +128,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/photos/">相册</a></li>
+					<li style="width: 50%"><a href="/photos/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -205,7 +195,7 @@
 <p>上面代码将一个 h1 标题，插入 example 节点。</p>
 <h1 id="2-JSX"><a href="#2-JSX" class="headerlink" title="2. JSX"></a>2. JSX</h1><p>JSX 的基本语法规则：遇到 HTML 标签（以 &lt; 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var names &#x3D; [&#39;Alice&#39;, &#39;Emily&#39;, &#39;Kate&#39;];</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">  &#123;</span><br><span class="line">    names.map(function (name) &#123;</span><br><span class="line">      return &lt;div&gt;Hello, &#123;name&#125;!&lt;&#x2F;div&gt;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  &lt;&#x2F;div&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015033106.png" alt=""></p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015033106.png"></p>
 <p>arr变量是一个数组，结果 JSX 会把它的所有成员，添加到模板</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [</span><br><span class="line">  &lt;h1&gt;Hello world!&lt;&#x2F;h1&gt;,</span><br><span class="line">  &lt;h2&gt;React is awesome&lt;&#x2F;h2&gt;,</span><br><span class="line">];</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;div&gt;&#123;arr&#125;&lt;&#x2F;div&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
@@ -227,13 +217,13 @@
 </ul>
 <h1 id="4-this-props-children"><a href="#4-this-props-children" class="headerlink" title="4. this.props.children"></a>4. this.props.children</h1><p><code>this.props</code> 对象的属性与组件的属性一一对应，但是有一个例外，就是 <code>this.props.children</code> 属性。它表示组件的所有子节点。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var NotesList &#x3D; React.createClass(&#123;</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;ol&gt;</span><br><span class="line">      &#123;</span><br><span class="line">        React.Children.map(this.props.children, function (child) &#123;</span><br><span class="line">          return &lt;li&gt;&#123;child&#125;&lt;&#x2F;li&gt;;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      &lt;&#x2F;ol&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;NotesList&gt;</span><br><span class="line">    &lt;span&gt;hello&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;span&gt;world&lt;&#x2F;span&gt;</span><br><span class="line">  &lt;&#x2F;NotesList&gt;,</span><br><span class="line">  document.body</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>上面代码的 <code>NoteList</code> 组件有两个 <code>span</code> 子节点，它们都可以通过 <code>this.props.children</code> 读取，运行结果如下。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015033110.png" alt=""></p>
+<p>上面代码的 <code>NoteList</code> 组件有两个 <code>span</code> 子节点，它们都可以通过 <code>this.props.children</code> 读取，运行结果如下。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015033110.png"></p>
 <ul>
 <li>这里需要注意， <code>this.props.children</code>的值有三种可能：<ul>
 <li>如果当前组件没有子节点，它就是 <code>undefined</code>;</li>
 <li>如果有一个子节点，数据类型是 <code>object</code>；</li>
 <li>如果有多个子节点，数据类型就是 <code>array</code> 。所以，处理 this.props.children 的时候要小心。</li>
-<li>React 提供一个工具方法 <a href="https://facebook.github.io/react/docs/top-level-api.html#react.children" target="_blank" rel="noopener"><code>React.Children</code></a> 来处理<code>this.props.children</code> 。我们可以用 <code>React.Children.map</code> 来遍历子节点，而不用担心 <code>this.props.children</code> 的数据类型是 <code>undefined</code> 还是 <code>object</code>。</li>
+<li>React 提供一个工具方法 <a target="_blank" rel="noopener" href="https://facebook.github.io/react/docs/top-level-api.html#react.children"><code>React.Children</code></a> 来处理<code>this.props.children</code> 。我们可以用 <code>React.Children.map</code> 来遍历子节点，而不用担心 <code>this.props.children</code> 的数据类型是 <code>undefined</code> 还是 <code>object</code>。</li>
 </ul>
 </li>
 </ul>
@@ -252,7 +242,7 @@
 <h1 id="6-获取真实的DOM节点"><a href="#6-获取真实的DOM节点" class="headerlink" title="6. 获取真实的DOM节点"></a>6. 获取真实的DOM节点</h1><p>有时需要从组件获取真实 DOM 的节点，这时就要用到 <code>ref</code> 属性</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var MyComponent &#x3D; React.createClass(&#123;</span><br><span class="line">  handleClick: function() &#123;</span><br><span class="line">    this.refs.myTextInput.focus();</span><br><span class="line">  &#125;,</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; ref&#x3D;&quot;myTextInput&quot; &#x2F;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;Focus the text input&quot; onClick&#x3D;&#123;this.handleClick&#125; &#x2F;&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;MyComponent &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>上面代码中，组件 <code>MyComponent</code> 的子节点有一个文本输入框， 用于获取用户的输入。这时就必须获取真实的 DOM 节点，虚拟 DOM 是拿不到用户输入的。为了做到这一点，文本输入框必须有一个 <code>ref</code> 属性，然后 <code>this.refs.[refName]</code> 就会返回这个真实的 DOM 节点。<br>需要注意的是，由于 <code>this.refs.[refName]</code> 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错。 上面代码中，通过为组件指定 <code>Click</code> 事件的回调函数，确保了只有等到真实 DOM 发生 <code>Click</code> 事件之后，才会读取 <code>this.refs.[refName]</code> 属性。</p>
-<p>React 组件支持很多事件，除了 <code>Click</code> 事件以外，还有 <code>KeyDown</code> 、<code>Copy</code>、<code>Scroll</code> 等，完整的事件清单请查看<a href="http://facebook.github.io/react/docs/events.html#supported-events" target="_blank" rel="noopener">官方文档</a>。</p>
+<p>React 组件支持很多事件，除了 <code>Click</code> 事件以外，还有 <code>KeyDown</code> 、<code>Copy</code>、<code>Scroll</code> 等，完整的事件清单请查看<a target="_blank" rel="noopener" href="http://facebook.github.io/react/docs/events.html#supported-events">官方文档</a>。</p>
 <h1 id="7-this-state"><a href="#7-this-state" class="headerlink" title="7. this.state"></a>7. this.state</h1><p>组件免不了要与用户互动，React的一大创新，就是将组件看成是一个状态机，一开始有一个<strong>初始状态</strong>，然后用户互动，导致状态变化，从而触发重新渲染 UI</p>
 <h2 id="7-1-LikeButton"><a href="#7-1-LikeButton" class="headerlink" title="7.1 LikeButton"></a>7.1 LikeButton</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var LikeButton &#x3D; React.createClass(&#123;</span><br><span class="line">  getInitialState: function() &#123;</span><br><span class="line">    return &#123;liked: false&#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  handleClick: function(event) &#123;</span><br><span class="line">    this.setState(&#123;liked: !this.state.liked&#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  render: function() &#123;</span><br><span class="line">    var text &#x3D; this.state.liked ? &#39;like&#39; : &#39;haven\&#39;t liked&#39;;</span><br><span class="line">    return (</span><br><span class="line">      &lt;p onClick&#x3D;&#123;this.handleClick&#125;&gt;</span><br><span class="line">        You &#123;text&#125; this. Click to toggle.</span><br><span class="line">      &lt;&#x2F;p&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;LikeButton &#x2F;&gt;,</span><br><span class="line">  document.getElementById(&#39;example&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>上面代码是一个 <code>LikeButton</code> 组件，它的 <code>getInitialState</code> 方法用于定义初始状态，也就是一个对象，这个对象可以通过 <code>this.state</code> 属性读取。当用户点击组件，导致状态变化，<code>this.setState</code> 方法就修改状态值，每次修改以后，自动调用 <code>this.render</code> 方法，再次渲染组件。</p>
@@ -291,7 +281,7 @@
 <li>shouldComponentUpdate(object nextProps, object nextState)：组件判断是否重新渲染时调用</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">var Hello &#x3D; React.createClass(&#123;</span><br><span class="line">  getInitialState: function () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      opacity: 1.0</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  componentDidMount: function () &#123;</span><br><span class="line">    this.timer &#x3D; setInterval(function () &#123;</span><br><span class="line">      var opacity &#x3D; this.state.opacity;</span><br><span class="line">      opacity -&#x3D; .05;</span><br><span class="line">      if (opacity &lt; 0.1) &#123;</span><br><span class="line">        opacity &#x3D; 1.0;</span><br><span class="line">      &#125;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        opacity: opacity</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;.bind(this), 100);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  render: function () &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div style&#x3D;&#123;&#123;opacity: this.state.opacity&#125;&#125;&gt;</span><br><span class="line">        Hello &#123;this.props.name&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Hello name&#x3D;&quot;world&quot;&#x2F;&gt;,</span><br><span class="line">  document.body</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>上面代码在<code>Hello</code>组件加载以后，通过 <code>componentDidMount</code> 方法设置一个定时器，每隔100毫秒，就重新设置组件的透明度，从而引发重新渲染。<br>另外，组件的style属性的设置方式也值得注意 <code>style={ {opacity: this.state.opacity} }</code><br>React 组件样式是一个对象，所以第一重大括号表示这是 JavaScript 语法，第二重大括号表示样式对象。</p>
+<p>上面代码在<code>Hello</code>组件加载以后，通过 <code>componentDidMount</code> 方法设置一个定时器，每隔100毫秒，就重新设置组件的透明度，从而引发重新渲染。<br>另外，组件的style属性的设置方式也值得注意 <code>style=&#123; &#123;opacity: this.state.opacity&#125; &#125; </code><br>React 组件样式是一个对象，所以第一重大括号表示这是 JavaScript 语法，第二重大括号表示样式对象。</p>
 <h1 id="9-Ajax"><a href="#9-Ajax" class="headerlink" title="9. Ajax"></a>9. Ajax</h1><p>组件的数据来源，通常是通过 Ajax 请求从服务器获取，可以使用 <code>componentDidMount</code> 方法设置 Ajax 请求，等到请求成功，再用 <code>this.setState</code> 方法重新渲染 UI</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">var UserGist &#x3D; React.createClass(&#123;</span><br><span class="line">  getInitialState: function() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      username: &#39;&#39;,</span><br><span class="line">      lastGistUrl: &#39;&#39;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  componentDidMount: function() &#123;</span><br><span class="line">    $.get(this.props.source, function(result) &#123;</span><br><span class="line">      var lastGist &#x3D; result[0];</span><br><span class="line">      if (this.isMounted()) &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">          username: lastGist.owner.login,</span><br><span class="line">          lastGistUrl: lastGist.html_url</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;.bind(this));</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  render: function() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &#123;this.state.username&#125;&#39;s last gist is</span><br><span class="line">        &lt;a href&#x3D;&#123;this.state.lastGistUrl&#125;&gt;here&lt;&#x2F;a&gt;.</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;UserGist source&#x3D;&quot;https:&#x2F;&#x2F;api.github.com&#x2F;users&#x2F;octocat&#x2F;gists&quot; &#x2F;&gt;,</span><br><span class="line">  document.body</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
@@ -451,7 +441,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-基础"><span class="toc-number">1.</span> <span class="toc-text">1. 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-库"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-ReactDOM-render"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 ReactDOM.render</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-JSX"><span class="toc-number">2.</span> <span class="toc-text">2. JSX</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-组件"><span class="toc-number">3.</span> <span class="toc-text">3. 组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-this-props-children"><span class="toc-number">4.</span> <span class="toc-text">4. this.props.children</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-PropTypes"><span class="toc-number">5.</span> <span class="toc-text">5. PropTypes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-设置默认参数"><span class="toc-number">5.1.</span> <span class="toc-text">5.2 设置默认参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-获取真实的DOM节点"><span class="toc-number">6.</span> <span class="toc-text">6. 获取真实的DOM节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-this-state"><span class="toc-number">7.</span> <span class="toc-text">7. this.state</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-LikeButton"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 LikeButton</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-表单"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 表单</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-组件的生命周期"><span class="toc-number">8.</span> <span class="toc-text">8. 组件的生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-Ajax"><span class="toc-number">9.</span> <span class="toc-text">9. Ajax</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">1. 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%BA%93"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-ReactDOM-render"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 ReactDOM.render</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-JSX"><span class="toc-number">2.</span> <span class="toc-text">2. JSX</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E7%BB%84%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">3. 组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-this-props-children"><span class="toc-number">4.</span> <span class="toc-text">4. this.props.children</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-PropTypes"><span class="toc-number">5.</span> <span class="toc-text">5. PropTypes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0"><span class="toc-number">5.1.</span> <span class="toc-text">5.2 设置默认参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E8%8E%B7%E5%8F%96%E7%9C%9F%E5%AE%9E%E7%9A%84DOM%E8%8A%82%E7%82%B9"><span class="toc-number">6.</span> <span class="toc-text">6. 获取真实的DOM节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-this-state"><span class="toc-number">7.</span> <span class="toc-text">7. this.state</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-LikeButton"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 LikeButton</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E8%A1%A8%E5%8D%95"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 表单</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">8.</span> <span class="toc-text">8. 组件的生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-Ajax"><span class="toc-number">9.</span> <span class="toc-text">9. Ajax</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -586,54 +576,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代理</a>
               </li>
              
@@ -642,7 +584,55 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">

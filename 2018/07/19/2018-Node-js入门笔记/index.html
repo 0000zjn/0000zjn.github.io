@@ -39,7 +39,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -53,18 +53,14 @@
 			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">正义的伙伴</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">加入世界，改变世界</p>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/archives/">归档</a></li>
 	        
 				<li><a href="/photos/">相册</a></li>
 	        
@@ -109,14 +105,10 @@
 				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">正义的伙伴</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>加入世界，改变世界<i class="icon icon-quo-right"></i></p>
 			
-			
-			
-				
 			
 				
 			
@@ -135,14 +127,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/photos/">相册</a></li>
+					<li style="width: 50%"><a href="/photos/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -240,7 +230,7 @@
 
 <h1 id="6-模块"><a href="#6-模块" class="headerlink" title="6. 模块"></a>6. 模块</h1><h2 id="6-1-自定义模块"><a href="#6-1-自定义模块" class="headerlink" title="6.1 自定义模块"></a>6.1 自定义模块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;mod.js</span><br><span class="line">var a &#x3D; 12;</span><br><span class="line">exports.b &#x3D; 23;&#x2F;&#x2F;输出的对象加前缀exports.</span><br><span class="line">module.exports&#x3D;&#123;b,c&#x3D;2,d&#x3D;4&#125;;&#x2F;&#x2F;批量输出</span><br><span class="line">&#x2F;&#x2F;1.js</span><br><span class="line">const mod1 &#x3D; require(&#39;.&#x2F;mod&#39;);&#x2F;&#x2F;模块在node_modules目录下时.&#x2F;可省</span><br><span class="line">console.log(mod1.a);</span><br><span class="line">console.log(mod1.b);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;输出：</span><br><span class="line">undefined</span><br><span class="line">23</span><br></pre></td></tr></table></figure>
 
-<h1 id="7-事件"><a href="#7-事件" class="headerlink" title="7. 事件"></a>7. <a href="https://www.runoob.com/nodejs/nodejs-event.html" target="_blank" rel="noopener">事件</a></h1><h2 id="7-1-事件绑定"><a href="#7-1-事件绑定" class="headerlink" title="7.1 事件绑定"></a>7.1 事件绑定</h2><blockquote>
+<h1 id="7-事件"><a href="#7-事件" class="headerlink" title="7. 事件"></a>7. <a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-event.html">事件</a></h1><h2 id="7-1-事件绑定"><a href="#7-1-事件绑定" class="headerlink" title="7.1 事件绑定"></a>7.1 事件绑定</h2><blockquote>
 <p>eventEmitter.on(event, listener)为事件绑定监听器,监听器为回调函数<br>.emit(event, [arg1],[arg2], […])触发,参数为监听器参数<br>.once(event,listener)一次性监听器</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 引入 events 模块</span><br><span class="line">var events &#x3D; require(&#39;events&#39;);</span><br><span class="line">&#x2F;&#x2F; 创建 事件触发器 对象</span><br><span class="line">var eventEmitter &#x3D; new events.EventEmitter();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 2.创建事件处理程序</span><br><span class="line">var connectHandler &#x3D; function connected() &#123;</span><br><span class="line">    console.log(&#39;1.连接成功。&#39;);</span><br><span class="line">    &#x2F;&#x2F; 3.触发 data_received 事件</span><br><span class="line">    eventEmitter.emit(&#39;data_received&#39;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 绑定 connection 事件处理程序</span><br><span class="line">eventEmitter.on(&#39;connection&#39;, connectHandler);</span><br><span class="line">&#x2F;&#x2F; 绑定 data_received 事件(使用匿名函数)</span><br><span class="line">eventEmitter.on(&#39;data_received&#39;, function () &#123;</span><br><span class="line">    console.log(&#39;2.数据接收成功。&#39;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 1.触发 connection 事件 </span><br><span class="line">eventEmitter.emit(&#39;connection&#39;);</span><br><span class="line"></span><br><span class="line">console.log(&quot;3.程序执行完毕。&quot;);</span><br></pre></td></tr></table></figure>
@@ -485,7 +475,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-NPM"><span class="toc-number">1.</span> <span class="toc-text">1. NPM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Sundry"><span class="toc-number">2.</span> <span class="toc-text">2. Sundry</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-创建服务器"><span class="toc-number">3.</span> <span class="toc-text">3. 创建服务器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-文件操作file-system"><span class="toc-number">4.</span> <span class="toc-text">4. 文件操作file system</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-http数据解析"><span class="toc-number">5.</span> <span class="toc-text">5. http数据解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-GET解析"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 GET解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-POST"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 POST</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-模块"><span class="toc-number">6.</span> <span class="toc-text">6. 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-自定义模块"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 自定义模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-事件"><span class="toc-number">7.</span> <span class="toc-text">7. 事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-事件绑定"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 事件绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-error-事件"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 error 事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-Buffer"><span class="toc-number">8.</span> <span class="toc-text">8. Buffer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-Stream"><span class="toc-number">9.</span> <span class="toc-text">9. Stream</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-从文件读入流"><span class="toc-number">9.1.</span> <span class="toc-text">9.1 从文件读入流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-写入流到文件"><span class="toc-number">9.2.</span> <span class="toc-text">9.2 写入流到文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-3-管道流"><span class="toc-number">9.3.</span> <span class="toc-text">9.3 管道流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-4-链式流"><span class="toc-number">9.4.</span> <span class="toc-text">9.4 链式流</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-express"><span class="toc-number">10.</span> <span class="toc-text">10. express</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1-三种方法"><span class="toc-number">10.1.</span> <span class="toc-text">10.1 三种方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2-静态资源"><span class="toc-number">10.2.</span> <span class="toc-text">10.2 静态资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-3-GET-POST解析"><span class="toc-number">10.3.</span> <span class="toc-text">10.3 GET&#x2F;POST解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-4-链式操作"><span class="toc-number">10.4.</span> <span class="toc-text">10.4 链式操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-Cookie-amp-Seesion"><span class="toc-number">11.</span> <span class="toc-text">11. Cookie &amp; Seesion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-设置、删除Cookie"><span class="toc-number">11.1.</span> <span class="toc-text">11.1 设置、删除Cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-2-读取Cookie"><span class="toc-number">11.2.</span> <span class="toc-text">11.2 读取Cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-3-签名Cookie"><span class="toc-number">11.3.</span> <span class="toc-text">11.3 签名Cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-4-Session"><span class="toc-number">11.4.</span> <span class="toc-text">11.4 Session</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-文件上传"><span class="toc-number">12.</span> <span class="toc-text">12. 文件上传</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-数据库"><span class="toc-number">13.</span> <span class="toc-text">13. 数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#13-1-查"><span class="toc-number">13.1.</span> <span class="toc-text">13.1 查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-2-增"><span class="toc-number">13.2.</span> <span class="toc-text">13.2 增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-3-改"><span class="toc-number">13.3.</span> <span class="toc-text">13.3 改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-4-删"><span class="toc-number">13.4.</span> <span class="toc-text">13.4 删</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-5-连接池"><span class="toc-number">13.5.</span> <span class="toc-text">13.5 连接池</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-NPM"><span class="toc-number">1.</span> <span class="toc-text">1. NPM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Sundry"><span class="toc-number">2.</span> <span class="toc-text">2. Sundry</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">3. 创建服务器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9Cfile-system"><span class="toc-number">4.</span> <span class="toc-text">4. 文件操作file system</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-http%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">5. http数据解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-GET%E8%A7%A3%E6%9E%90"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 GET解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-POST"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 POST</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E6%A8%A1%E5%9D%97"><span class="toc-number">6.</span> <span class="toc-text">6. 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 自定义模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E4%BA%8B%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">7. 事件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 事件绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-error-%E4%BA%8B%E4%BB%B6"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 error 事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-Buffer"><span class="toc-number">8.</span> <span class="toc-text">8. Buffer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-Stream"><span class="toc-number">9.</span> <span class="toc-text">9. Stream</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E4%BB%8E%E6%96%87%E4%BB%B6%E8%AF%BB%E5%85%A5%E6%B5%81"><span class="toc-number">9.1.</span> <span class="toc-text">9.1 从文件读入流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E5%86%99%E5%85%A5%E6%B5%81%E5%88%B0%E6%96%87%E4%BB%B6"><span class="toc-number">9.2.</span> <span class="toc-text">9.2 写入流到文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-3-%E7%AE%A1%E9%81%93%E6%B5%81"><span class="toc-number">9.3.</span> <span class="toc-text">9.3 管道流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-4-%E9%93%BE%E5%BC%8F%E6%B5%81"><span class="toc-number">9.4.</span> <span class="toc-text">9.4 链式流</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-express"><span class="toc-number">10.</span> <span class="toc-text">10. express</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1-%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">10.1.</span> <span class="toc-text">10.1 三种方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2-%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"><span class="toc-number">10.2.</span> <span class="toc-text">10.2 静态资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-3-GET-POST%E8%A7%A3%E6%9E%90"><span class="toc-number">10.3.</span> <span class="toc-text">10.3 GET&#x2F;POST解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-4-%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">10.4.</span> <span class="toc-text">10.4 链式操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-Cookie-amp-Seesion"><span class="toc-number">11.</span> <span class="toc-text">11. Cookie &amp; Seesion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E8%AE%BE%E7%BD%AE%E3%80%81%E5%88%A0%E9%99%A4Cookie"><span class="toc-number">11.1.</span> <span class="toc-text">11.1 设置、删除Cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-2-%E8%AF%BB%E5%8F%96Cookie"><span class="toc-number">11.2.</span> <span class="toc-text">11.2 读取Cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-3-%E7%AD%BE%E5%90%8DCookie"><span class="toc-number">11.3.</span> <span class="toc-text">11.3 签名Cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-4-Session"><span class="toc-number">11.4.</span> <span class="toc-text">11.4 Session</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-number">12.</span> <span class="toc-text">12. 文件上传</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">13.</span> <span class="toc-text">13. 数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#13-1-%E6%9F%A5"><span class="toc-number">13.1.</span> <span class="toc-text">13.1 查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-2-%E5%A2%9E"><span class="toc-number">13.2.</span> <span class="toc-text">13.2 增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-3-%E6%94%B9"><span class="toc-number">13.3.</span> <span class="toc-text">13.3 改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-4-%E5%88%A0"><span class="toc-number">13.4.</span> <span class="toc-text">13.4 删</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-5-%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="toc-number">13.5.</span> <span class="toc-text">13.5 连接池</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -620,54 +610,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代理</a>
               </li>
              
@@ -676,7 +618,55 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
