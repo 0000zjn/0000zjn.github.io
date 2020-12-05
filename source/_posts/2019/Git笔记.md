@@ -34,6 +34,7 @@ git config --global alias.sl 'stash list'
 git config --global alias.sa 'stash apply'
 git config --global alias.sd 'stash drop'
 git config --global alias.sc 'stash clear'
+git config --global alias.comd '!git checkout master && git merge develop && git push && git checkout develop'
 ```
 
 显示：
