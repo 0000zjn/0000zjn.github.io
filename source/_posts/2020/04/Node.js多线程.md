@@ -2,7 +2,7 @@
 title: Node.js多线程
 date: 2020-04-13 15:17:49
 updated: 2020-04-17 14:42:23
-tags: Node.js
+tags: JS
 ---
 
 # 前言

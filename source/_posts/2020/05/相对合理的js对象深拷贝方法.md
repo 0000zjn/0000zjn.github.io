@@ -2,7 +2,7 @@
 title: 相对合理的js对象深拷贝方法
 date: 2020-05-16 14:48
 updated: 2020-05-15 14:48
-tags: JavaScript
+tags: JS
 ---
 如果你不需要循环对象，也不需要保留内置类型，那么你可以使用`JSON.parse(JSON.stringify())`在所有浏览器中获得*最快*的克隆。 
 如果你想要一个合适的结构化克隆，`MessageChannel`是你唯一可靠的跨浏览器选择。 

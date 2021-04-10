@@ -2,7 +2,7 @@
 title: JSP基础
 date: 2018-06-08 18:50
 updated: 2018-06-08 18:50
-tags: JAVA-Web
+tags: Java
 ---
 > JSP这么麻烦的东西就应该圆润地进垃圾桶！
 

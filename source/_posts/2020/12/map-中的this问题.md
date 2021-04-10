@@ -2,7 +2,7 @@
 title: Array.prototype.map中的this问题
 date: 2020-12-05 18:16:17
 updated: 2020-12-05 18:16:17
-tags: JavaScript
+tags: JS
 ---
 TypeError: Cannot read property 'ctx' of undefined
 

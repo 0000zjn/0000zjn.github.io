@@ -2,7 +2,7 @@
 title: ES6
 date: 2018-11-06 17:16
 updated: 2019-06-04 14:18
-tags: JavaScript
+tags: JS
 ---
 # 0. 箭头函数
 

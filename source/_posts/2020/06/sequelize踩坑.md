@@ -2,7 +2,7 @@
 title: sequelize踩坑
 date: 2020-06-03 15:16:44
 updated: 2020-06-03 15:16:44
-tags: Node.js
+tags: JS
 ---
 
 ## 1、Egg.JS中sequelize实例无法获取

@@ -2,7 +2,7 @@
 title: EggJS踩坑
 date: 2020-06-01 15:16:44
 updated: 2020-06-01 15:16:44
-tags: Node.js
+tags: JS
 ---
 
 ## 1、无法获取post body

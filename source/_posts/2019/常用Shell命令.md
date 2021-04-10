@@ -1,5 +1,5 @@
 ---
-title: Shell笔记
+title: 常用Shell命令
 date: 2019-08-05
 updated: 2019-08-13
 tags: Shell

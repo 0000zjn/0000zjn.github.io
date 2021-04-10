@@ -2,7 +2,7 @@
 title: JavaScript基础
 date: 2018-07-13 14:48
 updated: 2018-07-13 14:48
-tags: JavaScript
+tags: JS
 ---
 > 重学JavaScript时做的笔记。JS的语法真的是让人又爱又恨~
 # 1. Sundry
