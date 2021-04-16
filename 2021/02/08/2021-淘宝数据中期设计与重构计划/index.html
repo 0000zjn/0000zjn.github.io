@@ -178,9 +178,15 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>淘宝数据已经走到了一个转折点，系统的数据量以及用户访问量都在稳步上升，早期的一些设计在现在看来有些捉襟见肘，需要做点什么。</p>
 <h1 id="一、-架构中的问题识别（需求分析）：我们遇到了什么问题？"><a href="#一、-架构中的问题识别（需求分析）：我们遇到了什么问题？" class="headerlink" title="一、 架构中的问题识别（需求分析）：我们遇到了什么问题？"></a>一、 架构中的问题识别（需求分析）：我们遇到了什么问题？</h1><a id="more"></a>
-<h2 id="1、性能问题"><a href="#1、性能问题" class="headerlink" title="1、性能问题"></a>1、性能问题</h2><h3 id="1-1-大表"><a href="#1-1-大表" class="headerlink" title="1.1 大表"></a>1.1 大表</h3><p>直播商品表以每月3-4百万条的速度增长，冷热数据区分明显，两个月之前的数据基本不会被读取。<br>思路：a.分区，b.分表</p>
-<h3 id="1-2-同样的动态数据多次读取"><a href="#1-2-同样的动态数据多次读取" class="headerlink" title="1.2 同样的动态数据多次读取"></a>1.2 同样的动态数据多次读取</h3><p>将一个动态资源保存为静态资源<br>通过缓存缓解<br>淘宝数据平台读多写少，应采用旁路缓存模式。</p>
-<h3 id="1-3-每日大批量写操作的的系统负载"><a href="#1-3-每日大批量写操作的的系统负载" class="headerlink" title="1.3 每日大批量写操作的的系统负载"></a>1.3 每日大批量写操作的的系统负载</h3><h2 id="2、数据准确性"><a href="#2、数据准确性" class="headerlink" title="2、数据准确性"></a>2、数据准确性</h2><h3 id="2-1-每日数据更新时的数据一致性"><a href="#2-1-每日数据更新时的数据一致性" class="headerlink" title="2.1 每日数据更新时的数据一致性"></a>2.1 每日数据更新时的数据一致性</h3><h3 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h3><h2 id="3、人工成本过高"><a href="#3、人工成本过高" class="headerlink" title="3、人工成本过高"></a>3、人工成本过高</h2><h3 id="3-1-每天的数据校验、修补，每月的榜单等都是开发者亲自执行，不可避免，耗时耗力"><a href="#3-1-每天的数据校验、修补，每月的榜单等都是开发者亲自执行，不可避免，耗时耗力" class="headerlink" title="3.1 每天的数据校验、修补，每月的榜单等都是开发者亲自执行，不可避免，耗时耗力"></a>3.1 每天的数据校验、修补，每月的榜单等都是开发者亲自执行，不可避免，耗时耗力</h3><h1 id="二、重构方案"><a href="#二、重构方案" class="headerlink" title="二、重构方案"></a>二、重构方案</h1>
+<h2 id="1、性能问题"><a href="#1、性能问题" class="headerlink" title="1、性能问题"></a>1、性能问题</h2><h3 id="1-1-大表"><a href="#1-1-大表" class="headerlink" title="1.1 大表"></a>1.1 大表</h3><p>直播商品表以每月3-4百万条的速度增长，冷热数据区分明显，两个月之前的数据基本不会被读取。</p>
+<h3 id="1-2-每日大批量写操作的的系统负载"><a href="#1-2-每日大批量写操作的的系统负载" class="headerlink" title="1.2 每日大批量写操作的的系统负载"></a>1.2 每日大批量写操作的的系统负载</h3><p>随着需求的增加，定时任务的运行时间越来越长，可能会影响用户白天的使用。</p>
+<h2 id="2、数据准确性"><a href="#2、数据准确性" class="headerlink" title="2、数据准确性"></a>2、数据准确性</h2><h2 id="3、人工成本过高"><a href="#3、人工成本过高" class="headerlink" title="3、人工成本过高"></a>3、人工成本过高</h2><p>每天的数据校验、修补，每月的榜单等都是开发者亲自执行，不可避免，耗时耗力。</p>
+<h2 id="4、运营不便"><a href="#4、运营不便" class="headerlink" title="4、运营不便"></a>4、运营不便</h2><p>赠送票券、开通套餐等操作都是通过手动调用来实现，对运营不友好</p>
+<h1 id="二、重构方案"><a href="#二、重构方案" class="headerlink" title="二、重构方案"></a>二、重构方案</h1><h2 id="1-水平分表"><a href="#1-水平分表" class="headerlink" title="1.水平分表"></a>1.水平分表</h2><p>系统绝对并发量没有太高，只是单表的数据量太多，影响了SQL效率，加重了CPU负担，以至于成为瓶颈，可以将items_info、live_stream_data、anchor_data表进行水平拆分。</p>
+<h2 id="2-垂直分库"><a href="#2-垂直分库" class="headerlink" title="2.垂直分库"></a>2.垂直分库</h2><p>按照业务归属不同，将不同的表拆分到不同的库中，抽象出单独的业务模块，比如榜单模块。</p>
+<h2 id="3-半自动数据修复工具"><a href="#3-半自动数据修复工具" class="headerlink" title="3.半自动数据修复工具"></a>3.半自动数据修复工具</h2><p>导入json -&gt; 应用数据</p>
+<h2 id="4-用户管理后台"><a href="#4-用户管理后台" class="headerlink" title="4.用户管理后台"></a>4.用户管理后台</h2><p>创建一个用户管理的后台，一方面增强运营能力，另一方面降低了操作带来的意外风险。</p>
+
       
 
       
@@ -193,7 +199,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢赏~<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢~<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
@@ -294,6 +300,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/03/01/Nest-js%E8%B8%A9%E5%9D%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Nest.js踩坑
+        
+      </div>
+    </a>
+  
   
     <a href="/2021/02/07/2021-2020%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">2020总结</div>
@@ -323,7 +338,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81-%E6%9E%B6%E6%9E%84%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E8%AF%86%E5%88%AB%EF%BC%88%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%EF%BC%89%EF%BC%9A%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">一、 架构中的问题识别（需求分析）：我们遇到了什么问题？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">1、性能问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%A4%A7%E8%A1%A8"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1 大表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%90%8C%E6%A0%B7%E7%9A%84%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE%E5%A4%9A%E6%AC%A1%E8%AF%BB%E5%8F%96"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.2 同样的动态数据多次读取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%AF%8F%E6%97%A5%E5%A4%A7%E6%89%B9%E9%87%8F%E5%86%99%E6%93%8D%E4%BD%9C%E7%9A%84%E7%9A%84%E7%B3%BB%E7%BB%9F%E8%B4%9F%E8%BD%BD"><span class="toc-number">2.1.3.</span> <span class="toc-text">1.3 每日大批量写操作的的系统负载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E6%95%B0%E6%8D%AE%E5%87%86%E7%A1%AE%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">2、数据准确性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%AF%8F%E6%97%A5%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E6%97%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 每日数据更新时的数据一致性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E4%BA%BA%E5%B7%A5%E6%88%90%E6%9C%AC%E8%BF%87%E9%AB%98"><span class="toc-number">2.3.</span> <span class="toc-text">3、人工成本过高</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%AF%8F%E5%A4%A9%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E3%80%81%E4%BF%AE%E8%A1%A5%EF%BC%8C%E6%AF%8F%E6%9C%88%E7%9A%84%E6%A6%9C%E5%8D%95%E7%AD%89%E9%83%BD%E6%98%AF%E5%BC%80%E5%8F%91%E8%80%85%E4%BA%B2%E8%87%AA%E6%89%A7%E8%A1%8C%EF%BC%8C%E4%B8%8D%E5%8F%AF%E9%81%BF%E5%85%8D%EF%BC%8C%E8%80%97%E6%97%B6%E8%80%97%E5%8A%9B"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1 每天的数据校验、修补，每月的榜单等都是开发者亲自执行，不可避免，耗时耗力</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%87%8D%E6%9E%84%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">二、重构方案</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81-%E6%9E%B6%E6%9E%84%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E8%AF%86%E5%88%AB%EF%BC%88%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%EF%BC%89%EF%BC%9A%E6%88%91%E4%BB%AC%E9%81%87%E5%88%B0%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">一、 架构中的问题识别（需求分析）：我们遇到了什么问题？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">1、性能问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%A4%A7%E8%A1%A8"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1 大表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%AF%8F%E6%97%A5%E5%A4%A7%E6%89%B9%E9%87%8F%E5%86%99%E6%93%8D%E4%BD%9C%E7%9A%84%E7%9A%84%E7%B3%BB%E7%BB%9F%E8%B4%9F%E8%BD%BD"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.2 每日大批量写操作的的系统负载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E6%95%B0%E6%8D%AE%E5%87%86%E7%A1%AE%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">2、数据准确性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E4%BA%BA%E5%B7%A5%E6%88%90%E6%9C%AC%E8%BF%87%E9%AB%98"><span class="toc-number">2.3.</span> <span class="toc-text">3、人工成本过高</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E8%BF%90%E8%90%A5%E4%B8%8D%E4%BE%BF"><span class="toc-number">2.4.</span> <span class="toc-text">4、运营不便</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%87%8D%E6%9E%84%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">二、重构方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B0%B4%E5%B9%B3%E5%88%86%E8%A1%A8"><span class="toc-number">3.1.</span> <span class="toc-text">1.水平分表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9E%82%E7%9B%B4%E5%88%86%E5%BA%93"><span class="toc-number">3.2.</span> <span class="toc-text">2.垂直分库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%8D%8A%E8%87%AA%E5%8A%A8%E6%95%B0%E6%8D%AE%E4%BF%AE%E5%A4%8D%E5%B7%A5%E5%85%B7"><span class="toc-number">3.3.</span> <span class="toc-text">3.半自动数据修复工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0"><span class="toc-number">3.4.</span> <span class="toc-text">4.用户管理后台</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -462,11 +477,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JAVA-Web</a>
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,19 +493,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,15 +501,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,19 +509,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面经</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统设计</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统设计</a>
               </li>
             
             <div class="clearfix"></div>

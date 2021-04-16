@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://0000zjn.github.io">
   <title>2020总结 | Zanyatta&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.收获（成果，总结方法论，可取之处，对于个人和公司成长的帮助） 思考周全，做多手准备淘宝需求讨论会上，产品和我保证说，年费会员和月费会员的权益一定是一样的，它们的区别只在于时长不同。我当时信了，并基于这种模式去设计了权益方案。过了三个月，他们又说：年费会员花的钱多，要看更多数据！我愣住了。只好又花了几天来调整业务逻辑。从此我明白，不能过于依赖别人的判断和结论，涉及自己的工作，一定要自己想明白，">
+  <meta name="description" content="1.收获（成果，总结方法论，可取之处，对于个人和公司成长的帮助） 思考周全，做多手准备淘宝需求讨论会上，产品和我保证说，年费会员和月费会员的权益一定是一样的，它们的区别只在于时长不同。我当时信了，并基于这种模式去设计了权益方案。过了三个月，他们又说：年费会员花的钱多，要看更多数据！我愣住了。只好又花了几天来调整业务逻辑。从此我明白，不能过于依赖别人的判断和结论，涉及自己的工作，一定要自己想明白，想">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2020总结">
 <meta property="og:url" content="https://0000zjn.github.io/2021/02/07/2021-2020%E6%80%BB%E7%BB%93/">
 <meta property="og:site_name" content="Zanyatta&#39;s Blog">
-<meta property="og:description" content="1.收获（成果，总结方法论，可取之处，对于个人和公司成长的帮助） 思考周全，做多手准备淘宝需求讨论会上，产品和我保证说，年费会员和月费会员的权益一定是一样的，它们的区别只在于时长不同。我当时信了，并基于这种模式去设计了权益方案。过了三个月，他们又说：年费会员花的钱多，要看更多数据！我愣住了。只好又花了几天来调整业务逻辑。从此我明白，不能过于依赖别人的判断和结论，涉及自己的工作，一定要自己想明白，">
+<meta property="og:description" content="1.收获（成果，总结方法论，可取之处，对于个人和公司成长的帮助） 思考周全，做多手准备淘宝需求讨论会上，产品和我保证说，年费会员和月费会员的权益一定是一样的，它们的区别只在于时长不同。我当时信了，并基于这种模式去设计了权益方案。过了三个月，他们又说：年费会员花的钱多，要看更多数据！我愣住了。只好又花了几天来调整业务逻辑。从此我明白，不能过于依赖别人的判断和结论，涉及自己的工作，一定要自己想明白，想">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-07T01:47:23.000Z">
 <meta property="article:modified_time" content="2021-02-07T01:47:23.000Z">
@@ -176,9 +176,10 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<p>1.收获（成果，总结方法论，可取之处，对于个人和公司成长的帮助）</p>
+        <p>1.收获（成果，总结方法论，可取之处，对于个人和公司成长的帮助）</p>
 <p>思考周全，做多手准备<br>淘宝需求讨论会上，产品和我保证说，年费会员和月费会员的权益一定是一样的，它们的区别只在于时长不同。我当时信了，并基于这种模式去设计了权益方案。过了三个月，他们又说：年费会员花的钱多，要看更多数据！我愣住了。只好又花了几天来调整业务逻辑。从此我明白，不能过于依赖别人的判断和结论，涉及自己的工作，一定要自己想明白，想透彻，再去做。</p>
+<a id="more"></a>
+
 <p>思维灵活<br>当时淘宝有个需求，是搜商品找主播。用户输入一个商品关键词，要找到这个词相关的商品，以及这些商品关联的主播，并根据每个主播对这些商品的销量进行排序。大家可能对这个数据量没有概念，我说个数字：淘宝直播每个月的直播商品记录有250w-400w条，每条记录在mysql中占用约1KB。我们需要对这么大的一个集合进行关键词匹配、分组、统计、排序。现有的技术基础根本无法实现这样的需求，于是我把思路转向了nosql，一问彭总，他说原始数据存在mongoDB里，这不巧了么！经过调整，我成功把接口响应时间从1分钟以上降到3秒钟以内。</p>
 <p>不要怕求救<br>前两天，我就遇到一个很奇怪的问题，我在nest框架下写的一个Repository始终注入不了，从配置到使用都检查了一遍，也没发现症结所在。这时候珏哥说了一句，把依赖删了重新装下试试。我就一试，诶，跑起来了！有时候问题就是这么奇怪，但是你面临的问题，别人可能都遇到过。不要怕求救。<br>趁这个机会，我要感谢两个人：凯哥和珏哥。开始做淘宝项目的时候，有拿不准的方案、解决不了的问题，我就问凯哥，后来用nest框架，有整不明白的我就问珏哥。他们的友善和耐心给了我很大的帮助。谢谢温凯，谢谢王珏！</p>
 <p>2.失误（没做好的遗憾的地方，最大的错误，一定要改掉）</p>
@@ -199,7 +200,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢赏~<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢~<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
@@ -477,11 +478,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JAVA-Web</a>
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,19 +494,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,15 +502,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,19 +510,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面经</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统设计</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统设计</a>
               </li>
             
             <div class="clearfix"></div>

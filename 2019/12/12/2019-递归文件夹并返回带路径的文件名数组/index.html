@@ -18,7 +18,7 @@
 <meta property="article:published_time" content="2019-12-11T16:00:00.000Z">
 <meta property="article:modified_time" content="2019-12-11T16:00:00.000Z">
 <meta property="article:author" content="正义的伙伴">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Zanyatta&#39;s Blog" type="application/atom+xml">
@@ -178,7 +178,7 @@
       
         <p>Node.js 递归遍历文件夹并返回带路径的文件名数组</p>
 <a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> nameArr = traversingFoldersSync(<span class="string">'./dist'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(nameArr);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">traversingFoldersSync</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> fileArr = [];</span><br><span class="line">  <span class="keyword">let</span> pa = fs.readdirSync(path);</span><br><span class="line">  pa.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele, index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> info = fs.statSync(path + <span class="string">"/"</span> + ele);</span><br><span class="line">    <span class="keyword">if</span> (info.isDirectory()) &#123;</span><br><span class="line">      <span class="comment">// console.log("dir: " + ele)</span></span><br><span class="line">      fileArr = fileArr.concat(traversingFoldersSync(path + <span class="string">"/"</span> + ele));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// console.log("file: " +path + "/"+ ele);</span></span><br><span class="line">      fileArr.push(path + <span class="string">"/"</span>+ ele);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> fileArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> nameArr = traversingFoldersSync(<span class="string">&#x27;./dist&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(nameArr);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">traversingFoldersSync</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> fileArr = [];</span><br><span class="line">  <span class="keyword">let</span> pa = fs.readdirSync(path);</span><br><span class="line">  pa.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele, index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> info = fs.statSync(path + <span class="string">&quot;/&quot;</span> + ele);</span><br><span class="line">    <span class="keyword">if</span> (info.isDirectory()) &#123;</span><br><span class="line">      <span class="comment">// console.log(&quot;dir: &quot; + ele)</span></span><br><span class="line">      fileArr = fileArr.concat(traversingFoldersSync(path + <span class="string">&quot;/&quot;</span> + ele));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// console.log(&quot;file: &quot; +path + &quot;/&quot;+ ele);</span></span><br><span class="line">      fileArr.push(path + <span class="string">&quot;/&quot;</span>+ ele);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> fileArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -192,7 +192,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢赏~<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢~<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
@@ -223,7 +223,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -470,11 +470,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JAVA-Web</a>
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,19 +486,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,15 +494,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">重学Java笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">收藏夹</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,19 +502,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面经</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统设计</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统设计</a>
               </li>
             
             <div class="clearfix"></div>
